@@ -1,0 +1,674 @@
+{
+ "selected": [
+  {
+   "text": "Construction of Tokyo Skytree, the world's tallest tower and third-tallest structure, was completed.",
+   "year": 2012,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Tokyo_Skytree",
+     "titles": {
+      "normalized": "Tokyo Skytree"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/330px-Tokyo_Skytree_2014_%E2%85%A2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 506
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1632,
+      "height": 2500
+     },
+     "extract": "Tokyo Skytree , a.k.a Tokyo Sky Tree, is a broadcasting and observation tower, located in Sumida, Tokyo, Japan. It has been the tallest tower in Japan since opening in 2012, and reached its full height of 634 metres in early 2011, making it the tallest tower in the world, displacing the Canton Tower, and the third tallest structure in the world behind Merdeka 118 and Burj Khalifa.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Tokyo_Skytree"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "List_of_tallest_structures",
+     "titles": {
+      "normalized": "List of tallest structures"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Tallest_structures_in_2023.jpg/330px-Tallest_structures_in_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 398
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/3/31/Tallest_structures_in_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 983,
+      "height": 1185
+     },
+     "extract": "The tallest structure in the world is the Burj Khalifa, a skyscraper at 828 m (2,717 ft). Listed are guyed masts, self-supporting towers, skyscrapers, oil platforms, electricity transmission towers, and bridge support towers. This list is organized by absolute height. See History of the world's tallest structures, Tallest structures by category, and List of tallest buildings for additional information about these types of structures.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/List_of_tallest_structures"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "Belgian author Misha Defonseca admitted that her bestselling memoir about surviving the Holocaust was in fact a literary forgery.",
+   "year": 2008,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Misha_Defonseca",
+     "titles": {
+      "normalized": "Misha Defonseca"
+     },
+     "extract": "Misha Defonseca is a Belgian-born impostor and the author of a fraudulent 1997 Holocaust memoir titled Misha: A Mémoire of the Holocaust Years, initially presented as true.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Misha_Defonseca"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Misha:_A_Mémoire_of_the_Holocaust_Years",
+     "titles": {
+      "normalized": "Misha: A Mémoire of the Holocaust Years"
+     },
+     "thumbnail": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/f/f2/Misha-memoir-cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 245,
+      "height": 408
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/f/f2/Misha-memoir-cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 245,
+      "height": 408
+     },
+     "extract": "Misha: A Mémoire of the Holocaust Years is a literary hoax by Misha Defonseca, first published in 1997. The book was published as a memoir telling the claimed true story of how the author survived the Holocaust as a young Jewish girl, wandering Europe searching for her deported parents. The book sold well in several countries and was made into a film, Survivre avec les loups, named after the claim that Misha was adopted by a pack of wolves during her journey who protected her.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Misha%3A_A_M%C3%A9moire_of_the_Holocaust_Years"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Literary_forgery",
+     "titles": {
+      "normalized": "Literary forgery"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/George_Barbier_Untitled_pochoir_from_1922_Corrard_edition_Chansons_de_Bilitis.png/330px-George_Barbier_Untitled_pochoir_from_1922_Corrard_edition_Chansons_de_Bilitis.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 386
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/5/57/George_Barbier_Untitled_pochoir_from_1922_Corrard_edition_Chansons_de_Bilitis.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 855,
+      "height": 1001
+     },
+     "extract": "Literary forgery is writing, such as a manuscript or a literary work, which is either deliberately misattributed to a historical or invented author, or is a purported memoir or other presumably nonfictional writing deceptively presented as true when, in fact, it presents untrue or imaginary information or content. These deceptive practices have a long history and have occurred across various literary traditions, often with significant cultural or financial impacts.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Literary_forgery"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "Angelina Jolie wears a White Marc Bouwer dress to the 76th Academy Awards, which has since been placed on numerous lists for best red carpet fashion.",
+   "year": 2004,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Angelina_Jolie",
+     "titles": {
+      "normalized": "Angelina Jolie"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Angelina_Jolie-643531_%28cropped%29.jpg/330px-Angelina_Jolie-643531_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 441
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/1/12/Angelina_Jolie-643531_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2810,
+      "height": 3757
+     },
+     "extract": "Angelina Jolie is an American actress, filmmaker, and humanitarian. She is the recipient of numerous accolades, including an Academy Award, a Tony Award and three Golden Globe Awards. Films in which she has appeared have grossed over $6.9 billion worldwide. She has been named Hollywood's highest-paid actress multiple times.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Angelina_Jolie"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "White_Marc_Bouwer_dress_of_Angelina_Jolie",
+     "titles": {
+      "normalized": "White Marc Bouwer dress of Angelina Jolie"
+     },
+     "extract": "American actress Angelina Jolie wore a white satin dress with a plunging neckline designed by Marc Bouwer on February 29, 2004, to the 76th Academy Awards at the Kodak Theatre, where she presented the award for Best Art Direction. The dress garnered praise from fashion magazines and media publications, and has been placed on numerous lists for best Oscars or red carpet fashion.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/White_Marc_Bouwer_dress_of_Angelina_Jolie"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "76th_Academy_Awards",
+     "titles": {
+      "normalized": "76th Academy Awards"
+     },
+     "thumbnail": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/4/4e/Oscars2003.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 228,
+      "height": 348
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/4/4e/Oscars2003.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 228,
+      "height": 348
+     },
+     "extract": "The 76th Academy Awards ceremony, presented by the Academy of Motion Picture Arts and Sciences (AMPAS), honored the best films of 2003 and took place on February 29, 2004, at the Kodak Theatre in Hollywood, Los Angeles. During the ceremony, AMPAS presented Academy Awards in 24 categories. The ceremony, televised in the United States by ABC, was produced by Joe Roth and was directed by Louis J. Horvitz. Actor Billy Crystal hosted for the eighth time. He first presided over the 62nd ceremony held in 1990 and had last hosted the 72nd ceremony held in 2000. Two weeks earlier in a ceremony at The Ritz-Carlton Huntington Hotel & Spa in Pasadena, California held on February 14, the Academy Awards for Technical Achievement were presented by host Jennifer Garner.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/76th_Academy_Awards"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "Haitian president Jean-Bertrand Aristide was overthrown following popular rebel uprising.",
+   "year": 2004,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Jean-Bertrand_Aristide",
+     "titles": {
+      "normalized": "Jean-Bertrand Aristide"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Jean-Bertrand_Aristide_-_1991_%28cropped%29.jpg/330px-Jean-Bertrand_Aristide_-_1991_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 402
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/9/92/Jean-Bertrand_Aristide_-_1991_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 603,
+      "height": 735
+     },
+     "extract": "Jean-Bertrand Aristide is a Haitian former Salesian priest and politician who served as president of Haiti in 1991, from 1994 to 1996, and from 2001 to 2004. He lived in exile between the 1991 military coup and 1994, and again between the 2004 coup and 2011. Aristide was a member of the Lavalas Political Organization before he founded the party Fanmi Lavalas in 1996.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Jean-Bertrand_Aristide"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "2004_Haitian_coup_d'état",
+     "titles": {
+      "normalized": "2004 Haitian coup d'état"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Port-au-Prince_med.jpg/330px-Port-au-Prince_med.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 215
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Port-au-Prince_med.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1504,
+      "height": 980
+     },
+     "extract": "A coup d'état in Haiti on 29 February 2004, following several weeks of conflict, resulted in the removal of President Jean-Bertrand Aristide from office. On 5 February, a rebel group, called the National Revolutionary Front for the Liberation and Reconstruction of Haiti, took control of Haiti's fourth-largest city, Gonaïves. By 22 February, the rebels had captured Haiti's second-largest city, Cap-Haïtien and were besieging the capital, Port-au-Prince by the end of February. On the morning of 29 February, Aristide resigned under controversial circumstances and was flown from Haiti by U.S. military and security personnel. He went into exile, being flown directly to the Central African Republic, before eventually settling in South Africa. Following Aristide's departure, an interim government led by President Boniface Alexandre and Prime Minister Gérard Latortue was installed, and 2,700 foreign troops were deployed to Haiti under the U.S.-led Operation Secure Tomorrow to stop the breakdown of public order. The operation was later replaced by the United Nations Stabilisation Mission in Haiti.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/2004_Haitian_coup_d'%C3%A9tat"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "In the deadliest aviation accident in Peruvian history, Faucett Flight 251 crashed on approach to Rodríguez Ballón International Airport, killing all 123 people aboard.",
+   "year": 1996,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Faucett_Perú_Flight_251",
+     "titles": {
+      "normalized": "Faucett Perú Flight 251"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Faucett_Boeing_737_OB-1451%2C_Lima%2C_Peru_Sep94.jpg/330px-Faucett_Boeing_737_OB-1451%2C_Lima%2C_Peru_Sep94.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Faucett_Boeing_737_OB-1451%2C_Lima%2C_Peru_Sep94.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1600,
+      "height": 1067
+     },
+     "extract": "Faucett Perú Flight 251 was a scheduled domestic flight from Lima to Tacna, with a stopover in Arequipa. On 29 February 1996, while completing the first leg, the Boeing 737-200 operating the route crashed on approach to Rodríguez Ballón International Airport. All 123 passengers and crew aboard the aircraft lost their lives in the accident. It is the deadliest aviation accident to occur on Peruvian soil.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Faucett_Per%C3%BA_Flight_251"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Rodríguez_Ballón_International_Airport",
+     "titles": {
+      "normalized": "Rodríguez Ballón International Airport"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Rodr%C3%ADguez_Ball%C3%B3n_International_Airport%2C_2026.jpg/330px-Rodr%C3%ADguez_Ball%C3%B3n_International_Airport%2C_2026.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 186
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Rodr%C3%ADguez_Ball%C3%B3n_International_Airport%2C_2026.jpg/3840px-Rodr%C3%ADguez_Ball%C3%B3n_International_Airport%2C_2026.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 6215,
+      "height": 3496
+     },
+     "extract": "Rodríguez Ballón International Airport is an airport serving Arequipa, the capital of Arequipa Region and Peru's second largest city. This airport and Cusco's Alejandro Velasco Astete International Airport are the main air hubs in southern Peru. It is named for early Peruvian aviator Alfredo Rodríguez Ballón. It is the third busiest airport in Peru.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Rodr%C3%ADguez_Ball%C3%B3n_International_Airport"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "Costello's, a New York City bar popular with journalists, writers, novelists, and cartoonists, closed.",
+   "year": 1992,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Costello's",
+     "titles": {
+      "normalized": "Costello's"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Costello%27s%2C_701_Third_Avenue%2C_Manhattan_%28c._1939-1941%29_%28cropped_2%29.jpg/330px-Costello%27s%2C_701_Third_Avenue%2C_Manhattan_%28c._1939-1941%29_%28cropped_2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 498
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Costello%27s%2C_701_Third_Avenue%2C_Manhattan_%28c._1939-1941%29_%28cropped_2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2682,
+      "height": 4050
+     },
+     "extract": "Costello's was a bar and restaurant in Midtown Manhattan, New York City, from 1929 to 1992. The bar operated at several locations near the intersection of East 44th Street and Third Avenue. Costello's was known as a drinking spot for journalists with the New York Daily News, writers with The New Yorker, novelists, and cartoonists, including the author Ernest Hemingway, the cartoonist James Thurber, the journalist John McNulty, the poet Brendan Behan, the short-story writer John O'Hara, and the writers Maeve Brennan and A. J. Liebling. The bar is also known for having been home to a wall where Thurber drew a cartoon depiction of the \"Battle of the Sexes\" at some point in 1934 or 1935; the cartoon was destroyed, illustrated again, and then lost in the 1990s. A wall illustrated in 1976 by several cartoonists, including Bill Gallo, Stan Lee, Mort Walker, Al Jaffee, Sergio Aragonés, and Dik Browne, is still on display at the bar's final location.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Costello's"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "La Bougie du Sapeur, a humorous French newspaper that is published only on leap days, printed its first issue.",
+   "year": 1980,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "La_Bougie_du_Sapeur",
+     "titles": {
+      "normalized": "La Bougie du Sapeur"
+     },
+     "thumbnail": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/8/8d/La_Bougie_du_Sapeur_cover_2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 272,
+      "height": 367
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/8/8d/La_Bougie_du_Sapeur_cover_2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 272,
+      "height": 367
+     },
+     "extract": "La Bougie du Sapeur is a French satirical newspaper launched in 1980 that is published only on Leap Day, making it the world's least frequently published newspaper. The editor-in-chief is Jean d'Indy, who works for France Galop and has been involved in producing the paper since 1992.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/La_Bougie_du_Sapeur"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "The deadliest earthquake in Moroccan history (damaged building pictured) struck the city of Agadir, killing at least 12,000 people.",
+   "year": 1960,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "1960_Agadir_earthquake",
+     "titles": {
+      "normalized": "1960 Agadir earthquake"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/AgadirEarthquakeBuilding1.jpg/330px-AgadirEarthquakeBuilding1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 262
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/3/37/AgadirEarthquakeBuilding1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2856,
+      "height": 2271
+     },
+     "extract": "The 1960 Agadir earthquake occurred on 29 February at 23:40:18 Western European Time near the city of Agadir, located in western Morocco on the shore of the Atlantic Ocean. Despite the earthquake's moderate Mw scale magnitude of 5.8, its relatively shallow depth (15.0 km) resulted in strong surface shaking, with a maximum perceived intensity of X (Extreme) on the Mercalli intensity scale. Between 12,000 and 15,000 people were killed and another 12,000 injured with at least 35,000 people left homeless, making it the most destructive and deadliest earthquake in Moroccan history. Particularly hard hit were Founty, the Kasbah, Yachech/Ihchach and the Talborjt area. The earthquake's shallow focus, close proximity to the port city of Agadir, and unsatisfactory construction methods were all reasons declared by earthquake engineers and seismologists as to why it was so destructive.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/1960_Agadir_earthquake"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Agadir",
+     "titles": {
+      "normalized": "Agadir"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Agadir-cityreflection.jpg/330px-Agadir-cityreflection.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 174
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/b/be/Agadir-cityreflection.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1521,
+      "height": 804
+     },
+     "extract": "Agadir is a major city in Morocco, on the shore of the Atlantic Ocean near the foot of the Atlas Mountains, just north of the point where the Souss River flows into the ocean, and 509 kilometres (316 mi) south of Casablanca. Agadir is the capital of the Agadir Ida-U-Tanan Prefecture and of the Souss-Massa economic region.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Agadir"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "World War II: The Admiralty Islands campaign began when American forces assaulted Los Negros Island, the third largest of the Admiralty Islands.",
+   "year": 1944,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "World_War_II",
+     "titles": {
+      "normalized": "World War II"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Bundesarchiv_Bild_101I-646-5188-17%2C_Flugzeuge_Junkers_Ju_87.jpg/330px-Bundesarchiv_Bild_101I-646-5188-17%2C_Flugzeuge_Junkers_Ju_87.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 225
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/1/10/Bundesarchiv_Bild_101I-646-5188-17%2C_Flugzeuge_Junkers_Ju_87.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 798,
+      "height": 544
+     },
+     "extract": "World War II, or the Second World War, was a global conflict between two coalitions: the Allies and the Axis powers. Nearly all of the world's countries participated, with many engaging in total war on an unprecedented scale. World War II was the deadliest conflict in history, causing the deaths of 60 to 75 million people, a majority of whom were civilians. Millions died as a result of massacres, starvation, disease, and genocides including the Holocaust. After the Allied victory, Germany, Austria, Japan, and Korea were occupied, and German and Japanese leaders were tried for war crimes.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/World_War_II"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Admiralty_Islands_campaign",
+     "titles": {
+      "normalized": "Admiralty Islands campaign"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/First_Wave_at_Admiralty_Islands.jpg/330px-First_Wave_at_Admiralty_Islands.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 201
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/7/74/First_Wave_at_Admiralty_Islands.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 640,
+      "height": 390
+     },
+     "extract": "The Admiralty Islands campaign was a series of battles in the New Guinea campaign of World War II in which the United States Army's 1st Cavalry Division took the Japanese-held Admiralty Islands.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Admiralty_Islands_campaign"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Los_Negros_Island",
+     "titles": {
+      "normalized": "Los Negros Island"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Map_of_Manus_and_Los_Negros.jpg/330px-Map_of_Manus_and_Los_Negros.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 479
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/9/97/Map_of_Manus_and_Los_Negros.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1148,
+      "height": 1667
+     },
+     "extract": "Los Negros Island is the third largest of the Admiralty Islands. It is significant because it contains the main airport of Manus Province on its eastern coastline, at Momote. It is connected to Lorengau, the capital of the province, on Manus Island, via a highway and bridge across the Lonui Passage, which separates Los Negros from the larger Manus Island. It forms part of the Los Negros Rural LLG.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Los_Negros_Island"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Admiralty_Islands",
+     "titles": {
+      "normalized": "Admiralty Islands"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Papua_new_guinea_manus_province.png/330px-Papua_new_guinea_manus_province.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 222
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/d/da/Papua_new_guinea_manus_province.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 696,
+      "height": 469
+     },
+     "extract": "The Admiralty Islands are an archipelago group of 40 islands in the Bismarck Archipelago, to the north of New Guinea in the South Pacific Ocean. These are also sometimes known as the Manus Islands, after the largest island of the chain.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Admiralty_Islands"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "At the 12th Academy Awards, Hattie McDaniel became the first African American to be awarded an Oscar, winning Best Supporting Actress for her role as Mammy in Gone with the Wind.",
+   "year": 1940,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "12th_Academy_Awards",
+     "titles": {
+      "normalized": "12th Academy Awards"
+     },
+     "extract": "The 12th Academy Awards ceremony, held on February 29, 1940, by the Academy of Motion Picture Arts and Sciences (AMPAS), honored the best in film for 1939 at a banquet in the Coconut Grove at The Ambassador Hotel in Los Angeles. It was hosted by Bob Hope, in his first of nineteen turns as host.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/12th_Academy_Awards"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Hattie_McDaniel",
+     "titles": {
+      "normalized": "Hattie McDaniel"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Studio_publicity_Hattie_McDaniel.jpg/330px-Studio_publicity_Hattie_McDaniel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 423
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/3/39/Studio_publicity_Hattie_McDaniel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 502,
+      "height": 643
+     },
+     "extract": "Hattie McDaniel was an American actress, singer-songwriter, and comedian. For her role as Mammy in Gone with the Wind (1939), she won the Academy Award for Best Supporting Actress, becoming the first African American to win an Oscar. She has two stars on the Hollywood Walk of Fame, was inducted into the Black Filmmakers Hall of Fame in 1975, and in 2006, became the first black Oscar winner honored with a U.S. postage stamp. In 2010, she was inducted into the Colorado Women's Hall of Fame.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Hattie_McDaniel"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Academy_Awards",
+     "titles": {
+      "normalized": "Academy Awards"
+     },
+     "extract": "The Academy Awards, more commonly known as the Oscars, are awards based on artistic and technical merit in film. They are presented annually by the Academy of Motion Picture Arts and Sciences (AMPAS) in the United States in recognition of excellence in cinematic achievements around the world, as assessed by the Academy's voting membership. The Oscars are widely considered to be the most prestigious awards in the film industry, predominantly centered around films produced in Hollywood.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Academy_Awards"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Academy_Award_for_Best_Supporting_Actress",
+     "titles": {
+      "normalized": "Academy Award for Best Supporting Actress"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Amy_Madigan_%2840389212382%29.jpg/330px-Amy_Madigan_%2840389212382%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 428
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/d/da/Amy_Madigan_%2840389212382%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1366,
+      "height": 1770
+     },
+     "extract": "The Academy Award for Best Supporting Actress is an award presented annually by the Academy of Motion Picture Arts and Sciences (AMPAS). It has been awarded since the 9th Academy Awards to an actress who has delivered an outstanding performance in a supporting role in a film released that year. The award is traditionally presented by the previous year's Best Supporting Actor winner. However, in recent years, it has shifted towards being presented by previous years' Best Supporting Actress winners instead. In lieu of the traditional Oscar statuette, supporting acting recipients were given plaques up until the 16th Academy Awards, when statuettes were awarded to each category instead.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Academy_Award_for_Best_Supporting_Actress"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Gone_with_the_Wind_(film)",
+     "titles": {
+      "normalized": "Gone with the Wind (film)"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Poster_-_Gone_With_the_Wind_01.jpg/330px-Poster_-_Gone_With_the_Wind_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 508
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/2/27/Poster_-_Gone_With_the_Wind_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1299,
+      "height": 2000
+     },
+     "extract": "Gone with the Wind is a 1939 American epic historical romance film adapted from the 1936 novel by Margaret Mitchell. It was produced by David O. Selznick of Selznick International Pictures and directed by Victor Fleming. Set in the American South during the Civil War and Reconstruction, the film tells the story of Scarlett O'Hara, the strong-willed daughter of a Georgia plantation owner, following her romantic pursuit of Ashley Wilkes, who is married to his cousin Melanie Hamilton, and her subsequent marriage to Rhett Butler.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Gone_with_the_Wind_(film)"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "Queen Anne's War: French and Native American forces raided the English settlement of Deerfield, Massachusetts, killing more than 50 colonists.",
+   "year": 1704,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Queen_Anne's_War",
+     "titles": {
+      "normalized": "Queen Anne's War"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/QueenAnnesWarBefore.svg/330px-QueenAnnesWarBefore.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 235
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/QueenAnnesWarBefore.svg/1920px-QueenAnnesWarBefore.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 1530,
+      "height": 1090
+     },
+     "extract": "Queen Anne's War (1702–1713) was the second in a series of French and Indian Wars fought in North America involving the colonial empires of Great Britain, France, and Spain. In the United States, it is regarded as a standalone conflict. Elsewhere it is viewed as the American theater of the War of the Spanish Succession. It is also known as the Third Indian War. In France it was known as the Second Intercolonial War.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Queen_Anne's_War"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Raid_on_Deerfield",
+     "titles": {
+      "normalized": "Raid on Deerfield"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/DeerfieldRaid1704.jpg/330px-DeerfieldRaid1704.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 267
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/b/be/DeerfieldRaid1704.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1743,
+      "height": 1411
+     },
+     "extract": "The Raid on Deerfield, also known as the Deerfield Massacre, was an attack on February 29, 1704, of French and Native American forces on the English colonial settlement of Deerfield, Province of Massachusetts Bay. Springing just before dawn, raiders under the command of Jean-Baptiste Hertel de Rouville burned parts of the town and killed 47 colonists. They left with 112 colonists as captives, whom they took overland the nearly 300 miles to Montreal; some died or were killed along the way because they were unable to keep up. Roughly 60 colonists were later ransomed by their associates, while others were adopted by Mohawk families at Kahnawake and became assimilated into the tribe.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Raid_on_Deerfield"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Deerfield,_Massachusetts",
+     "titles": {
+      "normalized": "Deerfield, Massachusetts"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Deerfield_MA_post_office.JPG/330px-Deerfield_MA_post_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 248
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Deerfield_MA_post_office.JPG/3840px-Deerfield_MA_post_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 4000,
+      "height": 3000
+     },
+     "extract": "Deerfield is a town in Franklin County, Massachusetts, United States. Settled near the Connecticut River in the 17th century during the colonial era, the population was 5,090 as of the 2020 census. Deerfield is part of the Springfield, Massachusetts Metropolitan Statistical Area in western Massachusetts, lying 30 miles (48 km) north of the city of Springfield.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Deerfield%2C_Massachusetts"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

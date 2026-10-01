@@ -1,0 +1,105 @@
+{
+ "events": [
+  {
+   "text": "For her performance as Mammy in Gone with the Wind, Hattie McDaniel becomes the first African American to win an Academy Award.",
+   "year": 1940,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Gone_with_the_Wind_(film)",
+     "titles": {
+      "normalized": "Gone with the Wind (film)"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Poster_-_Gone_With_the_Wind_01.jpg/330px-Poster_-_Gone_With_the_Wind_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 508
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/2/27/Poster_-_Gone_With_the_Wind_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1299,
+      "height": 2000
+     },
+     "extract": "Gone with the Wind is a 1939 American epic historical romance film adapted from the 1936 novel by Margaret Mitchell. It was produced by David O. Selznick of Selznick International Pictures and directed by Victor Fleming. Set in the American South during the Civil War and Reconstruction, the film tells the story of Scarlett O'Hara, the strong-willed daughter of a Georgia plantation owner, following her romantic pursuit of Ashley Wilkes, who is married to his cousin Melanie Hamilton, and her subsequent marriage to Rhett Butler.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Gone_with_the_Wind_(film)"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Hattie_McDaniel",
+     "titles": {
+      "normalized": "Hattie McDaniel"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Studio_publicity_Hattie_McDaniel.jpg/330px-Studio_publicity_Hattie_McDaniel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 423
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/3/39/Studio_publicity_Hattie_McDaniel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 502,
+      "height": 643
+     },
+     "extract": "Hattie McDaniel was an American actress, singer-songwriter, and comedian. For her role as Mammy in Gone with the Wind (1939), she won the Academy Award for Best Supporting Actress, becoming the first African American to win an Oscar. She has two stars on the Hollywood Walk of Fame, was inducted into the Black Filmmakers Hall of Fame in 1975, and in 2006, became the first black Oscar winner honored with a U.S. postage stamp. In 2010, she was inducted into the Colorado Women's Hall of Fame.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Hattie_McDaniel"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "African_Americans",
+     "titles": {
+      "normalized": "African Americans"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_Americans_2020_County.png/330px-Black_Americans_2020_County.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 188
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_Americans_2020_County.png/3840px-Black_Americans_2020_County.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 15610,
+      "height": 8900
+     },
+     "extract": "African Americans or Black Americans, also formerly called Afro-Americans, are an American racial and ethnic group. As defined by the United States census, they are Americans who have ancestry from \"any of the Black racial groups of Africa\". African Americans constitute the third-largest racial and ethnic group in the U.S., following White Americans and Hispanic and Latino Americans. The term \"African American\" generally denotes descendants of Africans enslaved in the United States. According to annual estimates from the U.S. Census Bureau, as of July 1, 2024, the overall Black population was estimated at 42,951,595, representing approximately 12.63% of the total U.S. population.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/African_Americans"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "12th_Academy_Awards",
+     "titles": {
+      "normalized": "12th Academy Awards"
+     },
+     "extract": "The 12th Academy Awards ceremony, held on February 29, 1940, by the Academy of Motion Picture Arts and Sciences (AMPAS), honored the best in film for 1939 at a banquet in the Coconut Grove at The Ambassador Hotel in Los Angeles. It was hosted by Bob Hope, in his first of nineteen turns as host.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/12th_Academy_Awards"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Academy_Awards",
+     "titles": {
+      "normalized": "Academy Awards"
+     },
+     "extract": "The Academy Awards, more commonly known as the Oscars, are awards based on artistic and technical merit in film. They are presented annually by the Academy of Motion Picture Arts and Sciences (AMPAS) in the United States in recognition of excellence in cinematic achievements around the world, as assessed by the Academy's voting membership. The Oscars are widely considered to be the most prestigious awards in the film industry, predominantly centered around films produced in Hollywood.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Academy_Awards"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

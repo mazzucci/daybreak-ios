@@ -1,0 +1,219 @@
+{
+ "events": [
+  {
+   "text": "Apollo program: NASA launches the unmanned Apollo 4 test spacecraft, atop the first Saturn V rocket, from Florida's Cape Kennedy.",
+   "year": 1967,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Apollo_program",
+     "titles": {
+      "normalized": "Apollo program"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Apollo_program.svg/330px-Apollo_program.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 330
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Apollo_program.svg/960px-Apollo_program.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 619,
+      "height": 619
+     },
+     "extract": "The Apollo program, also known as Project Apollo, was the United States human spaceflight program led by NASA, which landed the first humans on the Moon in 1969. The Apollo program was conceived in 1960 in the Dwight D. Eisenhower presidency during Project Mercury and executed after Project Gemini. The Apollo program was later dedicated to President John F. Kennedy's national goal, \"before this decade is out, of landing a man on the Moon and returning him safely to the Earth\" in his address to the U.S. Congress on May 25, 1961.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Apollo_program"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "NASA",
+     "titles": {
+      "normalized": "NASA"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/NASA_seal.svg/330px-NASA_seal.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 330
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/NASA_seal.svg/330px-NASA_seal.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 272,
+      "height": 272
+     },
+     "extract": "The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the United States' civil space program, as well as research in aeronautics and space. Headquartered in Washington, D.C., NASA operates ten field centers across the US and is organized into three mission directorates: Human Spaceflight, Research and Technology, and Science. Established in 1958 amid the Space Race, NASA succeeded the National Advisory Committee for Aeronautics (NACA) to give the US space program a distinct civilian orientation focused on peaceful applications. Since then, it has led most American spaceflight programs, including Project Mercury, Project Gemini, the Apollo program, Skylab, the Space Shuttle, the International Space Station (ISS), and the ongoing multinational Artemis program.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/NASA"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Apollo_4",
+     "titles": {
+      "normalized": "Apollo 4"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Apollo_4_Launch_-_GPN-2000-000044.jpg/330px-Apollo_4_Launch_-_GPN-2000-000044.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 428
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/1/13/Apollo_4_Launch_-_GPN-2000-000044.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2313,
+      "height": 3000
+     },
+     "extract": "Apollo 4, also known as SA-501, was the uncrewed first test flight of the Saturn V launch vehicle, the rocket that eventually took astronauts to the Moon. The space vehicle was assembled in the Vehicle Assembly Building, and was the first to be launched from Kennedy Space Center (KSC) in Florida, ascending from Launch Complex 39, where facilities built especially for the Saturn V had been constructed.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Apollo_4"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Saturn_V",
+     "titles": {
+      "normalized": "Saturn V"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Apollo_11_Launch_-_GPN-2000-000630.jpg/330px-Apollo_11_Launch_-_GPN-2000-000630.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 413
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/1/16/Apollo_11_Launch_-_GPN-2000-000630.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2400,
+      "height": 3000
+     },
+     "extract": "The Saturn V is a retired American super heavy-lift launch vehicle developed by NASA under the Apollo program for human exploration of the Moon. The rocket was human-rated, had three stages, and was liquid-fueled. Thirteen Saturn V vehicles were launched, from 1967 to 1973, all from Kennedy Space Center Launch Complex 39, nine of which launched 24 astronauts toward the Moon from Apollo 8 to Apollo 17. Its final launch was Skylab, the first American space station, converted from its own third stage.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Saturn_V"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Cape_Canaveral",
+     "titles": {
+      "normalized": "Cape Canaveral"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Cape_canaveral.jpg/330px-Cape_canaveral.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 327
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Cape_canaveral.jpg/3840px-Cape_canaveral.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 5320,
+      "height": 5266
+     },
+     "extract": "Cape Canaveral is a cape in Brevard County, Florida, in the United States, near the center of the state's Atlantic coast. Officially Cape Kennedy from 1963 to 1973, it lies east of Merritt Island, separated from it by the Banana River. It is part of a region known as the Space Coast, and is the site of the Cape Canaveral Space Force Station. Since many U.S. spacecraft have been launched from both the station and the Kennedy Space Center on adjacent Merritt Island, the two are sometimes conflated.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Cape_Canaveral"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "The Great Boston Fire of 1872.",
+   "year": 1872,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Great_Boston_Fire_of_1872",
+     "titles": {
+      "normalized": "Great Boston Fire of 1872"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Great_boston_fire_downtown.jpg/330px-Great_boston_fire_downtown.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 385
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Great_boston_fire_downtown.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 439,
+      "height": 512
+     },
+     "extract": "The Great Boston Fire of 1872 stands as the largest fire in the history of Boston, Massachusetts, and ranks as one of the most costly fire-related property losses in American history. The conflagration began at 7:20 p.m. on November 9, 1872, in the basement of a commercial warehouse at 83–87 Summer Street. The fire was finally contained around midday on November 10, after it had consumed about 65 acres (26 ha) of Boston's downtown, 776 buildings, and much of the financial district. It caused $73.5 million in damage —buildings losses totaled $13.5 million and the personal property loss was valued at $60 million. The number of fatalities is believed to have been 26 to \"at least 30\", depending on source, including 11 or 12 firefighters.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Great_Boston_Fire_of_1872"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "Knights Templar officer Hugues de Pairaud is forced to confess during the Trials of the Knights Templar. He was persecuted on the charges of false idolism and sodomy.",
+   "year": 1307,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Knights_Templar",
+     "titles": {
+      "normalized": "Knights Templar"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Bandeira_Templ%C3%A1ria.svg/330px-Bandeira_Templ%C3%A1ria.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 198
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Bandeira_Templ%C3%A1ria.svg/1280px-Bandeira_Templ%C3%A1ria.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 1000,
+      "height": 600
+     },
+     "extract": "The Poor Fellow-Soldiers of Christ and of the Temple of Solomon, mainly known as the Knights Templar, was a military order of the Catholic faith, and one of the most important military orders in Western Christianity. They were founded in 1118 to defend pilgrims on their way to Jerusalem, with their headquarters located there on the Temple Mount, and existed for nearly two centuries during the Middle Ages.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Knights_Templar"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Hugues_de_Pairaud",
+     "titles": {
+      "normalized": "Hugues de Pairaud"
+     },
+     "extract": "Hugues de Pairaud was one of the leaders of the Knights Templar. He and Geoffroi de Gonneville were sentenced to life imprisonment on March 18, 1314. They were spared the fate of Jacques de Molay and Geoffroi de Charney, who were both burned at the stake, because they accepted their sentence in silence.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Hugues_de_Pairaud"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Trials_of_the_Knights_Templar",
+     "titles": {
+      "normalized": "Trials of the Knights Templar"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Templars_on_Stake.jpg/330px-Templars_on_Stake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 244
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/9/91/Templars_on_Stake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 500,
+      "height": 370
+     },
+     "extract": "The downfall of the Knights Templar was initiated by King Philip IV of France. Philip, who was heavily in debt due to his lavish policies and military endeavours, saw eliminating the Templars as a way of alleviating his financial hardship and at the same time eliminating a powerful rival. In addition, the Templars were difficult to control by secular authorities due to their international networks and their special rights, which placed them directly under the Church, which Philip perceived as a threat. At the same time, Philip had been embroiled in a bitter conflict with Pope Boniface VIII over the question of the division of power between the Church and the Crown. After Boniface's death and the election of the French Pope Clement V, Philip saw his opportunity to further extend his control over ecclesiastical affairs.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Trials_of_the_Knights_Templar"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

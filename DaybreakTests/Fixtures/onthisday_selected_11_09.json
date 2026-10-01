@@ -1,0 +1,1155 @@
+{
+ "selected": [
+  {
+   "text": "Pakistani prime minister Imran Khan inaugurated the Kartarpur Corridor, a visa-free border crossing connecting the Gurdwara Darbar Sahib to the India–Pakistan border.",
+   "year": 2019,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Imran_Khan",
+     "titles": {
+      "normalized": "Imran Khan"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Prime_Minister_Imran_Khan_Adresses_the_Forum_01.jpg/330px-Prime_Minister_Imran_Khan_Adresses_the_Forum_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 428
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Minister_Imran_Khan_Adresses_the_Forum_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 831,
+      "height": 1078
+     },
+     "extract": "Imran Ahmed Khan Niazi is a Pakistani former cricketer, philanthropist, and politician who served as the 19th prime minister of Pakistan from August 2018 until April 2022. As a cricketer, he captained the Pakistan national cricket team to victory in the 1992 Cricket World Cup. After retiring from cricket, he founded the Shaukat Khanum Memorial Cancer Hospital and Research Centre, Pakistan's first cancer hospital. He is the founder of the political party Pakistan Tehreek-e-Insaf (PTI) and was its chairman from 1996 to 2023.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Imran_Khan"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Kartarpur_Corridor",
+     "titles": {
+      "normalized": "Kartarpur Corridor"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Gurdwara_Darbar_Sahib_Kartarpur_04.jpg/330px-Gurdwara_Darbar_Sahib_Kartarpur_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 247
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Gurdwara_Darbar_Sahib_Kartarpur_04.jpg/3840px-Gurdwara_Darbar_Sahib_Kartarpur_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 3978,
+      "height": 2983
+     },
+     "extract": "The Kartarpur Corridor is a visa-free border crossing and religious corridor, connecting two gurdwaras, Gurdwara Darbar Sahib, near Narowal in Pakistan and Gurudwara Dera Baba Nanak, Gurdaspur district, Punjab, India. The crossing allows devotees from India to visit the gurdwara in Kartarpur, Pakistan, 4.7 kilometres from the India–Pakistan border on the Pakistani side without a visa. Pakistani Sikhs are unable to use the border crossing, and cannot access Dera Baba Nanak on the Indian side without first obtaining an Indian visa or unless they work there.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Kartarpur_Corridor"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Gurdwara_Darbar_Sahib_Kartarpur",
+     "titles": {
+      "normalized": "Gurdwara Darbar Sahib Kartarpur"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Gurdwara_Darbar_Sahib_Kartarpur_04.jpg/330px-Gurdwara_Darbar_Sahib_Kartarpur_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 247
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Gurdwara_Darbar_Sahib_Kartarpur_04.jpg/3840px-Gurdwara_Darbar_Sahib_Kartarpur_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 3978,
+      "height": 2983
+     },
+     "extract": "Gurdwara Darbar Sahib Kartarpur, also called Kartarpur Sahib, is a gurdwara in Kartarpur, Punjab, Pakistan. Kartarpur, a small town beside the Ravi River in the Shakargarh Tehsil of Narowal District, stands on the historic site where Guru Nanak, the founder of Sikhism, settled and assembled the Sikh community after his missionary travels. Nanak lived there for 18 years until his death in 1539. It is one of the holiest sites in Sikhism.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Gurdwara_Darbar_Sahib_Kartarpur"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "India–Pakistan_border",
+     "titles": {
+      "normalized": "India–Pakistan border"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/India-Pakistan_Border_at_Night.jpg/330px-India-Pakistan_Border_at_Night.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/India-Pakistan_Border_at_Night.jpg/3840px-India-Pakistan_Border_at_Night.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 4928,
+      "height": 3280
+     },
+     "extract": "The India–Pakistan border is the international boundary that separates the nations of the Republic of India and the Islamic Republic of Pakistan. At its northern end is the Line of Control, which separates Indian-administered Jammu & Kashmir and Ladakh from Pakistani-administered Azad Kashmir and Gilgit-Baltistan; and at its southern end is Sir Creek, a tidal estuary in the Rann of Kutch between the Indian state of Gujarat and the Pakistani province of Sindh.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/India%E2%80%93Pakistan_border"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "The Alabama Crimson Tide and LSU Tigers football teams, both with undefeated records thus far that season, played in a \"Game of the Century\".",
+   "year": 2019,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Alabama_Crimson_Tide_football",
+     "titles": {
+      "normalized": "Alabama Crimson Tide football"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Alabama_Athletics_logo.svg/330px-Alabama_Athletics_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 317
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Alabama_Athletics_logo.svg/250px-Alabama_Athletics_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 250,
+      "height": 240
+     },
+     "extract": "The Alabama Crimson Tide football program represents the University of Alabama in American football. It is part of the wider Crimson Tide athletics program and competes in the Southeastern Conference (SEC), a conference of the NCAA's Football Bowl Subdivision (FBS).",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Alabama_Crimson_Tide_football"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "LSU_Tigers_football",
+     "titles": {
+      "normalized": "LSU Tigers football"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/LSU_Athletics_logo.svg/330px-LSU_Athletics_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 109
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/LSU_Athletics_logo.svg/250px-LSU_Athletics_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 249,
+      "height": 82
+     },
+     "extract": "The LSU Tigers football program, also known as the Fighting Tigers, represents Louisiana State University in college football. The Tigers compete in the Football Bowl Subdivision (FBS) of the National Collegiate Athletic Association (NCAA) and the Southeastern Conference (SEC).",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/LSU_Tigers_football"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "2019_LSU_vs._Alabama_football_game",
+     "titles": {
+      "normalized": "2019 LSU vs. Alabama football game"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/President_Trump_and_First_Lady_Melania_Trump_in_Alabama_%2849048699168%29.jpg/330px-President_Trump_and_First_Lady_Melania_Trump_in_Alabama_%2849048699168%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/a/a4/President_Trump_and_First_Lady_Melania_Trump_in_Alabama_%2849048699168%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1200,
+      "height": 800
+     },
+     "extract": "The 2019 LSU vs. Alabama football game was a regular-season college football game between the LSU Tigers and the Alabama Crimson Tide on November 9, 2019, at Bryant–Denny Stadium in Tuscaloosa, Alabama. The game is considered a \"Game of the Century\", as it pitted the two top-ranked teams in the NCAA Division I Football Bowl Subdivision, and it was the first such regular-season game since the 2011 LSU vs. Alabama game. Both teams entered the game undefeated and tied for first place in the Southeastern Conference's West Division.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/2019_LSU_vs._Alabama_football_game"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "A tram derailment in Croydon, London, killed seven people.",
+   "year": 2016,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "2016_Croydon_tram_derailment",
+     "titles": {
+      "normalized": "2016 Croydon tram derailment"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Sandilands_Junction_derailed_tram.jpg/330px-Sandilands_Junction_derailed_tram.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Sandilands_Junction_derailed_tram.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 960,
+      "height": 640
+     },
+     "extract": "On 9 November 2016, a tram operated by Tramlink in London derailed and overturned on a sharp bend approaching a junction. Of 69 passengers, there were seven fatalities and 62 injured, 19 of whom sustained serious injuries. This was the first tram incident in the United Kingdom in which passengers died since 1959.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/2016_Croydon_tram_derailment"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Croydon",
+     "titles": {
+      "normalized": "Croydon"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/P1490912_The_Old_Town_Hall%2CKatherine_Street.._Croydon...jpg/330px-P1490912_The_Old_Town_Hall%2CKatherine_Street.._Croydon...jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 248
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/7/7a/P1490912_The_Old_Town_Hall%2CKatherine_Street.._Croydon...jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1107,
+      "height": 831
+     },
+     "extract": "Croydon is a large town in South London, England, 9.5 miles (15 km) south of Charing Cross. Part of the London Borough of Croydon, a local government district of Greater London; it is one of the largest commercial districts in Greater London, with an extensive shopping area. The entire town had a population of 192,064 as of 2011, whilst the wider borough had a population of 384,837.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Croydon"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "Bosnian War: Croatian Defence Council forces destroyed the Stari Most, a 16th-century bridge crossing the river Neretva in the city of Mostar (rebuilt bridge pictured).",
+   "year": 1993,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Bosnian_War",
+     "titles": {
+      "normalized": "Bosnian War"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Krupa_nakon_rata.JPG/330px-Krupa_nakon_rata.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 230
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Krupa_nakon_rata.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 813,
+      "height": 567
+     },
+     "extract": "The Bosnian War was an armed conflict that took place in Bosnia and Herzegovina, from 1992 until 1995. Following several earlier violent incidents, the war is commonly seen as having started on 6 April 1992 when the newly independent Republic of Bosnia and Herzegovina was internationally recognized. It ended on 21 November 1995 when the Dayton Accords were initialed. The main belligerents were the forces of the government of the Republic of Bosnia and Herzegovina, and those of the breakaway proto-states of the Republic of Herzeg-Bosnia and the Republika Srpska which were led and supplied by Croatia and Serbia, respectively.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Bosnian_War"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Croatian_Defence_Council",
+     "titles": {
+      "normalized": "Croatian Defence Council"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Logo_of_Croatian_Defence_Council.svg/330px-Logo_of_Croatian_Defence_Council.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 526
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Logo_of_Croatian_Defence_Council.svg/330px-Logo_of_Croatian_Defence_Council.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 270,
+      "height": 430
+     },
+     "extract": "The Croatian Defence Council was the armed wing of Croatian Republic of Herzeg-Bosnia. It existed in the Republic of Bosnia and Herzegovina between 1991 and 1997. The HVO was the main military force of the Croats of Bosnia and Herzegovina.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Croatian_Defence_Council"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Stari_Most",
+     "titles": {
+      "normalized": "Stari Most"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/330px-Mostar_Old_Town_Panorama_2007.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 221
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Mostar_Old_Town_Panorama_2007.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2390,
+      "height": 1600
+     },
+     "extract": "The Old Bridge, also known as the Mostar Bridge, is a rebuilt 16th-century Ottoman bridge in the city of Mostar in Bosnia and Herzegovina. It crosses the river Neretva and connects the two parts of the city, which is named after the bridge keepers who guarded the Old Bridge during the Ottoman era. Commissioned by Suleiman the Magnificent in 1557 and designed by Mimar Hayruddin, a student and apprentice of the architect Mimar Sinan, the Old Bridge is an exemplary piece of Balkan Islamic architecture.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Stari_Most"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Neretva",
+     "titles": {
+      "normalized": "Neretva"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/NERETVA_RIVER_VALLEY_NEAR_POCITELJ.jpg/330px-NERETVA_RIVER_VALLEY_NEAR_POCITELJ.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 225
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/NERETVA_RIVER_VALLEY_NEAR_POCITELJ.jpg/3840px-NERETVA_RIVER_VALLEY_NEAR_POCITELJ.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 5262,
+      "height": 3595
+     },
+     "extract": "The Neretva, also known as Narenta, is one of the largest rivers of the eastern part of the Adriatic basin. Four hydroelectric power plants with large dams provide flood protection, electricity and water storage. The Neretva is recognized for its natural environment and diverse landscapes.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Neretva"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Mostar",
+     "titles": {
+      "normalized": "Mostar"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Stari_Most_viewed_from_North.jpg/330px-Stari_Most_viewed_from_North.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 119
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Stari_Most_viewed_from_North.jpg/3840px-Stari_Most_viewed_from_North.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 7676,
+      "height": 2777
+     },
+     "extract": "Mostar is a city and the administrative centre of Herzegovina-Neretva Canton of the Federation of Bosnia and Herzegovina, an entity of Bosnia and Herzegovina, and the historical capital of Herzegovina.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Mostar"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "East German official Günter Schabowski mistakenly announced the immediate opening of the inner German border, resulting in the fall of the Berlin Wall that night (border crossing pictured).",
+   "year": 1989,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Günter_Schabowski",
+     "titles": {
+      "normalized": "Günter Schabowski"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Bundesarchiv_Bild_183-1982-0504-421%2C_G%C3%BCnter_Schabowski.jpg/330px-Bundesarchiv_Bild_183-1982-0504-421%2C_G%C3%BCnter_Schabowski.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 421
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Bundesarchiv_Bild_183-1982-0504-421%2C_G%C3%BCnter_Schabowski.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 627,
+      "height": 800
+     },
+     "extract": "Günter Schabowski was a German politician who served as an official of the Socialist Unity Party of Germany, the ruling party during most of the existence of East Germany. After climbing up the party ladder, he became the regime's unofficial spokesman. He gained worldwide fame in November 1989 when he improvised a slightly mistaken answer to a press conference question about the future of the Berlin Wall, that seemed to announce the Wall's immediate end and raised popular expectations much more rapidly than the government planned. Massive crowds gathered at the Wall the same night, which forced its opening after 28 years. Soon afterward, the entire inner German border was opened; not much later, East Germany ceased to exist.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/G%C3%BCnter_Schabowski"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Inner_German_border",
+     "titles": {
+      "normalized": "Inner German border"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Halt_hier_grenze.jpg/330px-Halt_hier_grenze.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 244
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/3/38/Halt_hier_grenze.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 3105,
+      "height": 2293
+     },
+     "extract": "The inner German border was the border between the German Democratic Republic and the Federal Republic of Germany from 1949 to 1990. It ran north–south in a 1,381-kilometre-long (858 mi) irregular L-shaped line from Dassow at the Baltic Sea to Eichigt at the border with Czechoslovakia. The better-known Berlin Wall was a physically separate, less elaborate, and much shorter border barrier surrounding West Berlin, more than 170 kilometres (110 mi) to the east of the inner German border.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Inner_German_border"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Fall_of_the_Berlin_Wall",
+     "titles": {
+      "normalized": "Fall of the Berlin Wall"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg/330px-West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 249
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/1/1c/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 661,
+      "height": 498
+     },
+     "extract": "The Berlin Wall fell on 9 November 1989 during the Peaceful Revolution, marking the beginning of the destruction of the figurative Iron Curtain, as East Berlin transit restrictions were overwhelmed and discarded. Sections of the wall were breached, and planned deconstruction began the following June. It was one of the series of events that started the fall of communism in Central and Eastern Europe. The fall of the inner German border took place shortly afterward. An end to the Cold War was declared at the Malta Summit in early December, and German reunification took place in October the following year.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "At age 22, Garry Kasparov became the then-youngest World Chess Champion by defeating then-champion Anatoly Karpov.",
+   "year": 1985,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Garry_Kasparov",
+     "titles": {
+      "normalized": "Garry Kasparov"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Garri_Kasparow_%2818776605665%29_%28cropped%29_2.jpg/330px-Garri_Kasparow_%2818776605665%29_%28cropped%29_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 447
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Garri_Kasparow_%2818776605665%29_%28cropped%29_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1466,
+      "height": 1984
+     },
+     "extract": "Garry Kimovich Kasparov is a Russian chess grandmaster, political activist and writer, who was the World Chess Champion from 1985 to 2000. His peak FIDE chess rating of 2851, achieved in 1999, was the highest recorded until being surpassed by Magnus Carlsen in 2013. From 1984 until his retirement from regular competitive chess in 2005, Kasparov was ranked the world's No. 1 player for a record 255 months overall. Kasparov also holds records for the most consecutive professional tournament victories (15) and Chess Oscars (11).",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Garry_Kasparov"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "World_Chess_Championship",
+     "titles": {
+      "normalized": "World Chess Championship"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Gukesh_in_2025_%28cropped%29.jpg/330px-Gukesh_in_2025_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 471
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Gukesh_in_2025_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 980,
+      "height": 1400
+     },
+     "extract": "The World Chess Championship is played to determine the world champion in chess. The current world champion is Gukesh Dommaraju, who defeated the previous champion Ding Liren in the 2024 World Chess Championship.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/World_Chess_Championship"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Anatoly_Karpov",
+     "titles": {
+      "normalized": "Anatoly Karpov"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Anatoly_Karpov_2017_april.jpg/330px-Anatoly_Karpov_2017_april.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 497
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Anatoly_Karpov_2017_april.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2049,
+      "height": 3089
+     },
+     "extract": "Anatoly Yevgenyevich Karpov is a Russian and former Soviet chess grandmaster, former World Chess Champion, ⁣and politician. He was the 12th World Chess Champion, from 1975 to 1985, a three-time FIDE World Champion, twice World Chess champion as a member of the USSR team, a six-time winner of Chess Olympiads as a member of the USSR team, and the 1st World Rapid Chess Champion (1988). The International Association of Chess Press awarded him nine Chess Oscars.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Anatoly_Karpov"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "The first issue of Rolling Stone, an American magazine focusing on music, politics and popular culture, was published.",
+   "year": 1967,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Rolling_Stone",
+     "titles": {
+      "normalized": "Rolling Stone"
+     },
+     "thumbnail": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/d/df/Rolling_Stone_1000th_Issue_May_June_2006.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 260,
+      "height": 327
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/d/df/Rolling_Stone_1000th_Issue_May_June_2006.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 260,
+      "height": 327
+     },
+     "extract": "Rolling Stone is an American monthly magazine that focuses on music, politics, and popular culture. It was founded in San Francisco, California, in 1967 by Jann Wenner and the music critic Ralph J. Gleason. It is described as left-leaning and liberal.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Rolling_Stone"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "World War II: A covert Sicherheitsdienst operation captured two British agents of the Secret Intelligence Service near Venlo in the Netherlands.",
+   "year": 1939,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "World_War_II",
+     "titles": {
+      "normalized": "World War II"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Bundesarchiv_Bild_101I-646-5188-17%2C_Flugzeuge_Junkers_Ju_87.jpg/330px-Bundesarchiv_Bild_101I-646-5188-17%2C_Flugzeuge_Junkers_Ju_87.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 225
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/1/10/Bundesarchiv_Bild_101I-646-5188-17%2C_Flugzeuge_Junkers_Ju_87.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 798,
+      "height": 544
+     },
+     "extract": "World War II, or the Second World War, was a global conflict between two coalitions: the Allies and the Axis powers. Nearly all of the world's countries participated, with many engaging in total war on an unprecedented scale. World War II was the deadliest conflict in history, causing the deaths of 60 to 75 million people, a majority of whom were civilians. Millions died as a result of massacres, starvation, disease, and genocides including the Holocaust. After the Allied victory, Germany, Austria, Japan, and Korea were occupied, and German and Japanese leaders were tried for war crimes.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/World_War_II"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Sicherheitsdienst",
+     "titles": {
+      "normalized": "Sicherheitsdienst"
+     },
+     "extract": "Sicherheitsdienst, full title Sicherheitsdienst des Reichsführers-SS, or SD, was the intelligence agency of the SS and the Nazi Party in Nazi Germany. Established in 1931, the SD was the first Nazi intelligence organization and the Gestapo was considered its sister organization through the integration of SS members and operational procedures. The SD was administered as an independent SS office between 1933 and 1939. That year, the SD was transferred over to the Reich Security Main Office, as one of its seven departments. Its first director, Reinhard Heydrich, intended for the SD to bring every single individual within the Third Reich's reach under \"continuous supervision\".",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Sicherheitsdienst"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Venlo_incident",
+     "titles": {
+      "normalized": "Venlo incident"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Grensincident_Venlo_Reconstructie_met_Lemmens%2C_Bestanddeelnr_902-6030.jpg/330px-Grensincident_Venlo_Reconstructie_met_Lemmens%2C_Bestanddeelnr_902-6030.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 270
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/4/48/Grensincident_Venlo_Reconstructie_met_Lemmens%2C_Bestanddeelnr_902-6030.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 3433,
+      "height": 2808
+     },
+     "extract": "The Venlo incident was a covert operation carried out by the German Nazi Party's Sicherheitsdienst (SD) on 9 November 1939, which resulted in the capture of two British Secret Intelligence Service agents five metres (16 ft) from the German border, on the outskirts of the Dutch city of Venlo.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Venlo_incident"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "MI6",
+     "titles": {
+      "normalized": "MI6"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/SIS_building_%2826327425611%29.jpg/330px-SIS_building_%2826327425611%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/0/01/SIS_building_%2826327425611%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2715,
+      "height": 1810
+     },
+     "extract": "The Secret Intelligence Service (SIS), commonly known as MI6, is the foreign intelligence service of the United Kingdom, tasked mainly with the covert overseas collection and analysis of human intelligence on foreign nationals in support of its Five Eyes partners. SIS is one of the British intelligence agencies and the chief of the Secret Intelligence Service is directly accountable to the foreign secretary.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/MI6"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Venlo",
+     "titles": {
+      "normalized": "Venlo"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Venlo_%E2%80%93_Parade_-_panoramio.jpg/330px-Venlo_%E2%80%93_Parade_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 248
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Venlo_%E2%80%93_Parade_-_panoramio.jpg/3840px-Venlo_%E2%80%93_Parade_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 4320,
+      "height": 3240
+     },
+     "extract": "Venlo is a city and municipality in southeastern Netherlands, close to the border with Germany. It is situated in the province of Limburg. The municipality of Venlo had 101,578 inhabitants in January 2019.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Venlo"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "Kristallnacht began as SA stormtroopers and civilians destroyed and ransacked Jewish homes, businesses and synagogues in Germany and Austria, resulting in at least 90 deaths and the deportation of 30,000 men to concentration camps.",
+   "year": 1938,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Kristallnacht",
+     "titles": {
+      "normalized": "Kristallnacht"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Interior_view_of_the_destroyed_Fasanenstrasse_Synagogue%2C_Berlin.jpg/330px-Interior_view_of_the_destroyed_Fasanenstrasse_Synagogue%2C_Berlin.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 232
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Interior_view_of_the_destroyed_Fasanenstrasse_Synagogue%2C_Berlin.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1000,
+      "height": 702
+     },
+     "extract": "Kristallnacht (German: [kʁɪsˈtalnaχt] ; lit. 'crystal night') or the Night of Broken Glass, also called the November pogrom(s) (German: Novemberpogrome ), was a pogrom against Jews carried out by the Nazi Party's Sturmabteilung (SA) and Schutzstaffel (SS) paramilitary forces along with some participation from the Hitler Youth and German civilians throughout Nazi Germany on 9–10 November 1938. The German authorities looked on without intervening. The euphemistic name Kristallnacht comes from the shards of broken glass that littered the streets after the windows of Jewish-owned stores, buildings, and synagogues were smashed. The pretext for the attacks was the assassination, on 9 November 1938, of the German diplomat Ernst vom Rath by Herschel Grynszpan, a 17-year-old German-born Polish Jew living in Paris.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Kristallnacht"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Sturmabteilung",
+     "titles": {
+      "normalized": "Sturmabteilung"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/SA-Logo_%28no_white_background%29.svg/330px-SA-Logo_%28no_white_background%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 330
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/SA-Logo_%28no_white_background%29.svg/960px-SA-Logo_%28no_white_background%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 610,
+      "height": 610
+     },
+     "extract": "The Sturmabteilung, or SA, was the original paramilitary militia under Adolf Hitler and the Nazi Party of Germany. The organisation played a significant role in Hitler's rise to power in the 1920s and early 1930s. Its primary purposes were providing protection for Nazi rallies and assemblies, disrupting the meetings of opposing parties, fighting against the paramilitary units of the opposing parties, especially the Roter Frontkämpferbund of the Communist Party of Germany (KPD) and the Reichsbanner Schwarz-Rot-Gold of the Social Democratic Party of Germany (SPD), and intimidating Romani, trade unionists, and especially Jews.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Sturmabteilung"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Nazi_concentration_camps",
+     "titles": {
+      "normalized": "Nazi concentration camps"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Prisoners_hauling_earth_for_the_construction_of_the_%22Russian_camp%22_at_Mauthausen_%28cropped%29.jpg/330px-Prisoners_hauling_earth_for_the_construction_of_the_%22Russian_camp%22_at_Mauthausen_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 379
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Prisoners_hauling_earth_for_the_construction_of_the_%22Russian_camp%22_at_Mauthausen_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1169,
+      "height": 1343
+     },
+     "extract": "Nazi Germany built and operated a system of concentration camps between 1933 and 1945. In these camps, prisoners were held in inhumane conditions, with the majority of prisoners dying from causes including disease, malnutrition, forced labor, maltreatment and execution by their captors. There were more than a thousand such camps, including subcamps in Germany and German-occupied Europe. In addition to the concentration camps, there were several other kinds of internment camps, and from 1941 onward an associated system of extermination camps was created that was dedicated solely to the systematic murder of millions of people. Millions of other victims of Nazi Germany were also killed in places outside the concentration camp system.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Nazi_concentration_camps"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "The Great Mecca Feast, the first documentary film on the Hajj, premiered in the Netherlands.",
+   "year": 1928,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "The_Great_Mecca_Feast",
+     "titles": {
+      "normalized": "The Great Mecca Feast"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/en/thumb/6/6a/Het_Groote_Mekka-Feest%2C_00.10.jpg/330px-Het_Groote_Mekka-Feest%2C_00.10.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 242
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/6/6a/Het_Groote_Mekka-Feest%2C_00.10.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1413,
+      "height": 1036
+     },
+     "extract": "The Great Mecca Feast is a 1928 silent documentary film by George Krugers. Divided into four acts, it opens with a group of Muslim men from the Dutch East Indies beginning the Hajj pilgrimage, then showcases elements of everyday life and worship in the Hejaz region of the Arabian Peninsula – including the Hajj itself. As Mecca had long been closed to non-Muslims, Krugers passed as a Muslim and recorded film and still-photographic documentation of the pilgrimage. In this endeavour, he was supported by people in both the Dutch East Indies and the Hejaz.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/The_Great_Mecca_Feast"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Hajj",
+     "titles": {
+      "normalized": "Hajj"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/The_Kaaba_during_Hajj.jpg/330px-The_Kaaba_during_Hajj.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/The_Kaaba_during_Hajj.jpg/3840px-The_Kaaba_during_Hajj.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 4425,
+      "height": 2955
+     },
+     "extract": "Hajj is an annual Islamic pilgrimage to Mecca, Saudi Arabia, the holiest city in Islam. Hajj is a one-time-required religious duty for all Muslims who are physically and financially capable of undertaking the journey and supporting their family during their absence from home.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Hajj"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "The government of the Azerbaijan Democratic Republic adopted a tricolour national flag (pictured), which is again in use today, with slight modifications, by the present-day Republic of Azerbaijan.",
+   "year": 1918,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Azerbaijan_Democratic_Republic",
+     "titles": {
+      "normalized": "Azerbaijan Democratic Republic"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Flag_of_the_Democratic_Republic_of_Azerbaijan_%281918%29.svg/330px-Flag_of_the_Democratic_Republic_of_Azerbaijan_%281918%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 165
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Flag_of_the_Democratic_Republic_of_Azerbaijan_%281918%29.svg/1280px-Flag_of_the_Democratic_Republic_of_Azerbaijan_%281918%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 1200,
+      "height": 600
+     },
+     "extract": "The Republic of Azerbaijan, better known in historiography as the Azerbaijan Democratic Republic, was the first secular democratic republic in the Turkic and Muslim worlds. The ADR was founded by the Azerbaijani National Council in Tiflis on 28 May 1918 after the collapse of the Transcaucasian Democratic Federative Republic, and ceased to exist on 28 April 1920. Its established borders were with Russia to the north, the Democratic Republic of Georgia to the north-west, the Republic of Armenia to the west, and Iran to the south. It had a population of around 3 million. Ganja was the temporary capital of the Republic as Baku was under Bolshevik control.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Azerbaijan_Democratic_Republic"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Flag_of_Azerbaijan",
+     "titles": {
+      "normalized": "Flag of Azerbaijan"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/330px-Flag_of_Azerbaijan.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 165
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/1280px-Flag_of_Azerbaijan.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 1200,
+      "height": 600
+     },
+     "extract": "The national flag of Azerbaijan, often referred to as the Tricolor flag, is a horizontal tricolor that features three equally sized bars of bright blue, red, and green; a white crescent; and a centred eight-pointed star. The flag has become the predominant and most recognizable symbol of Azerbaijan. The bright blue represents Azerbaijan's Turkic identity, the red represents progress, and the green represents Islam, which is Azerbaijan's majority religion.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Flag_of_Azerbaijan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "World War I: Off the Cocos (Keeling) Islands, the Australian light cruiser Sydney sank Emden, the last active German warship in the Indian Ocean, at the Battle of Cocos.",
+   "year": 1914,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "World_War_I",
+     "titles": {
+      "normalized": "World War I"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Bataille_de_Verdun_1916.jpg/330px-Bataille_de_Verdun_1916.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 247
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Bataille_de_Verdun_1916.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1875,
+      "height": 1402
+     },
+     "extract": "World War I, or the First World War, also known as the Great War, was a global conflict between two coalitions: the Allies and the Central Powers. One of the deadliest conflicts in history, World War I resulted in an estimated 15 to 22 million deaths, including those in war crimes and genocides. The war also helped spread the Spanish flu pandemic. The conflict saw important developments in weaponry, including the first large-scale use of machine guns, artillery, aircraft, chemical weapons, and tanks.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/World_War_I"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Cocos_(Keeling)_Islands",
+     "titles": {
+      "normalized": "Cocos (Keeling) Islands"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/74/Flag_of_the_Cocos_%28Keeling%29_Islands.svg/330px-Flag_of_the_Cocos_%28Keeling%29_Islands.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 165
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/74/Flag_of_the_Cocos_%28Keeling%29_Islands.svg/500px-Flag_of_the_Cocos_%28Keeling%29_Islands.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 447,
+      "height": 224
+     },
+     "extract": "The Cocos (Keeling) Islands, officially the Territory of Cocos (Keeling) Islands, are an Australian external territory located in the Indian Ocean, comprising a small archipelago approximately midway between Australia and Sri Lanka and relatively close to the Indonesian island of Sumatra. The territory's dual name reflects that the islands have historically been known as either the Cocos Islands or the Keeling Islands, the latter of which is still a common short name.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Cocos_(Keeling)_Islands"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "HMAS_Sydney_(1912)",
+     "titles": {
+      "normalized": "HMAS Sydney (1912)"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/HMAS_Sydney_1914_AWM_EN0194.jpg/330px-HMAS_Sydney_1914_AWM_EN0194.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 237
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/4/4a/HMAS_Sydney_1914_AWM_EN0194.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 450,
+      "height": 323
+     },
+     "extract": "HMAS Sydney was a Chatham-class light cruiser of the Royal Australian Navy (RAN). Laid down in 1911 and launched in 1912, the cruiser was commissioned into the RAN in 1913.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/HMAS_Sydney_(1912)"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "SMS_Emden",
+     "titles": {
+      "normalized": "SMS Emden"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Bundesarchiv_DVM_10_Bild-23-61-13%2C_Kleiner_Kreuzer_%22SMS_Emden_I%22.jpg/330px-Bundesarchiv_DVM_10_Bild-23-61-13%2C_Kleiner_Kreuzer_%22SMS_Emden_I%22.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 183
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Bundesarchiv_DVM_10_Bild-23-61-13%2C_Kleiner_Kreuzer_%22SMS_Emden_I%22.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 800,
+      "height": 444
+     },
+     "extract": "SMS Emden was the second and final member of the Dresden class of light cruisers built for the German Kaiserliche Marine. Named for the town of Emden, she was laid down at the Kaiserliche Werft in Danzig in 1906. The hull was launched in May 1908, and completed in July 1909. She had one sister ship, Dresden. Like the preceding Königsberg-class cruisers, Emden was armed with ten 10.5 cm (4.1 in) guns and two torpedo tubes.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/SMS_Emden"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Battle_of_Cocos",
+     "titles": {
+      "normalized": "Battle of Cocos"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Imperial_War_Museum_Galleries_at_the_Crystal_Palace%2C_1920-1924_Q20518.jpg/330px-Imperial_War_Museum_Galleries_at_the_Crystal_Palace%2C_1920-1924_Q20518.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 212
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Imperial_War_Museum_Galleries_at_the_Crystal_Palace%2C_1920-1924_Q20518.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 800,
+      "height": 514
+     },
+     "extract": "The Battle of Cocos was a single-ship action that occurred on 9 November 1914, after the Australian light cruiser HMAS Sydney, under the command of John Glossop, responded to an attack on a communications station at Direction Island by the German light cruiser SMS Emden, commanded by Karl von Müller.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Battle_of_Cocos"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "A severe blizzard reached its maximum intensity in the Great Lakes Basin of North America, destroying 19 ships and 68,300 tons of cargo, and killing more than 250 people.",
+   "year": 1913,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Great_Lakes_Storm_of_1913",
+     "titles": {
+      "normalized": "Great Lakes Storm of 1913"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/November_gale.png/330px-November_gale.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 315
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/3/3b/November_gale.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 658,
+      "height": 629
+     },
+     "extract": "The Great Lakes Storm of 1913, historically referred to as the Big Blow, the Freshwater Fury and the White Hurricane, was a blizzard with hurricane-force winds that devastated the Great Lakes region in the Midwestern United States and Southwestern Ontario, Canada, between November 7 and 10, 1913. The storm was at its most powerful on November 9, battering and overturning ships on four of the five Great Lakes, particularly Lake Huron.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Great_Lakes_Storm_of_1913"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Great_Lakes_Basin",
+     "titles": {
+      "normalized": "Great Lakes Basin"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Sub-basins_Great_Lakes_Basin.png/330px-Sub-basins_Great_Lakes_Basin.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 271
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Sub-basins_Great_Lakes_Basin.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 700,
+      "height": 575
+     },
+     "extract": "The Great Lakes Basin consists of the Great Lakes and the surrounding lands of the states of Illinois, Indiana, Michigan, Minnesota, New York, Ohio, Pennsylvania, and Wisconsin in the United States, and the province of Ontario in Canada, whose direct surface runoff and watersheds form a large drainage basin that feeds into the lakes. It is generally considered to also include a small area around and beyond Wolfe Island, Ontario, at the east end of Lake Ontario, which does not directly drain into the Great Lakes, but into the Saint Lawrence River.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Great_Lakes_Basin"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Tonnage",
+     "titles": {
+      "normalized": "Tonnage"
+     },
+     "extract": "Tonnage is a measure of the capacity of a ship, and is commonly used to assess fees on commercial shipping. The term derives from the taxation paid on tuns or casks of wine. In modern maritime usage, \"tonnage\" specifically refers to a calculation of the volume or cargo volume of a ship. Although tonnage (volume) should not be confused with displacement, the long ton of 2,240 lb is derived from the fact that a \"tun\" of wine typically weighed that much.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Tonnage"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "Mary Jane Kelly, widely believed to be the fifth and final victim of the notorious unidentified serial killer Jack the Ripper, was murdered in London.",
+   "year": 1888,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Mary_Jane_Kelly",
+     "titles": {
+      "normalized": "Mary Jane Kelly"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Mary_Jane_Kelly.jpg/330px-Mary_Jane_Kelly.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 440
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/7/79/Mary_Jane_Kelly.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 960,
+      "height": 1280
+     },
+     "extract": "Mary Jane Kelly, also known as Marie Jeanette Kelly, Fair Emma, Ginger, Dark Mary and Black Mary, is widely believed by scholars to have been the final victim of the unidentified serial killer Jack the Ripper, who murdered at least five women in the Whitechapel and Spitalfields districts of London from late August to early November 1888. At the time of her death, Kelly was approximately 25 years old, working as a prostitute and living in relative poverty.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Mary_Jane_Kelly"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Jack_the_Ripper",
+     "titles": {
+      "normalized": "Jack the Ripper"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/JacktheRipper1888.jpg/330px-JacktheRipper1888.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 350
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/a/a1/JacktheRipper1888.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1175,
+      "height": 1245
+     },
+     "extract": "Jack the Ripper was an unidentified serial killer active in and around the impoverished Whitechapel district of the East End of London, in 1888. In both criminal case files and the contemporaneous journalistic accounts, the killer was also called the Whitechapel Murderer and Leather Apron.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Jack_the_Ripper"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "text": "USS Alligator engaged three pirate schooners off the coast of Cuba in one of the West Indies anti-piracy operations of the United States.",
+   "year": 1822,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "USS_Alligator_(1820)",
+     "titles": {
+      "normalized": "USS Alligator (1820)"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/USS_Alligator.jpg/330px-USS_Alligator.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/USS_Alligator.jpg/3840px-USS_Alligator.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 8880,
+      "height": 5920
+     },
+     "extract": "The third USS Alligator was a schooner in the United States Navy.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/USS_Alligator_(1820)"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Action_of_9_November_1822",
+     "titles": {
+      "normalized": "Action of 9 November 1822"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/USS_Alligator.jpg/330px-USS_Alligator.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/USS_Alligator.jpg/3840px-USS_Alligator.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 8880,
+      "height": 5920
+     },
+     "extract": "The action of 9 November 1822 was a naval battle fought between the United States Navy schooner USS Alligator and a squadron of three pirate schooners off the coast of Cuba during the Navy's West Indies anti-piracy operation. Fifteen leagues from Matanzas, Cuba, a large band of pirates captured several vessels and held them for ransom. Upon hearing of the pirate attacks, Alligator under Lieutenant William Howard Allen rushed to the scene to rescue the vessels and seize the pirates.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Action_of_9_November_1822"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "Schooner",
+     "titles": {
+      "normalized": "Schooner"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Lewis_R._French_NHL.jpg/330px-Lewis_R._French_NHL.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 315
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Lewis_R._French_NHL.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 454,
+      "height": 434
+     },
+     "extract": "A schooner is a type of sailing vessel defined by its fore-and-aft rig on all of two or more masts and the foremast generally being shorter than the mainmast. The most common variants are gaff-rigged and staysail schooners, with the topsail schooner carrying a square topsail on the foremast, and Bermuda and junk-rigs being rarities.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Schooner"
+      }
+     }
+    },
+    {
+     "type": "standard",
+     "title": "West_Indies_anti-piracy_operations_of_the_United_States",
+     "titles": {
+      "normalized": "West Indies anti-piracy operations of the United States"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Barges_Gallinipper_and_Mosquito_destroy_Pirates_April_1823_%281940.0483.000001%29.jpg/330px-Barges_Gallinipper_and_Mosquito_destroy_Pirates_April_1823_%281940.0483.000001%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 202
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Barges_Gallinipper_and_Mosquito_destroy_Pirates_April_1823_%281940.0483.000001%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1037,
+      "height": 634
+     },
+     "extract": "The United States naval forces undertook a series of military campaigns and engagements to combat piracy in and around the Antilles from 1814 to 1825. During that time, the U.S. West Indies Squadron pursued pirates on both sea and land, focusing primarily on key regions such as The Bahamas, Cuba, and Puerto Rico. A range of privateers, hailing from the United States to Denmark, also participated in the conflict.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/West_Indies_anti-piracy_operations_of_the_United_States"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "events": [
+  {
+   "text": "Pope Sixtus II is arrested while celebrating mass and then beheaded with several of his deacons.",
+   "year": 258,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Pope_Sixtus_II",
+     "titles": {
+      "normalized": "Pope Sixtus II"
+     },
+     "extract": "Pope Sixtus II, also written as Pope Xystus II, was Pope from 31 August 257 until his death on 6 August 258. He was killed along with seven deacons, including Lawrence of Rome, during the persecution of Christians by the Emperor Valerian.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Pope_Sixtus_II"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

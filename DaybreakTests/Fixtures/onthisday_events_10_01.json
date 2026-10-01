@@ -1,0 +1,1011 @@
+{
+ "events": [
+  {
+   "text": "The 5.9 Mw Whittier Narrows earthquake shakes the San Gabriel Valley with a Mercalli intensity of VIII (Severe), killing eight and injuring 200.",
+   "year": 1987,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "1987_Whittier_Narrows_earthquake",
+     "titles": {
+      "normalized": "1987 Whittier Narrows earthquake"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Earthquake-photo-001085.jpg/330px-Earthquake-photo-001085.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 210
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Earthquake-photo-001085.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 3426,
+      "height": 2175
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/1987_Whittier_Narrows_earthquake"
+      }
+     },
+     "extract": "The 1987 Whittier Narrows earthquake occurred in the southern San Gabriel Valley and surrounding communities of Southern California, United States, at 7:42 a.m. PDT on October 1. The moderate magnitude 5.9 blind thrust earthquake was centered several miles north of Whittier in the town of Rosemead, had a relatively shallow depth, and was felt throughout southern California and southern Nevada. Many homes and businesses were affected and many roadways disrupted, mainly in Los Angeles and Orange counties. Damage estimates ranged from $213–358 million, with 200 injuries, three directly related deaths, and five additional fatalities that were associated with the event."
+    },
+    {
+     "type": "standard",
+     "title": "Modified_Mercalli_intensity_scale",
+     "titles": {
+      "normalized": "Modified Mercalli intensity scale"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/1755_Lisbon_earthquake.jpg/330px-1755_Lisbon_earthquake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 196
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/c/ce/1755_Lisbon_earthquake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 998,
+      "height": 593
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Modified_Mercalli_intensity_scale"
+      }
+     },
+     "extract": "The Modified Mercalli intensity scale measures the effects of an earthquake at a given location. This is in contrast with the seismic magnitude usually reported for an earthquake."
+    }
+   ]
+  },
+  {
+   "text": "Israel-Palestinian conflict: Israel attacks the Palestine Liberation Organization's Tunisia headquarters during Operation Wooden Leg.",
+   "year": 1985,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Israeli–Palestinian_conflict",
+     "titles": {
+      "normalized": "Israeli–Palestinian conflict"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Occupied_Palestinian_Territories.jpg/330px-Occupied_Palestinian_Territories.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 503
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Occupied_Palestinian_Territories.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1895,
+      "height": 2889
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Israeli%E2%80%93Palestinian_conflict"
+      }
+     },
+     "extract": "Israel and the Palestinians are engaged in an ongoing military and political conflict about land and self-determination within the former territory of Mandatory Palestine. Key aspects of the conflict have included Palestinian refugees, the Israeli occupation of the West Bank and Gaza Strip, the status of Jerusalem, Israeli settlements, borders, security, water rights, the permit regime in the West Bank and in the Gaza Strip, Palestinian freedom of movement, and the Palestinian right of return."
+    },
+    {
+     "type": "standard",
+     "title": "Israel_Defense_Forces",
+     "titles": {
+      "normalized": "Israel Defense Forces"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Badge_of_the_Israeli_Defense_Forces_2022_version.svg/330px-Badge_of_the_Israeli_Defense_Forces_2022_version.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 305
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Badge_of_the_Israeli_Defense_Forces_2022_version.svg/1920px-Badge_of_the_Israeli_Defense_Forces_2022_version.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 1665,
+      "height": 1540
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Israel_Defense_Forces"
+      }
+     },
+     "extract": "The Israel Defense Forces, alternatively referred to by the Hebrew-language acronym Tzahal (צה״ל), is the national military of the State of Israel. It consists of three service branches: the Israeli Ground Forces, the Israeli Air Force, and the Israeli Navy. It is the sole military wing of the Israeli security apparatus. The IDF is headed by the chief of the general staff, who is subordinate to the defense minister."
+    },
+    {
+     "type": "standard",
+     "title": "Palestine_Liberation_Organization",
+     "titles": {
+      "normalized": "Palestine Liberation Organization"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Emblem_of_the_PLO_Vector_Graphic.svg/330px-Emblem_of_the_PLO_Vector_Graphic.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 376
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Emblem_of_the_PLO_Vector_Graphic.svg/3840px-Emblem_of_the_PLO_Vector_Graphic.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 2001,
+      "height": 2280
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Palestine_Liberation_Organization"
+      }
+     },
+     "extract": "The Palestine Liberation Organization is a Palestinian nationalist coalition that is internationally recognized as the official representative of the Palestinian people in the occupied Palestinian territories. It is currently represented by the Palestinian Authority based in the West Bank city of Al-Bireh."
+    },
+    {
+     "type": "standard",
+     "title": "Tunisia",
+     "titles": {
+      "normalized": "Tunisia"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/330px-Flag_of_Tunisia.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/1280px-Flag_of_Tunisia.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 1200,
+      "height": 800
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Tunisia"
+      }
+     },
+     "extract": "Tunisia, officially the Republic of Tunisia, is a country in the Maghreb region of North Africa. It is bordered by Algeria to the west and southwest, Libya to the southeast, and the Mediterranean Sea to the north and east. Tunisia also shares maritime borders with Italy through the islands of Sicily and Sardinia to the north and Malta to the east. It features the archaeological sites of Carthage dating back to the 9th century BC, as well as the Great Mosque of Kairouan. Known for its ancient architecture, souks, and blue coasts, it covers 163,610 km2 (63,170 sq mi), and has a population of 12.1 million. It contains the eastern end of the Atlas Mountains and the northern reaches of the Sahara desert; much of its remaining territory is arable land. Its 1,300 km (810 mi) of coastline includes the African conjunction of the western and eastern parts of the Mediterranean Basin. Tunisia is home to Africa's northernmost point, Cape Angela. Located on the northeastern coast, Tunis is the capital of the country, which is itself named after Tunis. The official language of Tunisia is Arabic. The vast majority of Tunisia's population is Arab and Muslim. Vernacular Tunisian Arabic is the most spoken language, and French serves as an administrative and educational language in some contexts, but has no official status."
+    },
+    {
+     "type": "standard",
+     "title": "Operation_Wooden_Leg",
+     "titles": {
+      "normalized": "Operation Wooden Leg"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Operation_Wooden_Leg.jpg/330px-Operation_Wooden_Leg.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 254
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/9/95/Operation_Wooden_Leg.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 600,
+      "height": 461
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Operation_Wooden_Leg"
+      }
+     },
+     "extract": "Operation Wooden Leg was an Israeli airstrike on the Palestine Liberation Organization (PLO) headquarters in Hammam Chott, near Tunis, Tunisia, on 1 October 1985. With a target 1,280 miles (2,060 km) from the operation's starting point, this was the most distant publicly known action undertaken by the Israel Defense Forces since the Entebbe raid in 1976. The airstrike killed between 41 and 71 people and injured between 65 and 100. According to some sources, between 60 and 70 Palestinians and 25 Tunisians were killed. On 4 October, the airstrike was condemned by the United Nations Security Council."
+    }
+   ]
+  },
+  {
+   "text": "Helmut Kohl replaces Helmut Schmidt as Chancellor of Germany through a constructive vote of no confidence.",
+   "year": 1982,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Helmut_Kohl",
+     "titles": {
+      "normalized": "Helmut Kohl"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Helmut_Kohl_%281996%29_cropped_%282%29.jpg/330px-Helmut_Kohl_%281996%29_cropped_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 449
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Helmut_Kohl_%281996%29_cropped_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2086,
+      "height": 2837
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Helmut_Kohl"
+      }
+     },
+     "extract": "Helmut Josef Michael Kohl was a German politician who served as chancellor of Germany from 1982 to 1998. He was leader of the Christian Democratic Union (CDU) from 1973 to 1998 and oversaw the end of the Cold War, German reunification, and the creation of the European Union (EU). Kohl's 16-year tenure is the longest in German post-war history and is the longest for any elected chancellor of Germany."
+    }
+   ]
+  },
+  {
+   "text": "EPCOT Center (Experimental Prototype Community of Tomorrow) opens at Walt Disney World in Florida.",
+   "year": 1982,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Epcot",
+     "titles": {
+      "normalized": "Epcot"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Spaceship_Earth%2C_EPCOT.jpg/330px-Spaceship_Earth%2C_EPCOT.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Spaceship_Earth%2C_EPCOT.jpg/3840px-Spaceship_Earth%2C_EPCOT.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 6240,
+      "height": 4160
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Epcot"
+      }
+     },
+     "extract": "Epcot is a theme park at Walt Disney World Resort in Bay Lake, Florida. Epcot is owned and operated by the Walt Disney Company through its Disney Experiences division. The park opened on October 1, 1982, as EPCOT Center—the second of four theme parks built at the resort. Often referred to as a \"permanent world's fair\", Epcot is dedicated to the celebration of human achievement, particularly technological innovation and international culture. Epcot is also known for its iconic landmark, Spaceship Earth, a geodesic sphere."
+    }
+   ]
+  },
+  {
+   "text": "Sony and Phillips launch the compact disc in Japan; on the same day, Sony releases the model CDP-101 compact disc player, the first player of its kind.",
+   "year": 1982,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Compact_disc",
+     "titles": {
+      "normalized": "Compact disc"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Compact_Disc_wordmark.svg/330px-Compact_Disc_wordmark.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 162
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Compact_Disc_wordmark.svg/500px-Compact_Disc_wordmark.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 435,
+      "height": 213
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Compact_disc"
+      }
+     },
+     "extract": "The compact disc (CD) is a digital optical disc data storage format co-developed by Philips and Sony to store and play digital audio recordings. It employs the Compact Disc Digital Audio (CD-DA) standard and is capable of holding uncompressed stereo audio. First released in Japan in October 1982, the CD was the second optical disc format to reach the market, following the larger LaserDisc (LD). In later years, the technology was adapted for computer data storage as CD-ROM and subsequently expanded into various writable and multimedia formats. By 2007, over 200 billion CDs had been sold worldwide."
+    },
+    {
+     "type": "standard",
+     "title": "Sony_CDP-101",
+     "titles": {
+      "normalized": "Sony CDP-101"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/CDP101a.jpg/330px-CDP101a.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 163
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/2/24/CDP101a.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1920,
+      "height": 951
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Sony_CDP-101"
+      }
+     },
+     "extract": "The Sony CDP-101 was the world's first commercially released compact disc player. The system was launched in Japan on October 1, 1982 at a list price of 168,000 yen."
+    }
+   ]
+  },
+  {
+   "text": "Pope John Paul II begins his first pastoral visit to the United States.",
+   "year": 1979,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Pope_John_Paul_II",
+     "titles": {
+      "normalized": "Pope John Paul II"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/ADAMELLO_-_PAPA_-_Giovanni_Paolo_II_-_panoramio_%28cropped%29.jpg/330px-ADAMELLO_-_PAPA_-_Giovanni_Paolo_II_-_panoramio_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 385
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/9/9c/ADAMELLO_-_PAPA_-_Giovanni_Paolo_II_-_panoramio_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 762,
+      "height": 889
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Pope_John_Paul_II"
+      }
+     },
+     "extract": "Pope John Paul II was the head of the Catholic Church and sovereign of Vatican City from 16 October 1978 until his death in 2005. He was the first non-Italian pope since Adrian VI in the 16th century, as well as the third longest-serving pope in history, after St. Peter and Pius IX. In addition to this, he was an important philosopher and theologian of the 20th century."
+    }
+   ]
+  },
+  {
+   "text": "The MTR, Hong Kong's rapid transit railway system, opens.",
+   "year": 1979,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "MTR",
+     "titles": {
+      "normalized": "MTR"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/en/thumb/b/b9/HK_MTR_logo.svg/330px-HK_MTR_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 264
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/en/thumb/b/b9/HK_MTR_logo.svg/500px-HK_MTR_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 500,
+      "height": 400
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/MTR"
+      }
+     },
+     "extract": "The Mass Transit Railway system, known locally by the initialism MTR, is a rapid transit system in Hong Kong and the territory's principal mode of railway transportation. Operated by the MTR Corporation (MTRCL), it consists of heavy rail, light rail and feeder bus services, centred around a 10-line rapid transit network, serving the urbanised areas of Hong Kong Island, Kowloon, and the New Territories. The system encompasses 245.3 km (152.4 mi) of railways, as of December 2022, with 179 stations—including 99 heavy rail stations, 68 light rail stops and 1 high-speed rail terminus."
+    }
+   ]
+  },
+  {
+   "text": "Tuvalu gains independence from the United Kingdom.",
+   "year": 1978,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Tuvalu",
+     "titles": {
+      "normalized": "Tuvalu"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tuvalu.svg/330px-Flag_of_Tuvalu.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 165
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tuvalu.svg/1280px-Flag_of_Tuvalu.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 1200,
+      "height": 600
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Tuvalu"
+      }
+     },
+     "extract": "Tuvalu is an archipelagic country in the Polynesian sub-region of Oceania in the Pacific Ocean, about midway between Hawaii and Australia. It lies east-northeast of the Santa Cruz Islands, northeast of Vanuatu, southeast of Nauru, south of Kiribati, west of Tokelau, northwest of Samoa and Wallis and Futuna, and north of Fiji."
+    }
+   ]
+  },
+  {
+   "text": "Muhammad Ali defeats Joe Frazier in a boxing match in Manila, Philippines.",
+   "year": 1975,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Thrilla_in_Manila",
+     "titles": {
+      "normalized": "Thrilla in Manila"
+     },
+     "thumbnail": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/2/2e/Muhammad_Ali_vs._Joe_Frazier_III.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 258,
+      "height": 387
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/2/2e/Muhammad_Ali_vs._Joe_Frazier_III.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 258,
+      "height": 387
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Thrilla_in_Manila"
+      }
+     },
+     "extract": "Muhammad Ali vs. Joe Frazier III, billed as the Thrilla in Manila, was the third and final boxing match between undisputed champion Muhammad Ali, and former champion Joe Frazier, for the undisputed heavyweight championship of the world. The bout was conceded after fourteen rounds on October 1, 1975, at the Araneta Coliseum in Cubao, Quezon City, Philippines, located in Rizal at the time of the event."
+    }
+   ]
+  },
+  {
+   "text": "Walt Disney World opens near Orlando, Florida.",
+   "year": 1971,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Walt_Disney_World",
+     "titles": {
+      "normalized": "Walt Disney World"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Cinderella_Castle%2C_Magic_Kingdom_%282026%29_%28square_crop%29.jpg/330px-Cinderella_Castle%2C_Magic_Kingdom_%282026%29_%28square_crop%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 330
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Cinderella_Castle%2C_Magic_Kingdom_%282026%29_%28square_crop%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2389,
+      "height": 2388
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Walt_Disney_World"
+      }
+     },
+     "extract": "Walt Disney World Resort is an entertainment and vacation resort complex located about 20 miles (32 km) southwest of Orlando, Florida, United States. Opened on October 1, 1971, the resort is operated by Disney Experiences, a division of the Walt Disney Company."
+    }
+   ]
+  },
+  {
+   "text": "The first practical CT scanner is used to diagnose a patient.",
+   "year": 1971,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "History_of_computed_tomography",
+     "titles": {
+      "normalized": "History of computed tomography"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/CT_scanner_prototype.png/330px-CT_scanner_prototype.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/6/6a/CT_scanner_prototype.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1200,
+      "height": 800
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/History_of_computed_tomography"
+      }
+     },
+     "extract": "The history of X-ray computed tomography (CT) traces back to Wilhelm Conrad Röntgen's discovery of X-ray radiation in 1895 and its rapid adoption in medical diagnostics. While X-ray radiography achieved tremendous success in the early 1900s, it had a significant limitation: projection-based imaging lacked depth information, which is crucial for many diagnostic tasks. To overcome this, additional X-ray projections from different angles were needed. The challenge was both mathematically and experimentally addressed by multiple scientists and engineers working independently across the globe. The breakthrough finally came in the 1970s with the work of Godfrey Hounsfield, when advancements in computing power and the development of commercial CT scanners made routine diagnostic applications possible."
+    }
+   ]
+  },
+  {
+   "text": "Concorde breaks the sound barrier for the first time.",
+   "year": 1969,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Concorde",
+     "titles": {
+      "normalized": "Concorde"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/British_Airways_Concorde_G-BOAC_03.jpg/330px-British_Airways_Concorde_G-BOAC_03.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 219
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/eb/British_Airways_Concorde_G-BOAC_03.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1024,
+      "height": 679
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Concorde"
+      }
+     },
+     "extract": "Concorde is a retired Anglo-French supersonic airliner jointly developed and manufactured by Sud Aviation and the British Aircraft Corporation (BAC).\n\nStudies began in 1954 and a UK–France treaty followed in 1962, as the programme cost was estimated at £70 million .\nConstruction of six prototypes began in February 1965, with the first flight from Toulouse on 2 March 1969.\n\nThe market forecast was 350 aircraft, with manufacturers receiving up to 100 options from major airlines.\nOn 9 October 1975, it received its French certificate of airworthiness, and was certified by the UK CAA on 5 December."
+    }
+   ]
+  },
+  {
+   "text": "Guyana nationalizes the British Guiana Broadcasting Service, which would eventually become part of the National Communications Network, Guyana.",
+   "year": 1968,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "National_Communications_Network,_Guyana",
+     "titles": {
+      "normalized": "National Communications Network, Guyana"
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/National_Communications_Network%2C_Guyana"
+      }
+     },
+     "extract": "National Communications Network (NCN) is a national, state-owned television and radio broadcasting corporation in Guyana. It was formed in 2004 through the merger of the government radio service, Guyana Broadcasting Corporation (GBC), and the government-run television service, GTV. NCN's studios are situated on Homestretch Avenue in Georgetown."
+    }
+   ]
+  },
+  {
+   "text": "West Coast Airlines Flight 956 crashes with no survivors in Oregon. This accident marks the first loss of a DC-9.",
+   "year": 1966,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "West_Coast_Airlines_Flight_956",
+     "titles": {
+      "normalized": "West Coast Airlines Flight 956"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/West_Coast_Airlines_McDonnell_Douglas_DC-9_N9102.jpg/330px-West_Coast_Airlines_McDonnell_Douglas_DC-9_N9102.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 186
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/a/a6/West_Coast_Airlines_McDonnell_Douglas_DC-9_N9102.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 625,
+      "height": 353
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/West_Coast_Airlines_Flight_956"
+      }
+     },
+     "extract": "West Coast Airlines Flight 956 was a scheduled commercial flight in the Western United States which crashed on October 1, 1966, approximately 5.5 miles (9 km) south of Wemme, Oregon, southeast of Portland. Thirteen passengers and five crew members were aboard, but none survived. In its first week of service, the aircraft was destroyed by the impact and subsequent fire."
+    },
+    {
+     "type": "standard",
+     "title": "McDonnell_Douglas_DC-9",
+     "titles": {
+      "normalized": "McDonnell Douglas DC-9"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Northwest_N756NW_DC9_%28cropped_16_9%29.JPG/330px-Northwest_N756NW_DC9_%28cropped_16_9%29.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 186
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Northwest_N756NW_DC9_%28cropped_16_9%29.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2546,
+      "height": 1432
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/McDonnell_Douglas_DC-9"
+      }
+     },
+     "extract": "The McDonnell Douglas DC-9 is an American five-abreast, single-aisle aircraft designed by the Douglas Aircraft Company. It was initially produced as the Douglas DC-9 before August 1967, when the company merged with McDonnell Aircraft to become McDonnell Douglas."
+    }
+   ]
+  },
+  {
+   "text": "At dawn, seven Indonesian Army officers and a police inspector were assassinated by the September 30 Movement at Lubang Buaya, East Jakarta. In addition, two more officers were killed in Yogyakarta. The Army pinned the murders to the Communist Party of Indonesia, resulting in mass killings of suspected leftists.",
+   "year": 1965,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Indonesian_Army",
+     "titles": {
+      "normalized": "Indonesian Army"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Insignia_of_the_Indonesian_Army.svg/330px-Insignia_of_the_Indonesian_Army.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 484
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Insignia_of_the_Indonesian_Army.svg/500px-Insignia_of_the_Indonesian_Army.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 499,
+      "height": 732
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Indonesian_Army"
+      }
+     },
+     "extract": "The Indonesian Army is the land branch of the Indonesian National Armed Forces. It has an estimated strength of 1.632.000 active personnel. The history of the Indonesian Army has its roots in 1945 when the Tentara Keamanan Rakyat (TKR) \"People's Security Army\" first emerged as a paramilitary and police corps."
+    },
+    {
+     "type": "standard",
+     "title": "30_September_Movement",
+     "titles": {
+      "normalized": "30 September Movement"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Monumen_Pancasila_Sakti.jpg/330px-Monumen_Pancasila_Sakti.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 186
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Monumen_Pancasila_Sakti.jpg/3840px-Monumen_Pancasila_Sakti.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 4208,
+      "height": 2368
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/30_September_Movement"
+      }
+     },
+     "extract": "The Thirtieth of September Movement was a coup movement allegedly orchestrated by the leaders of the Communist Party of Indonesia (PKI) and its sympathizers within the Indonesian military."
+    },
+    {
+     "type": "standard",
+     "title": "Lubang_Buaya",
+     "titles": {
+      "normalized": "Lubang Buaya"
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Lubang_Buaya"
+      }
+     },
+     "extract": "Lubang Buaya is an administrative village in Cipayung, East Jakarta, Indonesia, located on the outskirts of Jakarta near the Halim Perdanakusuma Air Force Base. It is the site of the murder of seven Indonesian army officers during the 1 October coup attempt of the 30 September Movement."
+    },
+    {
+     "type": "standard",
+     "title": "East_Jakarta",
+     "titles": {
+      "normalized": "East Jakarta"
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/East_Jakarta"
+      }
+     },
+     "extract": "East Jakarta, abbreviated as Jaktim, is the largest of the five administrative cities which form the Special Capital Region of Jakarta, Indonesia, with a land area of 188.03 km2. It had a population of 2,693,896 at the 2010 Census and 3,037,139 at the 2020 Census; the official estimate as at mid 2025 was 3,225,299, making it the most populous of the five administrative cities within Jakarta. East Jakarta is not self-governed and does not have a city council, hence it is not classified as a proper municipality."
+    },
+    {
+     "type": "standard",
+     "title": "Yogyakarta",
+     "titles": {
+      "normalized": "Yogyakarta"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Jogja_-_Tugu_Monument_%282025%29_-_img_06.jpg/330px-Jogja_-_Tugu_Monument_%282025%29_-_img_06.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 248
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Jogja_-_Tugu_Monument_%282025%29_-_img_06.jpg/3840px-Jogja_-_Tugu_Monument_%282025%29_-_img_06.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 5377,
+      "height": 4033
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Yogyakarta"
+      }
+     },
+     "extract": "Yogyakarta is the capital city of the Special Region of Yogyakarta in Indonesia, in the south-central part of the island of Java. As the only Indonesian royal city still ruled by a monarchy, Yogyakarta is regarded as an important centre for classical Javanese fine arts and culture such as ballet, batik textiles, drama, literature, music, poetry, silversmithing, visual arts, and wayang puppetry. Renowned as a centre of Indonesian education, Yogyakarta is home to a large student population and dozens of schools and universities, including Gadjah Mada University, the country's largest institute of higher education and one of its most prestigious."
+    },
+    {
+     "type": "standard",
+     "title": "Communist_Party_of_Indonesia",
+     "titles": {
+      "normalized": "Communist Party of Indonesia"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Logo_of_the_Communist_Party_of_Indonesia.svg/330px-Logo_of_the_Communist_Party_of_Indonesia.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 355
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Logo_of_the_Communist_Party_of_Indonesia.svg/960px-Logo_of_the_Communist_Party_of_Indonesia.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 742,
+      "height": 798
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Communist_Party_of_Indonesia"
+      }
+     },
+     "extract": "The Communist Party of Indonesia was a Marxist-Leninist and Maoist communist party in the Dutch East Indies and later Indonesia. It was founded in 1914 as the Indies Social Democratic Association, became the Communist Union of the Indies in 1920, and adopted the name PKI in 1924. The Dutch colonial government banned the party after failed uprisings in 1926 and 1927, but it re-emerged during the Indonesian National Revolution after the Japanese surrender in 1945."
+    },
+    {
+     "type": "standard",
+     "title": "Indonesian_mass_killings_of_1965–66",
+     "titles": {
+      "normalized": "Indonesian mass killings of 1965–66"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Students_conducting_anti-Sukarno_campaign_violently_-_ca1965.png/330px-Students_conducting_anti-Sukarno_campaign_violently_-_ca1965.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 217
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Students_conducting_anti-Sukarno_campaign_violently_-_ca1965.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1515,
+      "height": 997
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Indonesian_mass_killings_of_1965%E2%80%9366"
+      }
+     },
+     "extract": "From October 1965 to March 1966, a series of large-scale killings and civil unrest primarily targeting members and supposed sympathizers of the Communist Party of Indonesia (PKI) took place in Indonesia. Other affected groups included alleged communist sympathisers, Gerwani women, trade unionists, ethnic Javanese Abangan, ethnic Chinese, atheists and other non-Muslims, and leftists in general. According to the most widely published estimates, at least 500,000 to 1 million people were killed. Some of the higher estimates reach figures as much as 2 to 3 million people killed."
+    }
+   ]
+  },
+  {
+   "text": "The Free Speech Movement is launched on the campus of the University of California, Berkeley.",
+   "year": 1964,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Free_Speech_Movement",
+     "titles": {
+      "normalized": "Free Speech Movement"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/FreeSpeechCafe3.JPG/330px-FreeSpeechCafe3.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 306
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/9/9c/FreeSpeechCafe3.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2025,
+      "height": 1878
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Free_Speech_Movement"
+      }
+     },
+     "extract": "The Free Speech Movement (FSM) was a student protest which took place during the 1964–65 academic year on the campus of the University of California, Berkeley. Student leaders included Jack Weinberg, Tom Miller, Mario Savio, Michael Rossman, George Barton, Brian Turner, Bettina Aptheker, Steve Weissman, Michael Teal, Art Goldberg, Jackie Goldberg and others."
+    }
+   ]
+  },
+  {
+   "text": "Japanese Shinkansen (\"bullet trains\") begin high-speed rail service from Tokyo to Osaka.",
+   "year": 1964,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Shinkansen",
+     "titles": {
+      "normalized": "Shinkansen"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Shinkansen_map_202405_en.png/330px-Shinkansen_map_202405_en.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 341
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Shinkansen_map_202405_en.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 3100,
+      "height": 3200
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Shinkansen"
+      }
+     },
+     "extract": "The Shinkansen , colloquially known in English as the bullet train, is a network of primarily high-speed railway lines in Japan. The system was developed to provide connections between Tokyo and other regions of the country. In addition to long-distance services, some sections in and around the largest metropolitan areas are used for commuter travel."
+    }
+   ]
+  },
+  {
+   "text": "On its third anniversary as an independent nation, Nigeria became a republic.",
+   "year": 1963,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Nigeria",
+     "titles": {
+      "normalized": "Nigeria"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/330px-Flag_of_Nigeria.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 165
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/1280px-Flag_of_Nigeria.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 1200,
+      "height": 600
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Nigeria"
+      }
+     },
+     "extract": "Nigeria, officially the Federal Republic of Nigeria, is a country in West Africa between the Sahel to the north and the Gulf of Guinea in the Atlantic Ocean to the south. It covers an area of 923,769 square kilometres (356,669 mi2). With a population of more than 242 million, it is the most populous country in Africa, and the world's sixth-most populous country. Nigeria borders Niger in the north, Chad in the northeast, Cameroon in the east, and Benin in the west. Nigeria is a federal republic comprising 36 states and the Federal Capital Territory, where its capital, Abuja, is located. The largest city in Nigeria by population is Lagos, one of the largest metropolitan areas in the world and the second largest in Africa."
+    },
+    {
+     "type": "standard",
+     "title": "First_Nigerian_Republic",
+     "titles": {
+      "normalized": "First Nigerian Republic"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/330px-Flag_of_Nigeria.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 165
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/1280px-Flag_of_Nigeria.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 1200,
+      "height": 600
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/First_Nigerian_Republic"
+      }
+     },
+     "extract": "The First Republic was the republican government of Nigeria between 1963 and 1966 governed by the first republican constitution. The country's government was based on a federal form of the Westminster system. The period between 1 October 1960, when the country gained its independence, and 15 January 1966, when the first military coup d’état took place, is also generally referred to as the First Republic. The first Republic of Nigeria was ruled by different leaders representing their regions as premiers in a federation during this period."
+    }
+   ]
+  },
+  {
+   "text": "James Meredith becomes the first African American student to enroll at the University of Mississippi.",
+   "year": 1962,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "James_Meredith",
+     "titles": {
+      "normalized": "James Meredith"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/James_Meredith_in_2010_%28cropped%29.jpg/330px-James_Meredith_in_2010_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 443
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/f/f3/James_Meredith_in_2010_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 964,
+      "height": 1295
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/James_Meredith"
+      }
+     },
+     "extract": "James Howard Meredith is an American civil rights activist, writer, political adviser, and United States Air Force veteran who became, in 1962, the first African-American student admitted to the racially segregated University of Mississippi after the intervention of the federal government. Inspired by President John F. Kennedy's inaugural address, Meredith decided to exercise his constitutional rights and apply to the University of Mississippi. His goal was to put pressure on the Kennedy administration to enforce civil rights for African Americans. The admission of Meredith ignited the Ole Miss riot of 1962 where Meredith's life was threatened and 31,000 American servicemen were required to quell the violence – the largest ever invocation of the Insurrection Act of 1807."
+    }
+   ]
+  },
+  {
+   "text": "The United States Defense Intelligence Agency is formed, becoming the country's first centralized military intelligence organization.",
+   "year": 1961,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Defense_Intelligence_Agency",
+     "titles": {
+      "normalized": "Defense Intelligence Agency"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Seal_of_the_U.S._Defense_Intelligence_Agency.svg/330px-Seal_of_the_U.S._Defense_Intelligence_Agency.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 330
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Seal_of_the_U.S._Defense_Intelligence_Agency.svg/250px-Seal_of_the_U.S._Defense_Intelligence_Agency.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 127,
+      "height": 127
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Defense_Intelligence_Agency"
+      }
+     },
+     "extract": "The Defense Intelligence Agency (DIA) is an intelligence agency and combat support agency of the United States Department of Defense (DoD) specializing in military intelligence."
+    }
+   ]
+  },
+  {
+   "text": "East and West Cameroon merge to form the Federal Republic of Cameroon.",
+   "year": 1961,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Cameroon",
+     "titles": {
+      "normalized": "Cameroon"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/330px-Flag_of_Cameroon.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 220
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/960px-Flag_of_Cameroon.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 900,
+      "height": 600
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Cameroon"
+      }
+     },
+     "extract": "Cameroon, officially the Republic of Cameroon, is a country in Central Africa. It shares boundaries with Nigeria to the west and north, Chad to the northeast, the Central African Republic to the east, and Equatorial Guinea, Gabon, and the Republic of the Congo to the south. Its coastline lies on the Bight of Biafra, part of the Gulf of Guinea, and the Atlantic Ocean. Due to its strategic position at the crossroads between West Africa and Central Africa, it has been categorized as being in both geostrategic locations. Cameroon's population of nearly 31 million people speak 250 native languages, in addition to the national tongues of English and French. The capital city of the country is Yaoundé."
+    }
+   ]
+  },
+  {
+   "text": "The CTV Television Network, Canada's first private television network, is launched.",
+   "year": 1961,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "CTV_Television_Network",
+     "titles": {
+      "normalized": "CTV Television Network"
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/CTV_Television_Network"
+      }
+     },
+     "extract": "The CTV Television Network, commonly known as CTV, is a Canadian English-language terrestrial television network. Launched in 1961 and acquired by BCE Inc. in 2000, CTV is Canada's largest privately owned television network and is now a division of the Bell Media subsidiary of BCE. It is Canada's largest privately or commercially owned network consisting of 22 owned-and-operated stations nationwide and two privately owned affiliates, and has consistently been placed as Canada's top-rated network in total viewers and in key demographics since 2002, after several years trailing the rival Global Television Network in key markets."
+    }
+   ]
+  },
+  {
+   "text": "Nigeria gains independence from the United Kingdom.",
+   "year": 1960,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "Independence_Day_(Nigeria)",
+     "titles": {
+      "normalized": "Independence Day (Nigeria)"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/330px-Flag_of_Nigeria.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 165
+     },
+     "originalimage": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/1280px-Flag_of_Nigeria.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 1200,
+      "height": 600
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/Independence_Day_(Nigeria)"
+      }
+     },
+     "extract": "Independence Day is an annual public holiday in Nigeria observed on 1 October to commemorate the country's independence from the United Kingdom in 1960. It is celebrated nationwide with official ceremonies, military parades, cultural displays, and other public events. The holiday commemorates the formal transfer of sovereignty that took place in Lagos at midnight on 1 October 1960, when the Union Jack was lowered and replaced with Nigeria's green–white–green flag. Princess Alexandra of Kent, representing Elizabeth II, presented the constitutional instruments of independence, and the new federal government formally assumed authority. Preparations for the inaugural festivities included cultural events, receptions, and the commissioning of new infrastructure."
+    }
+   ]
+  },
+  {
+   "text": "The National Advisory Committee for Aeronautics is replaced by NASA.",
+   "year": 1958,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "National_Advisory_Committee_for_Aeronautics",
+     "titles": {
+      "normalized": "National Advisory Committee for Aeronautics"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/NACA_seal_%28cropped%29.png/330px-NACA_seal_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 330
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/0/02/NACA_seal_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1163,
+      "height": 1163
+     },
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/National_Advisory_Committee_for_Aeronautics"
+      }
+     },
+     "extract": "The National Advisory Committee for Aeronautics (NACA) was a United States federal agency that was founded on March 3, 1915, to undertake, promote, and institutionalize aeronautical research. On October 1, 1958, the agency was dissolved and its assets and personnel were transferred to the newly created National Aeronautics and Space Administration (NASA). NACA is an initialism, pronounced as individual letters rather than as a whole word, as was NASA during the early years after being established."
+    }
+   ]
+  },
+  {
+   "text": "The North American F-86 Sabre flies for the first time.",
+   "year": 1947,
+   "pages": [
+    {
+     "type": "standard",
+     "title": "North_American_F-86_Sabre",
+     "titles": {
+      "normalized": "North American F-86 Sabre"
+     },
+     "thumbnail": {
+      "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/F-86_Sabre_hertiage_flight.jpg/330px-F-86_Sabre_hertiage_flight.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 330,
+      "height": 224
+     },
+     "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/1/1e/F-86_Sabre_hertiage_flight.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 1128,
+      "height": 764
+     },
+     "extract": "The North American F-86 Sabre, sometimes called the Sabrejet, is a transonic, jet-powered fighter aircraft. Produced by North American Aviation, the Sabre is best known as the United States' first swept-wing fighter that could counter the swept-wing Soviet MiG-15 in high-speed dogfights in the skies of the Korean War (1950–1953), fighting some of the earliest jet-to-jet battles. Considered one of the best and most important fighter aircraft in that war, the F-86 is also rated highly in comparison with fighters of other eras. Although it was developed in the late 1940s and was outdated by the end of the 1950s, the Sabre proved versatile and adaptable and continued as a front-line fighter in numerous air forces.",
+     "content_urls": {
+      "mobile": {
+       "page": "https://en.wikipedia.org/wiki/North_American_F-86_Sabre"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
