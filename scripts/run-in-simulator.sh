@@ -24,7 +24,8 @@ if [ -z "$APP" ]; then
   APP="$ROOT/build/Build/Products/Debug-iphonesimulator/Daybreak.app"
 fi
 
-open -a Simulator
+# Shows the simulator window; over SSH (no GUI session) it can't, and the simulator runs headless instead.
+open -a Simulator || echo "Couldn't open Simulator.app; carrying on without its window." >&2
 xcrun simctl boot "$DEVICE" 2>/dev/null || true # already booted is fine
 xcrun simctl bootstatus "$DEVICE" -b >/dev/null
 xcrun simctl install "$DEVICE" "$APP"
