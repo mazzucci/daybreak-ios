@@ -28,6 +28,9 @@ scripts/run-in-simulator.sh --ipad     # iPad Pro 13-inch (M5)
 scripts/run-in-simulator.sh build/Build/Products/Debug-iphonesimulator/Daybreak.app   # a prebuilt app
 ```
 
+Over SSH (no GUI login session) Simulator.app can't open its window; the script says so and carries on, and the
+simulator runs headless, which is all screenshots need.
+
 The same steps by hand:
 
 ```sh
