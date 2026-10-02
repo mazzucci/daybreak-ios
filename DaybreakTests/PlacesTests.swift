@@ -104,6 +104,49 @@ struct PlacesTests {
         #expect(model.pages.count == 3)
     }
 
+    @Test("a list's drop position becomes the row's final index")
+    func listDestination() {
+        // Dragging the first of three to the end: SwiftUI says 3, the row ends at 2.
+        #expect(SavedPlaces.finalIndex(from: 0, listDestination: 3) == 2)
+        #expect(SavedPlaces.finalIndex(from: 2, listDestination: 0) == 0)
+        #expect(SavedPlaces.finalIndex(from: 1, listDestination: 1) == 1)
+        let moved = SavedPlaces.moving([lisbon, porto, faro], from: 0, to: SavedPlaces.finalIndex(from: 0, listDestination: 3))
+        #expect(moved.map(\.name) == ["Porto", "Faro", "Lisbon"])
+    }
+
+    @Test("with the current location off, the saved places are the pages and the first is Home's")
+    func currentLocationOff() {
+        let store = freshStore()
+        store.save([lisbon, porto])
+        let model = WeatherModel(live: false, store: store)
+        #expect(model.useCurrentLocation)
+        #expect(model.glance?.id == Place.currentLocationId)
+
+        model.setUseCurrentLocation(false)
+        #expect(model.pages.map(\.id) == [lisbon.id, porto.id])
+        #expect(model.glance?.id == lisbon.id)
+        #expect(model.place == lisbon)
+        #expect(model.placeSource == .saved)
+        #expect(!WeatherModel(live: false, store: store).useCurrentLocation)
+
+        model.setUseCurrentLocation(true)
+        #expect(model.pages.map(\.id) == [Place.currentLocationId, lisbon.id, porto.id])
+        #expect(WeatherModel(live: false, store: store).useCurrentLocation)
+    }
+
+    @Test("with nothing saved and the current location off there are no pages, and nothing for Home")
+    func noPages() {
+        let store = freshStore()
+        let model = WeatherModel(live: false, store: store)
+        model.setUseCurrentLocation(false)
+        #expect(model.pages.isEmpty)
+        #expect(model.glance == nil)
+        #expect(model.forecast == nil)
+        #expect(model.failure == nil)
+        model.add(faro)
+        #expect(model.glance?.id == faro.id)
+    }
+
     // MARK: Search
 
     private func search(_ answer: @escaping @Sendable (String) async throws -> [Place]) -> PlaceSearch {

@@ -79,7 +79,7 @@ Daybreak/Data         OpenMeteo.swift (request + parser), Wikipedia.swift (feed 
                       LocationService.swift
 Daybreak/UI           Theme.swift (Android's palette as dynamic colours, type scale, card style), Sky.swift (hero
                       gradients), WeatherIcon.swift (Android's drawn icons), Components.swift, HomeScreen.swift,
-                      WeatherScreen.swift (a NavigationStack over a paging ScrollView of places), SearchScreen.swift, DayScreen.swift (a day's page, pushed from the
+                      WeatherScreen.swift (a NavigationStack over a paging ScrollView of places), SearchScreen.swift, PlacesScreen.swift, DayScreen.swift (a day's page, pushed from the
                       10-day list), OnThisDayCard.swift, RootView.swift (tabs, placeholders)
 DaybreakTests         Swift Testing suites ported from Android's tests: PrecipTests, OnThisDayTests,
                       OnThisDayFeedTests, OpenMeteoParserTests, DayPageTests, PlacesTests; Fixtures/ holds Android's JSON fixtures, copied

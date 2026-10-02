@@ -11,7 +11,8 @@ struct DayRoute: Hashable {
 private let topRowHeight: CGFloat = 44
 
 /// The Weather tab, ported from Android's WeatherScreen: a page per place (where you are, then the places you've
-/// added), swiped sideways, under a floating row with where you are in the pages, Refresh and Add place. Each page
+/// added), swiped sideways, under a floating row with where you are in the pages, Refresh, Add place and Places.
+/// With no places at all, a page that says how to start. Each page
 /// has the sky with the summary, the temperature in both units, the condition and today's High, Low and rain; then
 /// feels-like, humidity and wind; the next 12 hours; sunrise, sunset and UV; and the next 10 days. Pull to refresh.
 /// Tapping a day opens its page.
@@ -21,34 +22,22 @@ struct WeatherScreen: View {
         LaunchOptions.openDay.map { [DayRoute(pageId: Place.currentLocationId, date: $0)] } ?? []
     @State private var selection = Place.currentLocationId
     @State private var searching = false
+    @State private var managing = false
     /// A place just added, to turn to once its page exists (Android waits for it the same way).
     @State private var pendingSelection: String?
 
     var body: some View {
         NavigationStack(path: $path) {
             let pages = model.pages
-            // Pages side by side, snapping one at a time. (A paging TabView is a UIKit page controller, which clips
-            // the sky below the status bar and takes over the status bar's colour.)
-            ScrollView(.horizontal) {
-                LazyHStack(spacing: 0) {
-                    ForEach(pages) { page in
-                        // Once, even if a row is tapped twice before the day slides in.
-                        WeatherPage(page: page, onOpenDay: { date in
-                            let route = DayRoute(pageId: page.id, date: date)
-                            if path.last != route { path.append(route) }
-                        })
-                        .containerRelativeFrame(.horizontal)
-                        .id(page.id)
-                    }
+            Group {
+                if pages.isEmpty {
+                    EmptyState(onSearch: { searching = true }, onUseLocation: { model.setUseCurrentLocation(true) })
+                } else {
+                    pager(pages)
                 }
-                .scrollTargetLayout()
             }
-            .scrollTargetBehavior(.paging)
-            .scrollPosition(id: Binding(get: { selection }, set: { if let id = $0 { selection = id } }))
-            .scrollIndicators(.hidden)
-            .scrollBounceBehavior(.basedOnSize, axes: .horizontal)
             .overlay(alignment: .top) {
-                TopRow(pages: pages, selection: selection, onAdd: { searching = true })
+                TopRow(pages: pages, selection: selection, onAdd: { searching = true }, onPlaces: { managing = true })
             }
             .background(Palette.background.ignoresSafeArea())
             .toolbar(.hidden, for: .navigationBar)
@@ -61,6 +50,9 @@ struct WeatherScreen: View {
                     searching = false
                 }
             }
+            .sheet(isPresented: $managing) {
+                PlacesScreen()
+            }
             .task(id: pendingSelection) {
                 // A tick after the page is added, so the pager has laid it out before turning to it.
                 guard let pending = pendingSelection else { return }
@@ -68,20 +60,90 @@ struct WeatherScreen: View {
                 if model.page(pending) != nil { withAnimation { selection = pending } }
                 pendingSelection = nil
             }
-            .onChange(of: model.pages.map(\.id)) { _, ids in
-                // The page showing was removed: back to the first.
-                if !ids.contains(selection) { selection = Place.currentLocationId }
+            .onChange(of: pages.map(\.id), initial: true) { _, ids in
+                // The page showing was removed (or never was): the first.
+                if !ids.contains(selection), let first = ids.first { selection = first }
             }
+        }
+    }
+
+    /// Pages side by side, snapping one at a time. (A paging TabView is a UIKit page controller, which clips the sky
+    /// below the status bar and takes over the status bar's colour.)
+    private func pager(_ pages: [PlaceWeather]) -> some View {
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: 0) {
+                ForEach(pages) { page in
+                    // Once, even if a row is tapped twice before the day slides in.
+                    WeatherPage(page: page, onOpenDay: { date in
+                        let route = DayRoute(pageId: page.id, date: date)
+                        if path.last != route { path.append(route) }
+                    })
+                    .containerRelativeFrame(.horizontal)
+                    .id(page.id)
+                }
+            }
+            .scrollTargetLayout()
+        }
+        .scrollTargetBehavior(.paging)
+        .scrollPosition(id: Binding(get: { selection }, set: { if let id = $0 { selection = id } }))
+        .scrollIndicators(.hidden)
+        .scrollBounceBehavior(.basedOnSize, axes: .horizontal)
+    }
+}
+
+/// The Weather tab with no places: a plain sky, then how to start (Android's EmptyState).
+private struct EmptyState: View {
+    let onSearch: () -> Void
+    let onUseLocation: () -> Void
+    @Environment(\.colorScheme) private var scheme
+
+    var body: some View {
+        let sky = Sky.neutral(dark: scheme == .dark)
+        SkyPage(skyTop: sky[0], scrimExtra: topRowHeight) { onHeroBottom in
+            Hero(colors: sky, top: topRowHeight + 4, onBottom: onHeroBottom) {
+                Spacer().frame(height: 8)
+                Text("Weather").font(.headline1).accessibilityAddTraits(.isHeader)
+                Spacer().frame(height: 2)
+                Text("Local forecasts, in °F and °C").font(.bodyMedium)
+                Spacer().frame(height: 24)
+            }
+            VStack(spacing: 0) {
+                WeatherIcon(code: 2, size: 96).accessibilityHidden(true)
+                Spacer().frame(height: 24)
+                Text("Pick a place to start")
+                    .font(.system(.title2, weight: .semibold))
+                    .foregroundStyle(Palette.onSurface)
+                Spacer().frame(height: 8)
+                Text("Search for any city, or use your current location. You can save as many places as you like and swipe between them.")
+                    .font(.bodyMedium)
+                    .foregroundStyle(Palette.onSurfaceVariant)
+                Spacer().frame(height: 28)
+                Button(action: onSearch) {
+                    Label("Search for a city", systemImage: "magnifyingglass").frame(maxWidth: .infinity, minHeight: 36)
+                }
+                .buttonStyle(.borderedProminent)
+                Spacer().frame(height: 12)
+                Button(action: onUseLocation) {
+                    Label("Use my location", systemImage: "location.fill").frame(maxWidth: .infinity, minHeight: 36)
+                }
+                .buttonStyle(.bordered)
+            }
+            .multilineTextAlignment(.center)
+            .tint(Palette.primary)
+            .padding(.horizontal, Metrics.pageMargin)
+            .padding(.vertical, 40)
+            .readableWidth()
         }
     }
 }
 
-/// Over the sky, below the status bar: where you are in the pages on the left; Refresh and Add place on the right,
-/// in white (every page starts with a sky, so they always stand out).
+/// Over the sky, below the status bar: where you are in the pages on the left; Refresh, Add place and Places on the
+/// right, in white (every page starts with a sky, so they always stand out).
 private struct TopRow: View {
     let pages: [PlaceWeather]
     let selection: String
     let onAdd: () -> Void
+    let onPlaces: () -> Void
 
     var body: some View {
         let page = pages.first { $0.id == selection }
@@ -106,6 +168,10 @@ private struct TopRow: View {
                 Image(systemName: "plus").frame(width: topRowHeight, height: topRowHeight)
             }
             .accessibilityLabel("Add place")
+            Button(action: onPlaces) {
+                Image(systemName: "list.bullet").frame(width: topRowHeight, height: topRowHeight)
+            }
+            .accessibilityLabel("Places")
         }
         .font(.system(size: 19, weight: .semibold))
         .foregroundStyle(.white)

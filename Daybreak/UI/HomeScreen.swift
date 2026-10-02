@@ -61,14 +61,30 @@ struct HomeScreen: View {
     }
 }
 
-/// The weather where you are in one card: icon, place, "Partly cloudy · ↑74° ↓56° · Rain 60%", and the temperature in
-/// both units. Tapping opens the Weather tab. While there's no forecast the same frame says why.
+/// The weather for the first page in one card: icon, place, "Partly cloudy · ↑74° ↓56° · Rain 60%", and the
+/// temperature in both units. Tapping opens the Weather tab. While there's no forecast the same frame says why; with
+/// no places at all, how to start.
 private struct WeatherGlance: View {
     @Environment(WeatherModel.self) private var model
     let openWeather: () -> Void
+    @State private var searching = false
 
     var body: some View {
-        if let f = model.forecast {
+        if model.glance == nil {
+            message(icon: "magnifyingglass", tint: Palette.primary, title: "Pick a place to start",
+                    text: "Search for a city, or use your location.") {
+                HStack(spacing: 20) {
+                    Button("Add a place") { searching = true }
+                    Button("Use my location") { model.setUseCurrentLocation(true) }
+                }
+            }
+            .sheet(isPresented: $searching) {
+                SearchScreen(savedIds: model.savedIds) { place in
+                    model.add(place)
+                    searching = false
+                }
+            }
+        } else if let f = model.forecast {
             loaded(f)
         } else if let failure = model.failure {
             message(icon: "exclamationmark.triangle.fill", tint: Palette.error, title: "Couldn't load the weather", text: failure) {

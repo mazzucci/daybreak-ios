@@ -1,10 +1,18 @@
 import Foundation
 
-/// The places you've added, in order (Android's SavedPlacesRepository), kept in UserDefaults as JSON. The current
-/// location isn't one of them: it's always the first page.
+/// The places you've added, in order (Android's SavedPlacesRepository), kept in UserDefaults as JSON, and whether
+/// where you are is the first page (Android's `useCurrentLocation` setting). The current location isn't a saved
+/// place.
 struct SavedPlacesStore {
     private let defaults: UserDefaults
     private static let key = "saved_places"
+    private static let currentLocationKey = "use_current_location"
+
+    /// On unless turned off in Places.
+    var useCurrentLocation: Bool {
+        get { defaults.object(forKey: Self.currentLocationKey) as? Bool ?? true }
+        nonmutating set { defaults.set(newValue, forKey: Self.currentLocationKey) }
+    }
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
@@ -33,6 +41,10 @@ enum SavedPlaces {
     static func removing(_ id: String, from places: [Place]) -> [Place] {
         places.filter { $0.id != id }
     }
+
+    /// A list's drop position [to] (counted with the dragged row still in its old slot, as SwiftUI's onMove gives it)
+    /// as the index the row ends up at.
+    static func finalIndex(from: Int, listDestination to: Int) -> Int { to > from ? to - 1 : to }
 
     /// The place at [from] moved to index [to]; out-of-range indices change nothing.
     static func moving(_ places: [Place], from: Int, to: Int) -> [Place] {
