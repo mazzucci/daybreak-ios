@@ -17,7 +17,7 @@ struct RootView: View {
 
     var body: some View {
         TabView(selection: $selection) {
-            HomeScreen(openWeather: { selection = .weather })
+            HomeScreen(openWeather: { selection = .weather }, openSettings: { selection = .settings })
                 .tabItem { Label("Home", systemImage: "house") }
                 .tag(AppTab.home)
             WeatherScreen()
@@ -35,11 +35,7 @@ struct RootView: View {
             )
             .tabItem { Label("Clocks", systemImage: "clock") }
             .tag(AppTab.clocks)
-            ComingSoonScreen(
-                title: "Settings", systemImage: "gearshape",
-                text: "°F or °C first, which cards show on Home, your places, and your dates.",
-                footer: "Daybreak \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "")"
-            )
+            SettingsScreen()
             .tabItem { Label("Settings", systemImage: "gearshape") }
             .tag(AppTab.settings)
         }
@@ -50,17 +46,22 @@ struct RootView: View {
         .onChange(of: selection) { _, tab in statusBar.light = tab.hasSky }
         .task {
             async let w: Void = weather.refreshAll()
-            async let h: Void = onThisDay.load()
+            async let h: Void = loadOnThisDay()
             _ = await (w, h)
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             Task {
                 // A new day's history, and a forecast that's more than a quarter of an hour old.
                 async let w: Void = weather.refreshAll(olderThan: 15 * 60)
-                async let h: Void = onThisDay.load()
+                async let h: Void = loadOnThisDay()
                 _ = await (w, h)
             }
         }
+    }
+
+    /// Today's history, unless On this day is off in Settings (then Wikipedia isn't asked at all).
+    private func loadOnThisDay() async {
+        if SettingsStore().onThisDayEnabled { await onThisDay.load() }
     }
 }
 

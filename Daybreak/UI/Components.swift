@@ -17,6 +17,7 @@ struct SkyPage<Content: View>: View {
 
     @State private var heroBottom: CGFloat = .greatestFiniteMagnitude
     @State private var safeTop: CGFloat = 0
+    @State private var viewport: CGFloat = 0
 
     var body: some View {
         ScrollViewReader { proxy in
@@ -24,6 +25,8 @@ struct SkyPage<Content: View>: View {
                 VStack(spacing: 0) {
                     content { heroBottom = $0 }
                 }
+                // At least a screen tall, so a short page (Home with its cards off) doesn't show the sky below it.
+                .frame(minHeight: viewport, alignment: .top)
                 .background(alignment: .bottom) {
                     // Under the cards (and behind the sky's rounded corners); above it, the sky colour shows.
                     Palette.background.padding(.top, 60)
@@ -35,6 +38,7 @@ struct SkyPage<Content: View>: View {
                 proxy.scrollTo(scrollAnchor, anchor: .top)
             }
         }
+        .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { viewport = $0 }
         .scrollIndicators(.hidden)
         .modifier(Refreshable(action: onRefresh))
         .background(alignment: .top) {

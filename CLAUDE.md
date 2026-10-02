@@ -75,14 +75,15 @@ Daybreak/Domain       pure, tested logic ported from Android's domain/: Precip.s
                       (filter, scoring, picks), Formatting.swift, Models.swift, Summary.swift, LocalTime.swift
                       (zone-free LocalDate/LocalDateTime), KotlinRandom.swift (Kotlin's Random, bit for bit)
 Daybreak/Data         OpenMeteo.swift (request + parser), Wikipedia.swift (feed + parser), OnThisDayStore.swift
-                      (the day's picks, cached in UserDefaults), SavedPlacesStore.swift, ImageLoader.swift,
+                      (the day's picks, cached in UserDefaults), SavedPlacesStore.swift, SettingsStore.swift, ImageLoader.swift,
                       LocationService.swift
 Daybreak/UI           Theme.swift (Android's palette as dynamic colours, type scale, card style), Sky.swift (hero
                       gradients), WeatherIcon.swift (Android's drawn icons), Components.swift, HomeScreen.swift,
-                      WeatherScreen.swift (a NavigationStack over a paging ScrollView of places), SearchScreen.swift, PlacesScreen.swift, DayScreen.swift (a day's page, pushed from the
+                      WeatherScreen.swift (a NavigationStack over a paging ScrollView of places), SearchScreen.swift, PlacesScreen.swift, SettingsScreen.swift, DayScreen.swift (a day's page, pushed from the
                       10-day list), OnThisDayCard.swift, RootView.swift (tabs, placeholders)
 DaybreakTests         Swift Testing suites ported from Android's tests: PrecipTests, OnThisDayTests,
-                      OnThisDayFeedTests, OpenMeteoParserTests, DayPageTests, PlacesTests; Fixtures/ holds Android's JSON fixtures, copied
+                      OnThisDayFeedTests, OpenMeteoParserTests, DayPageTests, PlacesTests, PlaceWeatherTests,
+                      SettingsTests; Fixtures/ holds Android's JSON fixtures, copied
                       from app/src/test/resources/fixtures in the Android repo
 scripts               run-in-simulator.sh; make-app-icon.swift (`swift scripts/make-app-icon.swift` redraws the icon)
 ```
