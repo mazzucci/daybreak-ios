@@ -103,6 +103,16 @@ enum LaunchOptions {
         #endif
     }
 
+    /// Days from today (0 is today): the day page to open over the Weather tab at launch.
+    static var openDay: LocalDate? {
+        #if DEBUG
+        UserDefaults.standard.object(forKey: "openDay") == nil
+            ? nil : LocalDate.today().plusDays(UserDefaults.standard.integer(forKey: "openDay"))
+        #else
+        nil
+        #endif
+    }
+
     /// "hours" or "days": the Weather section to scroll to once the forecast is in.
     static var scrollTo: String? {
         #if DEBUG

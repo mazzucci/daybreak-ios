@@ -25,6 +25,8 @@ enum Palette {
     static let cloud = Color(light: 0x7F8EA3, dark: 0xAAB6C6)
     /// Rain and snow marks, rain chances from 40%, and the cool end of the range bar.
     static let rain = Color(light: 0x1E6FC0, dark: 0x8AB4F8)
+    /// A rain bar at the chart's cap (4 mm an hour): the rain blue, 35% towards black, or 45% towards white in dark.
+    static let rainHeavy = Color(light: 0x14487D, dark: 0xBFD6FB)
     static let success = Color(light: 0x2E7D32, dark: 0x5BC38A)
     /// Text that asks for attention without being an error (a stale forecast).
     static let attention = Color(light: 0xB45309, dark: 0xFFB74D)
