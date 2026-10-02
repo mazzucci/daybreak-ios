@@ -10,7 +10,8 @@ struct WeatherScreen: View {
 
     var body: some View {
         NavigationStack(path: $path) {
-            WeatherPage(onOpenDay: { path.append($0) })
+            // Once, even if a row is tapped twice before the page slides in.
+            WeatherPage(onOpenDay: { date in if path.last != date { path.append(date) } })
                 .toolbar(.hidden, for: .navigationBar)
                 .navigationDestination(for: LocalDate.self) { date in
                     DayScreen(date: date)

@@ -213,10 +213,16 @@ struct WindFrom: View {
     }
 }
 
-/// Lays its children out in rows, wrapping onto the next when one doesn't fit, each row centred.
+/// Lays its children out in rows, wrapping onto the next when one doesn't fit, each row centred. A child wider than
+/// the whole row is offered the row's width, so it can wrap inside itself.
 struct FlowLayout: Layout {
     var spacing: CGFloat = 8
     var lineSpacing: CGFloat = 8
+
+    private func size(_ view: LayoutSubview, width: CGFloat) -> CGSize {
+        let size = view.sizeThatFits(.unspecified)
+        return size.width > width ? view.sizeThatFits(ProposedViewSize(width: width, height: nil)) : size
+    }
 
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
         let rows = rows(subviews, width: proposal.width ?? .infinity)
@@ -230,7 +236,7 @@ struct FlowLayout: Layout {
         for row in rows(subviews, width: bounds.width) {
             var x = bounds.minX + (bounds.width - row.width) / 2
             for i in row.indices {
-                let size = subviews[i].sizeThatFits(.unspecified)
+                let size = size(subviews[i], width: bounds.width)
                 subviews[i].place(at: CGPoint(x: x, y: y + (row.height - size.height) / 2), proposal: ProposedViewSize(size))
                 x += size.width + spacing
             }
@@ -244,7 +250,7 @@ struct FlowLayout: Layout {
         var rows: [Row] = []
         var row = Row()
         for i in subviews.indices {
-            let size = subviews[i].sizeThatFits(.unspecified)
+            let size = size(subviews[i], width: width)
             let needed = row.indices.isEmpty ? size.width : row.width + spacing + size.width
             if needed > width && !row.indices.isEmpty {
                 rows.append(row)
@@ -280,7 +286,7 @@ struct HeroPill: View {
         .lineLimit(1)
         .padding(.horizontal, 14)
         .padding(.vertical, 8)
-        .background(.black.opacity(0.18), in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .background(.black.opacity(0.18), in: RoundedRectangle(cornerRadius: secondary == nil ? 999 : 24, style: .continuous))
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(label) \(spoken ?? value)")
     }

@@ -337,8 +337,9 @@ private struct TickRow: Layout {
                 view.place(at: CGPoint(x: x, y: bounds.minY), proposal: ProposedViewSize(size))
                 free = x + size.width + 4
             } else {
-                // Out of sight, rather than on top of its neighbour.
-                view.place(at: CGPoint(x: bounds.minX, y: bounds.minY), proposal: .zero)
+                // Out of sight, rather than on top of its neighbour (an unplaced view would sit in the middle, and a
+                // zero proposal still draws an ellipsis).
+                view.place(at: CGPoint(x: bounds.minX - 10_000, y: bounds.minY), proposal: ProposedViewSize(size))
             }
         }
     }
