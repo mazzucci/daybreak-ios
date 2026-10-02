@@ -18,23 +18,25 @@ jobs:
     runs-on: macos-26
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
-      # The newest Xcode 26 on the image (the project needs Xcode 16+ for its synchronized folders, and is built
-      # with 26.5 on the Mac).
+      # The newest released Xcode 26 on the image, never a beta (the project needs Xcode 16+ for its synchronized
+      # folders, and is built with 26.5 on the Mac).
       - name: Select Xcode
         run: |
-          xcode=$(ls -d /Applications/Xcode_26*.app | sort -V | tail -1)
+          xcode=$(ls -d /Applications/Xcode_26*.app | grep -vi -e beta -e candidate | sort -V | tail -1)
           sudo xcode-select -s "$xcode"
           xcodebuild -version
 
       # An available iPhone simulator on the newest iOS runtime, by id, so a missing "iPhone 17" can't fail the run.
+      # jq -e fails the step here, with the list of simulators, when there's none.
       - name: Pick a simulator
         run: |
-          id=$(xcrun simctl list devices available -j | jq -r '
+          id=$(xcrun simctl list devices available -j | jq -er '
             [.devices | to_entries[] | select(.key | test("iOS")) | .key as $rt | .value[]
               | select(.name | startswith("iPhone")) | {rt: $rt, udid}]
-            | sort_by(.rt | [scan("[0-9]+")] | map(tonumber)) | last | .udid')
+            | sort_by(.rt | [scan("[0-9]+")] | map(tonumber)) | last | .udid') || {
+            xcrun simctl list devices available; exit 1; }
           echo "Simulator: $id"
           echo "SIMULATOR_ID=$id" >> "$GITHUB_ENV"
 
@@ -42,11 +44,11 @@ jobs:
         run: |
           xcodebuild test -project Daybreak.xcodeproj -scheme Daybreak \
             -destination "id=$SIMULATOR_ID" -derivedDataPath build \
-            -resultBundlePath build/TestResults.xcresult CODE_SIGNING_ALLOWED=NO
+            -resultBundlePath build/TestResults.xcresult -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO
 
       - name: Upload test results
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-results
           retention-days: 7
