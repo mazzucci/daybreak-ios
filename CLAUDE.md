@@ -54,6 +54,7 @@ Debug builds read launch arguments so a screen can be shown without tapping:
 - `-initialTab weather` (home, weather, habits, clocks, settings)
 - `-scrollTo hours` or `-scrollTo days` (Weather, once the forecast is in)
 - `-onThisDayIndex 2` (start On this day on another of the day's picks)
+- `-openDay 1` (open a day's page over the Weather tab, in days from today: 0 is today)
 
 ```sh
 xcrun simctl launch "iPhone 17" app.daybreak.ios -initialTab weather -scrollTo days
@@ -76,9 +77,10 @@ Daybreak/Data         OpenMeteo.swift (request + parser), Wikipedia.swift (feed 
                       (the day's picks, cached in UserDefaults), ImageLoader.swift, LocationService.swift
 Daybreak/UI           Theme.swift (Android's palette as dynamic colours, type scale, card style), Sky.swift (hero
                       gradients), WeatherIcon.swift (Android's drawn icons), Components.swift, HomeScreen.swift,
-                      WeatherScreen.swift, OnThisDayCard.swift, RootView.swift (tabs, placeholders)
+                      WeatherScreen.swift (in a NavigationStack), DayScreen.swift (a day's page, pushed from the
+                      10-day list), OnThisDayCard.swift, RootView.swift (tabs, placeholders)
 DaybreakTests         Swift Testing suites ported from Android's tests: PrecipTests, OnThisDayTests,
-                      OnThisDayFeedTests, OpenMeteoParserTests; Fixtures/ holds Android's JSON fixtures, copied
+                      OnThisDayFeedTests, OpenMeteoParserTests, DayPageTests; Fixtures/ holds Android's JSON fixtures, copied
                       from app/src/test/resources/fixtures in the Android repo
 scripts               run-in-simulator.sh; make-app-icon.swift (`swift scripts/make-app-icon.swift` redraws the icon)
 ```

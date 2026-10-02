@@ -14,11 +14,12 @@ This is the **first prototype**: the tab shell, location, the Weather tab and Ho
   - the next 12 hours, with each hour's rain chance and amount and the feels-like line when it's 3° or more off. The **"Now" cell shows the current conditions**, so it always agrees with the sky above it (Android's "Now" cell used the hourly forecast for the current hour; that bug isn't copied);
   - sunrise, sunset and the UV index;
   - the next 10 days on one shared temperature scale, with rain chances and day totals by Android's rain rules (`Precip`), and days 8 to 10 lighter under "less certain";
+  - **tap a day** for its page (Android's day page): the day's sky with its name, date, condition, High and Low in both units and the feels-like range when it's 3° or more off; the temperature hour by hour (today's from "Now", which shows the current conditions, as on the Weather tab); the rain or snow card, with the verdict, when in the day it falls, a bar per hour with the chance every three hours, the parts of the day that aren't dry and a line when it carries on after midnight; the day's strongest wind and gusts; sunrise, sunset and UV. Swipe or tap back to return;
   - "Updated 8 min ago" (amber with "pull to refresh" past 90 minutes; "Couldn't refresh · updated 2 hours ago" after a failed refresh), and pull to refresh. The last forecast is kept on the phone, so a launch shows it at once.
 - **Home**: the date and greeting on the sky ("Good evening"), the weather glance (place, condition, ↑high ↓low, rain chance, the temperature in both units; tap it for the Weather tab), and **On this day**: one cheerful moment from today's date in history from Wikipedia's feed (grim items filtered out, the rest scored, no two from the same decade, the day's picks the same all day and the same as on Android), with a Commons picture that fills the frame when it's a landscape photo or sits whole as a "poster" over a blurred copy of itself otherwise, "1868 · 158 years ago", the text, the article link, "From Wikipedia · CC BY-SA", "Picture" and "Another". Pull to refresh refreshes both.
 - **Look**: the system font with Dynamic Type, light and dark mode, Android's "Open sky" palette and card style, safe areas respected, content kept to a readable width on iPad.
 
-Not yet: day details, saved places and search, the °F/°C setting, This week, Coming up, Habits, Clocks, Tonight's sky, the meme, the widget. See "Known gaps" below.
+Not yet: saved places and search, the °F/°C setting, This week, Coming up, Habits, Clocks, Tonight's sky, the meme, the widget. See "Known gaps" below.
 
 Data comes from [Open-Meteo](https://open-meteo.com/) (forecast and geocoding, no key) and [Wikipedia's "On this day" feed](https://en.wikipedia.org/api/rest_v1/) (no key; text CC BY-SA, pictures from Wikimedia Commons). Requests to Wikimedia carry the User-Agent `Daybreak/<version> (https://github.com/mazzucci/Daybreak)`, as Wikimedia asks.
 
@@ -70,7 +71,7 @@ cd ~/src && git clone ~/src/daybreak-ios.git
 cd ~/src/daybreak-ios && git pull
 ```
 
-Screenshots: `xcrun simctl io booted screenshot ~/shots/home.png`, then `scp mac:shots/home.png .` on Linux. In Debug builds, launch arguments pick what's on screen without tapping: `xcrun simctl launch booted app.daybreak.ios -initialTab weather -scrollTo days` (`-scrollTo hours` or `days`; `-onThisDayIndex 2` starts On this day on another pick). Dark mode: `xcrun simctl ui booted appearance dark`.
+Screenshots: `xcrun simctl io booted screenshot ~/shots/home.png`, then `scp mac:shots/home.png .` on Linux. In Debug builds, launch arguments pick what's on screen without tapping: `xcrun simctl launch booted app.daybreak.ios -initialTab weather -scrollTo days` (`-scrollTo hours` or `days`; `-onThisDayIndex 2` starts On this day on another pick; `-openDay 1` opens tomorrow's page over the Weather tab). Dark mode: `xcrun simctl ui booted appearance dark`.
 
 ## Project layout
 
@@ -94,11 +95,12 @@ scripts/                     run-in-simulator.sh, make-app-icon.swift
 - `PrecipTests`: the rain and snow rules: thresholds, the classifier, amounts in mm, cm and inches, verdicts, the day's parts and timing, on hand-made days and a real 10-day Alps forecast.
 - `OnThisDayTests` and `OnThisDayFeedTests`: the grim filter (including Android's regression table of real items), scoring, choosing the day's picks, subjects and pictures, text tidying, and the real feeds for five dates.
 - `OpenMeteoParserTests`: parsing forecasts and geocoding results, including nulls and polar days.
+- `DayPageTests`: the day page's hours (today's from "Now"), when the feels-like range gets a pill, and the no-break spaces between numbers and units.
 
 ## Known gaps
 
 - Only the current location (or its stand-in): no saved places, search or pager yet.
 - The unit is °F first, as Android's default; there's no setting yet.
-- No day details, This week, explanations of the tiles, Coming up, Tonight's sky, meme, widget or background refresh.
+- No This week, explanations of the tiles, Coming up, Tonight's sky, meme, widget or background refresh.
 - Habits, Clocks and Settings are placeholders.
 - Times follow the phone's 12/24-hour setting; dates and copy are English, as on Android.

@@ -1,12 +1,12 @@
 import SwiftUI
 
-/// A page that starts with a sky (Home and Weather): scrolls, pulls to refresh, shows the sky's colour above it when
+/// A page that starts with a sky (Home, Weather and a day): scrolls, pulls to refresh (when it can), shows the sky's colour above it when
 /// pulled down, and fades a strip of the sky in behind the status bar once the sky has scrolled away, so the white
 /// clock and icons never sit on the cards.
 struct SkyPage<Content: View>: View {
     /// The sky's top colour.
     let skyTop: Color
-    let onRefresh: @MainActor () async -> Void
+    var onRefresh: (@MainActor () async -> Void)? = nil
     /// Debug only: a section to scroll to once [ready] (the `-scrollTo` launch argument, for screenshots).
     var scrollAnchor: String? = nil
     var ready = false
@@ -33,7 +33,7 @@ struct SkyPage<Content: View>: View {
             }
         }
         .scrollIndicators(.hidden)
-        .refreshable { await onRefresh() }
+        .modifier(Refreshable(action: onRefresh))
         .background(alignment: .top) {
             GeometryReader { proxy in
                 skyTop.frame(height: proxy.size.height / 2).ignoresSafeArea(edges: .top)
@@ -52,6 +52,15 @@ struct SkyPage<Content: View>: View {
     private var scrimOpacity: Double {
         let fade: CGFloat = 24
         return Double(min(1, max(0, (fade - (heroBottom - safeTop)) / fade)))
+    }
+}
+
+/// Pull to refresh, when there's something to refresh.
+private struct Refreshable: ViewModifier {
+    let action: (@MainActor () async -> Void)?
+
+    func body(content: Content) -> some View {
+        if let action { content.refreshable { await action() } } else { content }
     }
 }
 
@@ -204,10 +213,16 @@ struct WindFrom: View {
     }
 }
 
-/// Lays its children out in rows, wrapping onto the next when one doesn't fit, each row centred.
+/// Lays its children out in rows, wrapping onto the next when one doesn't fit, each row centred. A child wider than
+/// the whole row is offered the row's width, so it can wrap inside itself.
 struct FlowLayout: Layout {
     var spacing: CGFloat = 8
     var lineSpacing: CGFloat = 8
+
+    private func size(_ view: LayoutSubview, width: CGFloat) -> CGSize {
+        let size = view.sizeThatFits(.unspecified)
+        return size.width > width ? view.sizeThatFits(ProposedViewSize(width: width, height: nil)) : size
+    }
 
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
         let rows = rows(subviews, width: proposal.width ?? .infinity)
@@ -221,7 +236,7 @@ struct FlowLayout: Layout {
         for row in rows(subviews, width: bounds.width) {
             var x = bounds.minX + (bounds.width - row.width) / 2
             for i in row.indices {
-                let size = subviews[i].sizeThatFits(.unspecified)
+                let size = size(subviews[i], width: bounds.width)
                 subviews[i].place(at: CGPoint(x: x, y: y + (row.height - size.height) / 2), proposal: ProposedViewSize(size))
                 x += size.width + spacing
             }
@@ -235,7 +250,7 @@ struct FlowLayout: Layout {
         var rows: [Row] = []
         var row = Row()
         for i in subviews.indices {
-            let size = subviews[i].sizeThatFits(.unspecified)
+            let size = size(subviews[i], width: width)
             let needed = row.indices.isEmpty ? size.width : row.width + spacing + size.width
             if needed > width && !row.indices.isEmpty {
                 rows.append(row)
@@ -250,21 +265,27 @@ struct FlowLayout: Layout {
     }
 }
 
-/// A rounded label-and-value chip on the sky ("High 74°").
+/// A rounded label-and-value chip on the sky ("High 74°"), with an optional [secondary] value after it, such as the
+/// other unit ("High 74° 23°C"), which moves under the value when the pill doesn't fit on one line.
 struct HeroPill: View {
     let label: String
     let value: String
     var spoken: String? = nil
+    var secondary: String? = nil
 
     var body: some View {
-        HStack(spacing: 6) {
-            Text(label).font(.labelMedium)
+        // Label, value and secondary each wrap whole, so very large text stacks them rather than cutting them off.
+        FlowLayout(spacing: 5, lineSpacing: 0) {
+            Text(label).font(.labelMedium).padding(.trailing, 1)
             Text(value).font(.titleMedium)
+            if let secondary {
+                Text(secondary).font(.labelMedium).opacity(0.85)
+            }
         }
         .lineLimit(1)
         .padding(.horizontal, 14)
         .padding(.vertical, 8)
-        .background(.black.opacity(0.18), in: Capsule())
+        .background(.black.opacity(0.18), in: RoundedRectangle(cornerRadius: secondary == nil ? 999 : 24, style: .continuous))
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(label) \(spoken ?? value)")
     }

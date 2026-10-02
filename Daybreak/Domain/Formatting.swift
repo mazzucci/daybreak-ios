@@ -125,6 +125,11 @@ func feelsLikeWorthShowing(_ tempC: Double, _ feelsLikeC: Double?, _ unit: TempU
     return feelsLikeC
 }
 
+/// Joins each number to its unit with a no-break space, so "12 mm" or "7 PM" never splits across lines.
+func keepUnitsTogether(_ text: String) -> String {
+    text.replacing(/(\d) (mm|cm|in|inch|inches|km\/h|mph|h|hour|hours|AM|PM)\b/) { "\($0.1)\u{00A0}\($0.2)" }
+}
+
 private let compassShort = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]
 private let compassLong = ["north", "northeast", "east", "southeast", "south", "southwest", "west", "northwest"]
 

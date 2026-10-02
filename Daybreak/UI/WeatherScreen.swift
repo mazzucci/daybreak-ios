@@ -3,8 +3,26 @@ import UIKit
 
 /// The Weather tab, ported from Android's WeatherScreen for the place you're in: the sky with the summary, the
 /// temperature in both units, the condition and today's High, Low and rain; then feels-like, humidity and wind; the
-/// next 12 hours; sunrise, sunset and UV; and the next 10 days. Pull to refresh.
+/// next 12 hours; sunrise, sunset and UV; and the next 10 days. Pull to refresh. Tapping a day opens its page.
 struct WeatherScreen: View {
+    @Environment(WeatherModel.self) private var model
+    @State private var path: [LocalDate] = LaunchOptions.openDay.map { [$0] } ?? []
+
+    var body: some View {
+        NavigationStack(path: $path) {
+            // Once, even if a row is tapped twice before the page slides in.
+            WeatherPage(onOpenDay: { date in if path.last != date { path.append(date) } })
+                .toolbar(.hidden, for: .navigationBar)
+                .navigationDestination(for: LocalDate.self) { date in
+                    DayScreen(date: date)
+                }
+        }
+    }
+}
+
+/// The Weather tab's own page, under the navigation stack.
+private struct WeatherPage: View {
+    let onOpenDay: (LocalDate) -> Void
     @Environment(WeatherModel.self) private var model
     @Environment(\.colorScheme) private var scheme
 
@@ -27,7 +45,7 @@ struct WeatherScreen: View {
                 if let forecast {
                     if model.locationDenied { LocationOffCard(place: model.place) }
                     WeatherBody(forecast: forecast, unit: model.unit, night: night, fetchedAt: model.fetchedAt,
-                                refreshFailed: model.refreshFailed)
+                                refreshFailed: model.refreshFailed, onOpenDay: onOpenDay)
                 } else if let failure = model.failure {
                     Spacer().frame(height: 24)
                     StateCard(systemImage: "exclamationmark.triangle.fill", title: "Couldn't load the weather",
@@ -160,6 +178,7 @@ private struct WeatherBody: View {
     let night: Bool
     let fetchedAt: Date?
     let refreshFailed: Bool
+    let onOpenDay: (LocalDate) -> Void
 
     var body: some View {
         let cur = forecast.current
@@ -181,13 +200,13 @@ private struct WeatherBody: View {
                 UpdatedLine(fetchedAt: fetchedAt, refreshFailed: refreshFailed)
             }
             Spacer().frame(height: 12)
-            HourStrip(forecast: forecast, unit: unit, nightNow: night)
+            HourStrip(cells: HourCell.next(forecast, nightNow: night), unit: unit)
             SunAndUv(day: forecast.today)
             if days.count > 1 {
                 Spacer().frame(height: 24).id("days")
                 SectionHeading("Next \(days.count) days")
                 Spacer().frame(height: 12)
-                DailyList(days: days, rains: rains, today: forecast.today.date, unit: unit)
+                DailyList(days: days, rains: rains, today: forecast.today.date, unit: unit, onOpenDay: onOpenDay)
             }
         }
     }
@@ -213,38 +232,55 @@ private struct UpdatedLine: View {
     }
 }
 
-/// A row of hour cards: label, icon, temperature in both units, then muted lines for the feels-like temperature
-/// (once any hour is 3° or more off), the chance of rain (10% and up, blue from 40%) and the amount (by the shared
-/// rules). The rain lines come from the hour stamped at the end of the card's hour. The first card is "Now" and shows
-/// the current conditions, not the hourly forecast for this hour (which can disagree with the sky above it).
-private struct HourStrip: View {
-    let forecast: Forecast
-    let unit: TempUnit
-    let nightNow: Bool
-    @State private var widths: [Int: CGFloat] = [:]
+/// One card of an [HourStrip]. [rain] is the hour whose values fall in the card's hour (stamped at its end); without
+/// it the rain lines are left out (the day page has its own rain card).
+struct HourCell {
+    let label: String
+    let code: Int
+    let night: Bool
+    let tempC: Double
+    let feelsLikeC: Double?
+    var rain: HourForecast? = nil
 
-    private struct Cell {
-        let label: String
-        let code: Int
-        let night: Bool
-        let tempC: Double
-        let feelsLikeC: Double?
-        let rain: HourForecast?
-    }
-
-    private var cells: [Cell] {
+    /// The Weather tab's next hours. The first card is "Now" and shows the current conditions, not the hourly
+    /// forecast for this hour (which can disagree with the sky above it).
+    static func next(_ forecast: Forecast, nightNow: Bool) -> [HourCell] {
         let cur = forecast.current
         return forecast.nextHours.enumerated().map { i, hour in
             i == 0
-                ? Cell(label: "Now", code: cur.code, night: nightNow, tempC: cur.tempC, feelsLikeC: cur.feelsLikeC,
-                       rain: forecast.rainDuring(hour))
-                : Cell(label: formatHour(hour.time), code: hour.code, night: forecast.isNight(hour), tempC: hour.tempC,
-                       feelsLikeC: hour.feelsLikeC, rain: forecast.rainDuring(hour))
+                ? HourCell(label: "Now", code: cur.code, night: nightNow, tempC: cur.tempC, feelsLikeC: cur.feelsLikeC,
+                           rain: forecast.rainDuring(hour))
+                : HourCell(label: formatHour(hour.time), code: hour.code, night: forecast.isNight(hour),
+                           tempC: hour.tempC, feelsLikeC: hour.feelsLikeC, rain: forecast.rainDuring(hour))
         }
     }
 
+    /// A day page's hours, 12 AM to 11 PM; today's start at the current hour, as "Now" with the current conditions.
+    static func day(_ forecast: Forecast, _ date: LocalDate) -> [HourCell] {
+        let isToday = date == forecast.today.date
+        let cur = forecast.current
+        let nowHour = cur.time.truncatedToHour
+        let hours = forecast.hoursOf(date).filter { !isToday || $0.time >= nowHour }
+        return hours.enumerated().map { i, hour in
+            isToday && i == 0
+                ? HourCell(label: "Now", code: cur.code, night: forecast.isNightNow, tempC: cur.tempC,
+                           feelsLikeC: cur.feelsLikeC)
+                : HourCell(label: formatHour(hour.time), code: hour.code, night: forecast.isNight(hour),
+                           tempC: hour.tempC, feelsLikeC: hour.feelsLikeC)
+        }
+    }
+}
+
+/// A row of hour cards: label, icon, temperature in both units, then muted lines for the feels-like temperature
+/// (once any hour is 3° or more off), the chance of rain (10% and up, blue from 40%) and the amount (by the shared
+/// rules). The first card is highlighted when [highlightFirst] (it's "Now").
+struct HourStrip: View {
+    let cells: [HourCell]
+    let unit: TempUnit
+    var highlightFirst = true
+    @State private var widths: [Int: CGFloat] = [:]
+
     var body: some View {
-        let cells = self.cells
         let notable = cells.map { feelsLikeWorthShowing($0.tempC, $0.feelsLikeC, unit) != nil }
         let feelsLine = notable.contains(true)
         let chances = cells.map { $0.rain.flatMap { Precip.showHourChance($0.precipChance) ? $0.precipChance : nil } }
@@ -283,7 +319,7 @@ private struct HourStrip: View {
                     .frame(minWidth: width)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 12)
-                    .card(i == 0 ? Palette.primaryContainer : Palette.surfaceContainer)
+                    .card(i == 0 && highlightFirst ? Palette.primaryContainer : Palette.surfaceContainer)
                     .accessibilityElement(children: .ignore)
                     .accessibilityLabel(spoken(cell, notable: notable[i], chance: chances[i]))
                 }
@@ -293,7 +329,7 @@ private struct HourStrip: View {
         .scrollIndicators(.hidden)
     }
 
-    private func spoken(_ cell: Cell, notable: Bool, chance: Int?) -> String {
+    private func spoken(_ cell: HourCell, notable: Bool, chance: Int?) -> String {
         [
             cell.label,
             formatBothUnits(cell.tempC, unit),
@@ -305,7 +341,7 @@ private struct HourStrip: View {
 }
 
 /// Sunrise, sunset and UV for [day]; skipped when the forecast has none of them.
-private struct SunAndUv: View {
+struct SunAndUv: View {
     let day: DaySummary
 
     var body: some View {
@@ -336,12 +372,13 @@ private struct SunAndUv: View {
 /// One row per day: name, icon with the rain chance under it, the low–high range on a bar shared by the whole list
 /// (so warmer and cooler days line up), and the day's rain or snow total at the end, by the same rules as everywhere
 /// else. Every column is as wide as its widest entry, so the bars line up. Days from the eighth on are drawn lighter
-/// under a "less certain" rule, with their date under the weekday.
+/// under a "less certain" rule, with their date under the weekday. Tapping a row opens the day.
 private struct DailyList: View {
     let days: [DaySummary]
     let rains: [DayRain]
     let today: LocalDate
     let unit: TempUnit
+    let onOpenDay: (LocalDate) -> Void
     @Environment(\.dynamicTypeSize) private var typeSize
     @ScaledMetric(relativeTo: .subheadline) private var line: CGFloat = 22
 
@@ -372,6 +409,8 @@ private struct DailyList: View {
                     .padding(.trailing, 8)
                     .accessibilityElement(children: .ignore)
                     .accessibilityLabel(spoken(day, rain, chance: chance, lessCertain: lessCertain))
+                    .accessibilityAddTraits(.isButton)
+                    .accessibilityHint("Opens details")
 
                     VStack(spacing: 0) {
                         WeatherIcon(code: day.code, size: 26).frame(height: line)
@@ -424,6 +463,9 @@ private struct DailyList: View {
                     }
                 }
                 .padding(.vertical, 8)
+                .frame(maxHeight: .infinity, alignment: .top)
+                .contentShape(Rectangle())
+                .onTapGesture { onOpenDay(day.date) }
                 .opacity(lessCertain ? 0.6 : 1)
             }
         }
