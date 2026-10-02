@@ -21,6 +21,8 @@ struct WeatherScreen: View {
         LaunchOptions.openDay.map { [DayRoute(pageId: Place.currentLocationId, date: $0)] } ?? []
     @State private var selection = Place.currentLocationId
     @State private var searching = false
+    /// A place just added, to turn to once its page exists (Android waits for it the same way).
+    @State private var pendingSelection: String?
 
     var body: some View {
         NavigationStack(path: $path) {
@@ -55,9 +57,16 @@ struct WeatherScreen: View {
             }
             .sheet(isPresented: $searching) {
                 SearchScreen(savedIds: model.savedIds) { place in
-                    selection = model.add(place)
+                    pendingSelection = model.add(place)
                     searching = false
                 }
+            }
+            .task(id: pendingSelection) {
+                // A tick after the page is added, so the pager has laid it out before turning to it.
+                guard let pending = pendingSelection else { return }
+                try? await Task.sleep(for: .milliseconds(50))
+                if model.page(pending) != nil { withAnimation { selection = pending } }
+                pendingSelection = nil
             }
             .onChange(of: model.pages.map(\.id)) { _, ids in
                 // The page showing was removed: back to the first.
@@ -81,6 +90,8 @@ private struct TopRow: View {
                 PageIndicator(count: pages.count, current: index,
                               name: pages[index].place?.name ?? "My location")
                     .padding(.leading, 16)
+                    // Only informative: a swipe that starts on it still turns the page.
+                    .allowsHitTesting(false)
             }
             Spacer(minLength: 0)
             if let page {
@@ -90,7 +101,6 @@ private struct TopRow: View {
                     Image(systemName: "arrow.clockwise").frame(width: topRowHeight, height: topRowHeight)
                 }
                 .accessibilityLabel("Refresh")
-                .disabled(page.refreshing)
             }
             Button(action: onAdd) {
                 Image(systemName: "plus").frame(width: topRowHeight, height: topRowHeight)

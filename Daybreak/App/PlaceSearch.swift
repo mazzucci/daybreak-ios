@@ -43,9 +43,16 @@ final class PlaceSearch {
             } catch {
                 guard !Task.isCancelled else { return }
                 loading = false
-                self.error = (error as? ServiceError)?.message ?? "Search failed"
+                self.error = Self.message(for: error)
             }
         }
+    }
+
+    /// Why the search failed, in words (Android shows the exception's message, else "Search failed").
+    private static func message(for error: Error) -> String {
+        if let service = error as? ServiceError { return service.message }
+        if (error as? URLError)?.code == .notConnectedToInternet { return "You're offline. Connect and try again." }
+        return "Search failed"
     }
 
     /// Waits for the search in flight, if any (for tests).

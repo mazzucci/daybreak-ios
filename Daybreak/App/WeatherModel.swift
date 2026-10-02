@@ -20,8 +20,9 @@ final class WeatherModel {
     init(live: Bool = true, store: SavedPlacesStore = SavedPlacesStore()) {
         self.store = store
         self.live = live
-        current = PlaceWeather(loadCache: live)
-        saved = store.load().map { PlaceWeather(saved: $0, loadCache: live) }
+        let cache = live ? PlaceWeather.cacheDirectory : nil
+        current = PlaceWeather(cacheDirectory: cache)
+        saved = store.load().map { PlaceWeather(saved: $0, cacheDirectory: cache) }
     }
 
     var pages: [PlaceWeather] { [current] + saved }
@@ -67,7 +68,7 @@ final class WeatherModel {
     @discardableResult
     func add(_ place: Place) -> String {
         guard let places = SavedPlaces.adding(place, to: saved.compactMap(\.place)) else { return place.id }
-        let page = PlaceWeather(saved: place, loadCache: live)
+        let page = PlaceWeather(saved: place, cacheDirectory: live ? PlaceWeather.cacheDirectory : nil)
         saved.append(page)
         store.save(places)
         if live { Task { await page.refresh() } }
@@ -78,7 +79,7 @@ final class WeatherModel {
         guard let page = saved.first(where: { $0.id == id }) else { return }
         saved.removeAll { $0.id == id }
         store.save(saved.compactMap(\.place))
-        if live { page.forget() }
+        page.forget()
     }
 
     /// Moves the saved place at [from] to [to] (indices among the saved places, not the pages).
@@ -121,33 +122,50 @@ final class PlaceWeather: Identifiable {
 
     var isCurrentLocation: Bool { id == Place.currentLocationId }
 
+    typealias Fetch = @Sendable (_ latitude: Double, _ longitude: Double) async throws -> (Forecast, String)
+
+    /// Where each page's last forecast is kept: the app's caches folder.
+    static var cacheDirectory: URL { FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0] }
+
     private let location: LocationService?
+    /// Nil keeps nothing on disk (tests).
+    private let cacheDirectory: URL?
+    private let fetch: Fetch
     private var refreshTask: Task<Void, Never>?
 
     /// The current-location page.
-    init(loadCache: Bool = true) {
+    init(cacheDirectory: URL? = PlaceWeather.cacheDirectory,
+         fetch: @escaping Fetch = { try await OpenMeteo.forecast(latitude: $0, longitude: $1) }) {
         id = Place.currentLocationId
         source = .device
         location = LocationService()
-        if loadCache { restore() }
+        self.cacheDirectory = cacheDirectory
+        self.fetch = fetch
+        restore()
     }
 
     /// A saved place's page.
-    init(saved place: Place, loadCache: Bool = true) {
+    init(saved place: Place, cacheDirectory: URL? = PlaceWeather.cacheDirectory,
+         fetch: @escaping Fetch = { try await OpenMeteo.forecast(latitude: $0, longitude: $1) }) {
         id = place.id
         self.place = place
         source = .saved
         location = nil
-        if loadCache { restore() }
+        self.cacheDirectory = cacheDirectory
+        self.fetch = fetch
+        restore()
     }
 
     /// The first load, or a refresh: one at a time, a second caller waits for the first.
     func refresh() async {
         if let refreshTask { return await refreshTask.value }
-        let task = Task { await self.load() }
+        let task = Task {
+            await self.load()
+            // Cleared here, before any waiter resumes, so a refresh straight after this one starts a new fetch.
+            self.refreshTask = nil
+        }
         refreshTask = task
         await task.value
-        refreshTask = nil
     }
 
     /// Refreshes when the forecast is older than [age] seconds (on return to the app).
@@ -158,7 +176,7 @@ final class PlaceWeather: Identifiable {
     /// The page is gone: stop loading and drop its cached forecast.
     func forget() {
         refreshTask?.cancel()
-        try? FileManager.default.removeItem(at: cacheURL)
+        if let cacheURL { try? FileManager.default.removeItem(at: cacheURL) }
     }
 
     private func load() async {
@@ -172,7 +190,7 @@ final class PlaceWeather: Identifiable {
             return
         }
         do {
-            let (fresh, json) = try await OpenMeteo.forecast(latitude: found.place.latitude, longitude: found.place.longitude)
+            let (fresh, json) = try await fetch(found.place.latitude, found.place.longitude)
             guard !Task.isCancelled else { return }
             place = found.place
             source = found.source
@@ -182,6 +200,8 @@ final class PlaceWeather: Identifiable {
             refreshFailed = false
             save(json: json)
         } catch {
+            // The page was removed while fetching: nothing to report.
+            if Task.isCancelled { return }
             if forecast == nil {
                 place = found.place
                 source = found.source
@@ -237,19 +257,19 @@ final class PlaceWeather: Identifiable {
     }
 
     /// "forecast.json" for where you are (as before there were pages), "forecast-geo-2267057.json" for a saved place.
-    private var cacheURL: URL {
+    private var cacheURL: URL? {
         let name = isCurrentLocation ? "forecast.json" : "forecast-\(id.replacingOccurrences(of: ":", with: "-")).json"
-        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent(name)
+        return cacheDirectory?.appendingPathComponent(name)
     }
 
     private func save(json: String) {
-        guard let place, let fetchedAt else { return }
+        guard let place, let fetchedAt, let cacheURL else { return }
         let saved = Saved(place: place, source: source, fetchedAt: fetchedAt, json: json)
         try? JSONEncoder().encode(saved).write(to: cacheURL, options: .atomic)
     }
 
     private func restore() {
-        guard let data = try? Data(contentsOf: cacheURL),
+        guard let cacheURL, let data = try? Data(contentsOf: cacheURL),
               let saved = try? JSONDecoder().decode(Saved.self, from: data),
               let forecast = try? parseForecast(saved.json) else { return }
         // A saved page keeps its own place; only the current location's comes from the cache.

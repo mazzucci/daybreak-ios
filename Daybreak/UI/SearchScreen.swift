@@ -55,6 +55,8 @@ struct SearchScreen: View {
             }
         }
         .onAppear { focused = true }
+        // Android clears the search on leaving it; this also stops a request still on its way.
+        .onDisappear { search.clear() }
     }
 }
 
