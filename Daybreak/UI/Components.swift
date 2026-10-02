@@ -10,6 +10,9 @@ struct SkyPage<Content: View>: View {
     /// Debug only: a section to scroll to once [ready] (the `-scrollTo` launch argument, for screenshots).
     var scrollAnchor: String? = nil
     var ready = false
+    /// How far below the status bar the strip of sky reaches once the sky has scrolled away: the height of a row of
+    /// buttons floating over the page (the Weather tab's), so they never sit on the cards.
+    var scrimExtra: CGFloat = 0
     @ViewBuilder var content: (_ onHeroBottom: @escaping (CGFloat) -> Void) -> Content
 
     @State private var heroBottom: CGFloat = .greatestFiniteMagnitude
@@ -41,17 +44,17 @@ struct SkyPage<Content: View>: View {
         }
         .background(Palette.background.ignoresSafeArea())
         .overlay(alignment: .top) {
-            Color.clear.frame(height: 0)
+            Color.clear.frame(height: scrimExtra)
                 .background(skyTop.opacity(scrimOpacity).ignoresSafeArea(edges: .top))
                 .allowsHitTesting(false)
         }
         .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minY } action: { safeTop = $0 }
     }
 
-    /// Fully there by the time the sky's bottom edge reaches the status bar.
+    /// Fully there by the time the sky's bottom edge reaches the bottom of the strip.
     private var scrimOpacity: Double {
         let fade: CGFloat = 24
-        return Double(min(1, max(0, (fade - (heroBottom - safeTop)) / fade)))
+        return Double(min(1, max(0, (fade - (heroBottom - safeTop - scrimExtra)) / fade)))
     }
 }
 
@@ -221,7 +224,8 @@ struct FlowLayout: Layout {
 
     private func size(_ view: LayoutSubview, width: CGFloat) -> CGSize {
         let size = view.sizeThatFits(.unspecified)
-        return size.width > width ? view.sizeThatFits(ProposedViewSize(width: width, height: nil)) : size
+        // Half a point of slack, so a child offered exactly its own (rounded) width doesn't wrap.
+        return size.width > width + 0.5 ? view.sizeThatFits(ProposedViewSize(width: width, height: nil)) : size
     }
 
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
@@ -252,7 +256,7 @@ struct FlowLayout: Layout {
         for i in subviews.indices {
             let size = size(subviews[i], width: width)
             let needed = row.indices.isEmpty ? size.width : row.width + spacing + size.width
-            if needed > width && !row.indices.isEmpty {
+            if needed > width + 0.5 && !row.indices.isEmpty {
                 rows.append(row)
                 row = Row()
             }

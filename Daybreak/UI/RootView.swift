@@ -49,14 +49,14 @@ struct RootView: View {
         .onAppear { statusBar.light = selection.hasSky }
         .onChange(of: selection) { _, tab in statusBar.light = tab.hasSky }
         .task {
-            async let w: Void = weather.refresh()
+            async let w: Void = weather.refreshAll()
             async let h: Void = onThisDay.load()
             _ = await (w, h)
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             Task {
                 // A new day's history, and a forecast that's more than a quarter of an hour old.
-                async let w: Void = weather.refreshIfOlder(than: 15 * 60)
+                async let w: Void = weather.refreshAll(olderThan: 15 * 60)
                 async let h: Void = onThisDay.load()
                 _ = await (w, h)
             }

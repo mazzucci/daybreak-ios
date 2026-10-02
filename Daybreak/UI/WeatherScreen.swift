@@ -1,40 +1,158 @@
 import SwiftUI
 import UIKit
 
-/// The Weather tab, ported from Android's WeatherScreen for the place you're in: the sky with the summary, the
-/// temperature in both units, the condition and today's High, Low and rain; then feels-like, humidity and wind; the
-/// next 12 hours; sunrise, sunset and UV; and the next 10 days. Pull to refresh. Tapping a day opens its page.
+/// A day's page on one of the Weather tab's pages.
+struct DayRoute: Hashable {
+    let pageId: String
+    let date: LocalDate
+}
+
+/// Height of the floating row of buttons over the sky.
+private let topRowHeight: CGFloat = 44
+
+/// The Weather tab, ported from Android's WeatherScreen: a page per place (where you are, then the places you've
+/// added), swiped sideways, under a floating row with where you are in the pages, Refresh and Add place. Each page
+/// has the sky with the summary, the temperature in both units, the condition and today's High, Low and rain; then
+/// feels-like, humidity and wind; the next 12 hours; sunrise, sunset and UV; and the next 10 days. Pull to refresh.
+/// Tapping a day opens its page.
 struct WeatherScreen: View {
     @Environment(WeatherModel.self) private var model
-    @State private var path: [LocalDate] = LaunchOptions.openDay.map { [$0] } ?? []
+    @State private var path: [DayRoute] =
+        LaunchOptions.openDay.map { [DayRoute(pageId: Place.currentLocationId, date: $0)] } ?? []
+    @State private var selection = Place.currentLocationId
+    @State private var searching = false
 
     var body: some View {
         NavigationStack(path: $path) {
-            // Once, even if a row is tapped twice before the page slides in.
-            WeatherPage(onOpenDay: { date in if path.last != date { path.append(date) } })
-                .toolbar(.hidden, for: .navigationBar)
-                .navigationDestination(for: LocalDate.self) { date in
-                    DayScreen(date: date)
+            let pages = model.pages
+            // Pages side by side, snapping one at a time. (A paging TabView is a UIKit page controller, which clips
+            // the sky below the status bar and takes over the status bar's colour.)
+            ScrollView(.horizontal) {
+                LazyHStack(spacing: 0) {
+                    ForEach(pages) { page in
+                        // Once, even if a row is tapped twice before the day slides in.
+                        WeatherPage(page: page, onOpenDay: { date in
+                            let route = DayRoute(pageId: page.id, date: date)
+                            if path.last != route { path.append(route) }
+                        })
+                        .containerRelativeFrame(.horizontal)
+                        .id(page.id)
+                    }
                 }
+                .scrollTargetLayout()
+            }
+            .scrollTargetBehavior(.paging)
+            .scrollPosition(id: Binding(get: { selection }, set: { if let id = $0 { selection = id } }))
+            .scrollIndicators(.hidden)
+            .scrollBounceBehavior(.basedOnSize, axes: .horizontal)
+            .overlay(alignment: .top) {
+                TopRow(pages: pages, selection: selection, onAdd: { searching = true })
+            }
+            .background(Palette.background.ignoresSafeArea())
+            .toolbar(.hidden, for: .navigationBar)
+            .navigationDestination(for: DayRoute.self) { route in
+                DayScreen(route: route)
+            }
+            .sheet(isPresented: $searching) {
+                SearchScreen(savedIds: model.savedIds) { place in
+                    selection = model.add(place)
+                    searching = false
+                }
+            }
+            .onChange(of: model.pages.map(\.id)) { _, ids in
+                // The page showing was removed: back to the first.
+                if !ids.contains(selection) { selection = Place.currentLocationId }
+            }
         }
     }
 }
 
-/// The Weather tab's own page, under the navigation stack.
+/// Over the sky, below the status bar: where you are in the pages on the left; Refresh and Add place on the right,
+/// in white (every page starts with a sky, so they always stand out).
+private struct TopRow: View {
+    let pages: [PlaceWeather]
+    let selection: String
+    let onAdd: () -> Void
+
+    var body: some View {
+        let page = pages.first { $0.id == selection }
+        HStack(spacing: 4) {
+            if pages.count > 1, let index = pages.firstIndex(where: { $0.id == selection }) {
+                PageIndicator(count: pages.count, current: index,
+                              name: pages[index].place?.name ?? "My location")
+                    .padding(.leading, 16)
+            }
+            Spacer(minLength: 0)
+            if let page {
+                Button {
+                    Task { await page.refresh() }
+                } label: {
+                    Image(systemName: "arrow.clockwise").frame(width: topRowHeight, height: topRowHeight)
+                }
+                .accessibilityLabel("Refresh")
+                .disabled(page.refreshing)
+            }
+            Button(action: onAdd) {
+                Image(systemName: "plus").frame(width: topRowHeight, height: topRowHeight)
+            }
+            .accessibilityLabel("Add place")
+        }
+        .font(.system(size: 19, weight: .semibold))
+        .foregroundStyle(.white)
+        .padding(.trailing, 6)
+        .frame(height: topRowHeight)
+    }
+}
+
+/// Where you are in the pages: dots for a few, a "3 / 12" label for many. Only informative (the pages are swiped), so
+/// it's one VoiceOver element naming the page.
+private struct PageIndicator: View {
+    let count: Int
+    let current: Int
+    let name: String
+    private static let maxDots = 6
+
+    var body: some View {
+        Group {
+            if count <= Self.maxDots {
+                HStack(spacing: 6) {
+                    ForEach(0..<count, id: \.self) { i in
+                        Capsule()
+                            .fill(.white.opacity(i == current ? 1 : 0.45))
+                            .frame(width: i == current ? 18 : 8, height: 8)
+                    }
+                }
+                .animation(.easeOut(duration: 0.2), value: current)
+            } else {
+                Text("\(current + 1) / \(count)")
+                    .font(.labelLarge)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(.black.opacity(0.18), in: Capsule())
+            }
+        }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Page \(current + 1) of \(count): \(name)")
+    }
+}
+
+/// One place's page.
 private struct WeatherPage: View {
+    let page: PlaceWeather
     let onOpenDay: (LocalDate) -> Void
     @Environment(WeatherModel.self) private var model
     @Environment(\.colorScheme) private var scheme
 
     var body: some View {
-        let forecast = model.forecast
+        let forecast = page.forecast
         let night = forecast?.isNightNow ?? false
         let sky = forecast.map { Sky(code: $0.current.code).gradient(night: night, dark: scheme == .dark) }
             ?? Sky.neutral(dark: scheme == .dark)
-        SkyPage(skyTop: sky[0], onRefresh: { await model.refresh() }, scrollAnchor: LaunchOptions.scrollTo,
-                ready: forecast != nil) { onHeroBottom in
-            Hero(colors: sky, top: 12, onBottom: onHeroBottom) {
-                PlaceHeader(place: model.place, source: model.placeSource)
+        let scrollAnchor = page.isCurrentLocation ? LaunchOptions.scrollTo : nil
+        SkyPage(skyTop: sky[0], onRefresh: { await page.refresh() }, scrollAnchor: scrollAnchor,
+                ready: forecast != nil, scrimExtra: topRowHeight) { onHeroBottom in
+            Hero(colors: sky, top: topRowHeight + 4, onBottom: onHeroBottom) {
+                PlaceHeader(place: page.place, source: page.source)
                 if let forecast {
                     HeroForecast(forecast: forecast, unit: model.unit, night: night)
                 } else {
@@ -43,14 +161,14 @@ private struct WeatherPage: View {
             }
             Group {
                 if let forecast {
-                    if model.locationDenied { LocationOffCard(place: model.place) }
-                    WeatherBody(forecast: forecast, unit: model.unit, night: night, fetchedAt: model.fetchedAt,
-                                refreshFailed: model.refreshFailed, onOpenDay: onOpenDay)
-                } else if let failure = model.failure {
+                    if page.locationDenied { LocationOffCard(place: page.place) }
+                    WeatherBody(forecast: forecast, unit: model.unit, night: night, fetchedAt: page.fetchedAt,
+                                refreshFailed: page.refreshFailed, onOpenDay: onOpenDay)
+                } else if let failure = page.failure {
                     Spacer().frame(height: 24)
                     StateCard(systemImage: "exclamationmark.triangle.fill", title: "Couldn't load the weather",
                               text: failure, tint: Palette.error) {
-                        Button("Try again") { Task { await model.refresh() } }
+                        Button("Try again") { Task { await page.refresh() } }
                             .buttonStyle(.borderedProminent)
                     }
                 } else {
@@ -66,7 +184,7 @@ private struct WeatherPage: View {
 /// The place's name, and "Current location" (with the location mark) or its region and country under it.
 private struct PlaceHeader: View {
     let place: Place?
-    let source: WeatherModel.PlaceSource
+    let source: PlaceWeather.Source
 
     var body: some View {
         VStack(spacing: 2) {
