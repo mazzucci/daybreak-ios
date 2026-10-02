@@ -274,11 +274,10 @@ struct HeroPill: View {
     var secondary: String? = nil
 
     var body: some View {
+        // Label, value and secondary each wrap whole, so very large text stacks them rather than cutting them off.
         FlowLayout(spacing: 5, lineSpacing: 0) {
-            HStack(spacing: 6) {
-                Text(label).font(.labelMedium)
-                Text(value).font(.titleMedium)
-            }
+            Text(label).font(.labelMedium).padding(.trailing, 1)
+            Text(value).font(.titleMedium)
             if let secondary {
                 Text(secondary).font(.labelMedium).opacity(0.85)
             }
