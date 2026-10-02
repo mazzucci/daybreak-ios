@@ -99,5 +99,7 @@ scripts               run-in-simulator.sh; make-app-icon.swift (`swift scripts/m
 - **Accessibility:** each card or cell is one VoiceOver element with a spoken label in the Android app's words
   (both units, "60 percent chance of rain").
 - Copy is English, in the Android app's voice: plain, sentence case, no exclamation marks.
-- Edit and commit on Linux; the Mac only builds, tests and runs (it has no GitHub credentials). Commit messages end
-  with the Co-Authored-By line the session asks for.
+- Work happens on the Mac, in `~/Projects/daybreak-ios`, with `gh` signed in. Each change goes in on its own small
+  branch and pull request, with tests; CI (`.github/workflows/ci.yml`: the unit tests on an iPhone simulator on
+  GitHub's macOS runner) must pass before it's merged. Commit messages end with the Co-Authored-By line the session
+  asks for.
