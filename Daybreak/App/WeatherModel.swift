@@ -151,6 +151,8 @@ final class PlaceWeather: Identifiable {
     private let cacheDirectory: URL?
     private let fetch: Fetch
     private var refreshTask: Task<Void, Never>?
+    /// Which refresh [refreshTask] is, so a stopped one finishing late can't clear its successor.
+    private var refreshNumber = 0
 
     /// The current-location page.
     init(cacheDirectory: URL? = PlaceWeather.cacheDirectory,
@@ -178,10 +180,12 @@ final class PlaceWeather: Identifiable {
     /// The first load, or a refresh: one at a time, a second caller waits for the first.
     func refresh() async {
         if let refreshTask { return await refreshTask.value }
+        refreshNumber += 1
+        let number = refreshNumber
         let task = Task {
             await self.load()
             // Cleared here, before any waiter resumes, so a refresh straight after this one starts a new fetch.
-            self.refreshTask = nil
+            if self.refreshNumber == number { self.refreshTask = nil }
         }
         refreshTask = task
         await task.value
@@ -201,6 +205,9 @@ final class PlaceWeather: Identifiable {
     /// The page is hidden: stop loading, keeping what it has.
     func stop() {
         refreshTask?.cancel()
+        // The next refresh starts afresh rather than joining the cancelled one.
+        refreshTask = nil
+        refreshNumber += 1
     }
 
     private func load() async {

@@ -51,7 +51,11 @@ struct WeatherScreen: View {
                 }
             }
             .sheet(isPresented: $managing) {
-                PlacesScreen()
+                // A place added from Places closes it and turns to the new page, as on Android.
+                PlacesScreen(onAdded: { id in
+                    managing = false
+                    pendingSelection = id
+                })
             }
             .task(id: pendingSelection) {
                 // A tick after the page is added, so the pager has laid it out before turning to it.
@@ -108,7 +112,7 @@ private struct EmptyState: View {
                 Spacer().frame(height: 24)
             }
             VStack(spacing: 0) {
-                WeatherIcon(code: 2, size: 96).accessibilityHidden(true)
+                BrandMark(size: 120).accessibilityHidden(true)
                 Spacer().frame(height: 24)
                 Text("Pick a place to start")
                     .font(.system(.title2, weight: .semibold))

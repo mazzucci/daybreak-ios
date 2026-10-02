@@ -70,28 +70,31 @@ private struct WeatherGlance: View {
     @State private var searching = false
 
     var body: some View {
-        if model.glance == nil {
-            message(icon: "magnifyingglass", tint: Palette.primary, title: "Pick a place to start",
-                    text: "Search for a city, or use your location.") {
-                HStack(spacing: 20) {
-                    Button("Add a place") { searching = true }
-                    Button("Use my location") { model.setUseCurrentLocation(true) }
+        Group {
+            if model.glance == nil {
+                message(icon: "magnifyingglass", tint: Palette.primary, title: "Pick a place to start",
+                        text: "Search for a city, or use your location.") {
+                    HStack(spacing: 20) {
+                        Button("Add a place") { searching = true }
+                        Button("Use my location") { model.setUseCurrentLocation(true) }
+                    }
                 }
-            }
-            .sheet(isPresented: $searching) {
-                SearchScreen(savedIds: model.savedIds) { place in
-                    model.add(place)
-                    searching = false
+            } else if let f = model.forecast {
+                loaded(f)
+            } else if let failure = model.failure {
+                message(icon: "exclamationmark.triangle.fill", tint: Palette.error, title: "Couldn't load the weather", text: failure) {
+                    Button("Try again") { Task { await model.refresh() } }
                 }
+            } else {
+                loading
             }
-        } else if let f = model.forecast {
-            loaded(f)
-        } else if let failure = model.failure {
-            message(icon: "exclamationmark.triangle.fill", tint: Palette.error, title: "Couldn't load the weather", text: failure) {
-                Button("Try again") { Task { await model.refresh() } }
+        }
+        // On the Group, which stays while the card changes from "Pick a place" to the new place's weather.
+        .sheet(isPresented: $searching) {
+            SearchScreen(savedIds: model.savedIds) { place in
+                searching = false
+                model.add(place)
             }
-        } else {
-            loading
         }
     }
 

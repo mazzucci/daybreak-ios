@@ -4,9 +4,12 @@ import SwiftUI
 /// they're swiped through, and Add place. Edit shows the list's drag handles and delete buttons (a swipe deletes
 /// too). Android's up and down buttons are VoiceOver actions here.
 struct PlacesScreen: View {
+    /// A place was added: its page id.
+    let onAdded: (String) -> Void
     @Environment(WeatherModel.self) private var model
     @Environment(\.dismiss) private var dismiss
     @State private var searching = false
+    @State private var editMode: EditMode = .inactive
 
     var body: some View {
         let saved = model.saved.compactMap(\.place)
@@ -26,6 +29,7 @@ struct PlacesScreen: View {
                     }
                     .tint(Palette.primary)
                     .accessibilityLabel("Use current location")
+                    .accessibilityHint("Show the weather where you are as the first page")
                 }
                 .listRowBackground(Palette.surfaceContainer)
 
@@ -41,8 +45,14 @@ struct PlacesScreen: View {
                     } else {
                         ForEach(Array(saved.enumerated()), id: \.element.id) { i, place in
                             PlaceRow(place: place)
-                                .accessibilityAction(named: "Move \(place.name) up") { model.move(from: i, to: i - 1) }
-                                .accessibilityAction(named: "Move \(place.name) down") { model.move(from: i, to: i + 1) }
+                                .accessibilityActions {
+                                    if i > 0 {
+                                        Button("Move \(place.name) up") { model.move(from: i, to: i - 1) }
+                                    }
+                                    if i < saved.count - 1 {
+                                        Button("Move \(place.name) down") { model.move(from: i, to: i + 1) }
+                                    }
+                                }
                                 .listRowBackground(Palette.surfaceContainer)
                         }
                         .onMove { from, to in
@@ -70,6 +80,9 @@ struct PlacesScreen: View {
                     .listRowBackground(Palette.surfaceContainer)
                 }
             }
+            .environment(\.editMode, $editMode)
+            // Nothing left to edit: out of editing, so the next place doesn't arrive with handles.
+            .onChange(of: saved.isEmpty) { _, empty in if empty { editMode = .inactive } }
             .scrollContentBackground(.hidden)
             .background(Palette.background)
             .navigationTitle("Places")
@@ -84,8 +97,8 @@ struct PlacesScreen: View {
             }
             .sheet(isPresented: $searching) {
                 SearchScreen(savedIds: model.savedIds) { place in
-                    model.add(place)
                     searching = false
+                    onAdded(model.add(place))
                 }
             }
         }
