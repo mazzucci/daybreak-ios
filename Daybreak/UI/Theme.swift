@@ -14,7 +14,11 @@ enum Palette {
     /// Cards.
     static let surfaceContainer = Color(light: 0xFFFFFF, dark: 0x1A2233)
     /// The range bar's track.
+    static let surfaceContainerHigh = Color(light: 0xEAF0F7, dark: 0x212B3F)
     static let surfaceContainerHighest = Color(light: 0xE1E8F1, dark: 0x29344A)
+    /// The "Saved" pill in search results.
+    static let secondaryContainer = Color(light: 0xE1E9F2, dark: 0x2A3648)
+    static let onSecondaryContainer = Color(light: 0x1C2937, dark: 0xE1E9F2)
     static let outline = Color(light: 0x7F8EA3, dark: 0x7F8EA3)
     static let outlineVariant = Color(light: 0xD9E2EC, dark: 0x344056)
     static let error = Color(light: 0xB3261E, dark: 0xFFB4AB)

@@ -11,21 +11,25 @@ private let chartHours = 24
 /// condition, high and low in both units and how warm or cold it'll feel; the temperature hour by hour; the rain (or
 /// snow) card; wind; and sun and UV. Pushed over the Weather tab, with the system back button.
 struct DayScreen: View {
-    let date: LocalDate
+    let route: DayRoute
     @Environment(WeatherModel.self) private var model
     @Environment(\.colorScheme) private var scheme
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
+        let page = model.page(route.pageId)
         Group {
-            if let forecast = model.forecast {
-                if let day = forecast.day(date) {
-                    DayPage(placeName: model.place?.name ?? "My location", forecast: forecast, day: day,
+            if let page, let forecast = page.forecast {
+                if let day = forecast.day(route.date) {
+                    DayPage(placeName: page.place?.name ?? "My location", forecast: forecast, day: day,
                             unit: model.unit)
                 } else {
                     // The forecast moved on (a new day) and this one has gone from it.
                     Color.clear.onAppear { dismiss() }
                 }
+            } else if page == nil {
+                // The place was removed.
+                Color.clear.onAppear { dismiss() }
             } else {
                 DayLoading()
             }

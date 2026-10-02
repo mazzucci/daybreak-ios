@@ -1,22 +1,115 @@
 import Foundation
 import Observation
 
-/// The weather for where you are: finds the place (the phone's location, or a stand-in when location is off), fetches
-/// its forecast from Open-Meteo, and keeps the last one on disk so a launch shows something at once. Home's glance
-/// and the Weather tab both read it.
+/// The Weather tab's pages: where you are first, then the places you've added (Android's WeatherViewModel pages).
+/// Home's glance shows the first page, so the model also answers for it directly ([forecast], [place], …).
 @MainActor
 @Observable
 final class WeatherModel {
-    enum PlaceSource: String, Codable {
+    /// Where you are (or its stand-in), always the first page.
+    let current: PlaceWeather
+    /// The places you've added, in order.
+    private(set) var saved: [PlaceWeather]
+    /// The unit shown large; the other one is shown small next to it. °F first, as Android's default.
+    var unit: TempUnit = .f
+
+    private let store: SavedPlacesStore
+    /// False in tests: no forecasts read from or written to disk, and nothing fetched when a place is added.
+    private let live: Bool
+
+    init(live: Bool = true, store: SavedPlacesStore = SavedPlacesStore()) {
+        self.store = store
+        self.live = live
+        let cache = live ? PlaceWeather.cacheDirectory : nil
+        current = PlaceWeather(cacheDirectory: cache)
+        saved = store.load().map { PlaceWeather(saved: $0, cacheDirectory: cache) }
+    }
+
+    var pages: [PlaceWeather] { [current] + saved }
+
+    func page(_ id: String) -> PlaceWeather? { pages.first { $0.id == id } }
+
+    var savedIds: Set<String> { Set(saved.map(\.id)) }
+
+    // MARK: The first page, for Home
+
+    var place: Place? { current.place }
+    var placeSource: PlaceWeather.Source { current.source }
+    var locationDenied: Bool { current.locationDenied }
+    var forecast: Forecast? { current.forecast }
+    var fetchedAt: Date? { current.fetchedAt }
+    var refreshing: Bool { current.refreshing }
+    var refreshFailed: Bool { current.refreshFailed }
+    var failure: String? { current.failure }
+
+    /// Refreshes the first page (Home's pull to refresh).
+    func refresh() async { await current.refresh() }
+
+    // MARK: Every page
+
+    /// The first load after launch: every page at once.
+    func refreshAll() async {
+        await withTaskGroup(of: Void.self) { group in
+            for page in pages { group.addTask { await page.refresh() } }
+        }
+    }
+
+    /// On return to the app: the pages whose forecast is more than [age] seconds old.
+    func refreshAll(olderThan age: TimeInterval) async {
+        await withTaskGroup(of: Void.self) { group in
+            for page in pages { group.addTask { await page.refreshIfOlder(than: age) } }
+        }
+    }
+
+    // MARK: Saved places
+
+    /// Saves [place] as the last page and starts loading it; returns its page id (the existing page's if it's
+    /// already saved), so the pager can turn to it.
+    @discardableResult
+    func add(_ place: Place) -> String {
+        guard let places = SavedPlaces.adding(place, to: saved.compactMap(\.place)) else { return place.id }
+        let page = PlaceWeather(saved: place, cacheDirectory: live ? PlaceWeather.cacheDirectory : nil)
+        saved.append(page)
+        store.save(places)
+        if live { Task { await page.refresh() } }
+        return page.id
+    }
+
+    func remove(_ id: String) {
+        guard let page = saved.first(where: { $0.id == id }) else { return }
+        saved.removeAll { $0.id == id }
+        store.save(saved.compactMap(\.place))
+        page.forget()
+    }
+
+    /// Moves the saved place at [from] to [to] (indices among the saved places, not the pages).
+    func move(from: Int, to: Int) {
+        let moved = SavedPlaces.moving(saved.compactMap(\.place), from: from, to: to)
+        saved = moved.compactMap { place in saved.first { $0.id == place.id } }
+        store.save(moved)
+    }
+}
+
+/// One page's weather: finds its place (for the current location, the phone's location or a stand-in when location
+/// is off; a saved place is fixed), fetches its forecast from Open-Meteo, and keeps the last one on disk so a launch
+/// shows something at once.
+@MainActor
+@Observable
+final class PlaceWeather: Identifiable {
+    enum Source: String, Codable {
         /// The phone's own location.
         case device
         /// Location is off or unavailable: a city from the phone's time zone, or a default one.
         case fallback
+        /// A place you added.
+        case saved
     }
 
+    /// "current" for where you are, else the place's id ("geo:2267057").
+    let id: String
     private(set) var place: Place?
-    private(set) var placeSource: PlaceSource = .device
-    /// Location permission was refused (or isn't allowed), so the place is a stand-in.
+    private(set) var source: Source
+    /// Location permission was refused (or isn't allowed), so the current place is a stand-in.
     private(set) var locationDenied = false
     private(set) var forecast: Forecast?
     /// When the app fetched the forecast (not the model's run time), for "Updated 8 min ago".
@@ -26,23 +119,53 @@ final class WeatherModel {
     private(set) var refreshFailed = false
     /// Why there's no forecast to show; nil while loading or once there is one.
     private(set) var failure: String?
-    /// The unit shown large; the other one is shown small next to it. °F first, as Android's default.
-    var unit: TempUnit = .f
 
-    private let location = LocationService()
+    var isCurrentLocation: Bool { id == Place.currentLocationId }
+
+    typealias Fetch = @Sendable (_ latitude: Double, _ longitude: Double) async throws -> (Forecast, String)
+
+    /// Where each page's last forecast is kept: the app's caches folder.
+    static var cacheDirectory: URL { FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0] }
+
+    private let location: LocationService?
+    /// Nil keeps nothing on disk (tests).
+    private let cacheDirectory: URL?
+    private let fetch: Fetch
     private var refreshTask: Task<Void, Never>?
 
-    init(loadCache: Bool = true) {
-        if loadCache { restore() }
+    /// The current-location page.
+    init(cacheDirectory: URL? = PlaceWeather.cacheDirectory,
+         fetch: @escaping Fetch = { try await OpenMeteo.forecast(latitude: $0, longitude: $1) }) {
+        id = Place.currentLocationId
+        source = .device
+        location = LocationService()
+        self.cacheDirectory = cacheDirectory
+        self.fetch = fetch
+        restore()
     }
 
-    /// The first load after launch, or a refresh: one at a time, a second caller waits for the first.
+    /// A saved place's page.
+    init(saved place: Place, cacheDirectory: URL? = PlaceWeather.cacheDirectory,
+         fetch: @escaping Fetch = { try await OpenMeteo.forecast(latitude: $0, longitude: $1) }) {
+        id = place.id
+        self.place = place
+        source = .saved
+        location = nil
+        self.cacheDirectory = cacheDirectory
+        self.fetch = fetch
+        restore()
+    }
+
+    /// The first load, or a refresh: one at a time, a second caller waits for the first.
     func refresh() async {
         if let refreshTask { return await refreshTask.value }
-        let task = Task { await self.load() }
+        let task = Task {
+            await self.load()
+            // Cleared here, before any waiter resumes, so a refresh straight after this one starts a new fetch.
+            self.refreshTask = nil
+        }
         refreshTask = task
         await task.value
-        refreshTask = nil
     }
 
     /// Refreshes when the forecast is older than [age] seconds (on return to the app).
@@ -50,28 +173,38 @@ final class WeatherModel {
         guard let fetchedAt, Date().timeIntervalSince(fetchedAt) < age else { return await refresh() }
     }
 
+    /// The page is gone: stop loading and drop its cached forecast.
+    func forget() {
+        refreshTask?.cancel()
+        if let cacheURL { try? FileManager.default.removeItem(at: cacheURL) }
+    }
+
     private func load() async {
         refreshing = forecast != nil
         defer { refreshing = false }
-        let found = await findPlace()
+        let found: (place: Place, source: Source)?
+        if location != nil { found = await findPlace() } else { found = place.map { ($0, .saved) } }
         guard let found else {
             if forecast == nil { failure = "Couldn't find where you are. Check your connection and try again." }
             refreshFailed = forecast != nil
             return
         }
         do {
-            let (fresh, json) = try await OpenMeteo.forecast(latitude: found.place.latitude, longitude: found.place.longitude)
+            let (fresh, json) = try await fetch(found.place.latitude, found.place.longitude)
+            guard !Task.isCancelled else { return }
             place = found.place
-            placeSource = found.source
+            source = found.source
             forecast = fresh
             fetchedAt = Date()
             failure = nil
             refreshFailed = false
             save(json: json)
         } catch {
+            // The page was removed while fetching: nothing to report.
+            if Task.isCancelled { return }
             if forecast == nil {
                 place = found.place
-                placeSource = found.source
+                source = found.source
                 failure = message(for: error)
             }
             refreshFailed = forecast != nil
@@ -80,19 +213,19 @@ final class WeatherModel {
 
     /// The phone's location; else the city of the phone's time zone, found with Open-Meteo's geocoding; else
     /// [defaultPlace]. Nil only when even the stand-in can't be had and there's nothing to keep.
-    private func findPlace() async -> (place: Place, source: PlaceSource)? {
-        switch await location.currentPlace() {
+    private func findPlace() async -> (place: Place, source: Source)? {
+        switch await location?.currentPlace() {
         case .place(let p):
             locationDenied = false
             return (p, .device)
         case .denied:
             locationDenied = true
-        case .unavailable:
+        case .unavailable, nil:
             locationDenied = false
             // Keep the last place we had rather than jumping to another city.
-            if let place { return (place, placeSource) }
+            if let place { return (place, source) }
         }
-        if let place, placeSource == .fallback { return (place, .fallback) }
+        if let place, source == .fallback { return (place, .fallback) }
         return (await timeZoneCity() ?? Self.defaultPlace, .fallback)
     }
 
@@ -118,27 +251,32 @@ final class WeatherModel {
 
     private struct Saved: Codable {
         let place: Place
-        let source: PlaceSource
+        let source: Source
         let fetchedAt: Date
         let json: String
     }
 
-    private static var cacheURL: URL {
-        FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("forecast.json")
+    /// "forecast.json" for where you are (as before there were pages), "forecast-geo-2267057.json" for a saved place.
+    private var cacheURL: URL? {
+        let name = isCurrentLocation ? "forecast.json" : "forecast-\(id.replacingOccurrences(of: ":", with: "-")).json"
+        return cacheDirectory?.appendingPathComponent(name)
     }
 
     private func save(json: String) {
-        guard let place, let fetchedAt else { return }
-        let saved = Saved(place: place, source: placeSource, fetchedAt: fetchedAt, json: json)
-        try? JSONEncoder().encode(saved).write(to: Self.cacheURL, options: .atomic)
+        guard let place, let fetchedAt, let cacheURL else { return }
+        let saved = Saved(place: place, source: source, fetchedAt: fetchedAt, json: json)
+        try? JSONEncoder().encode(saved).write(to: cacheURL, options: .atomic)
     }
 
     private func restore() {
-        guard let data = try? Data(contentsOf: Self.cacheURL),
+        guard let cacheURL, let data = try? Data(contentsOf: cacheURL),
               let saved = try? JSONDecoder().decode(Saved.self, from: data),
               let forecast = try? parseForecast(saved.json) else { return }
-        place = saved.place
-        placeSource = saved.source
+        // A saved page keeps its own place; only the current location's comes from the cache.
+        if isCurrentLocation {
+            place = saved.place
+            source = saved.source
+        }
         fetchedAt = saved.fetchedAt
         self.forecast = forecast
     }
