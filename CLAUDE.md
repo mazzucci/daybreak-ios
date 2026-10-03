@@ -66,28 +66,29 @@ Look at every screenshot: check nothing is clipped, wrapped badly or misaligned,
 ## Layout
 
 ```
-Daybreak.xcodeproj    objectVersion 77 with file-system synchronized groups: it lists the folders, not the
-                      files, so new .swift files and fixtures are picked up with no project edit. Shared scheme.
-Daybreak/App          AppDelegate/SceneDelegate (UIKit lifecycle so the root hosting controller can set the status
-                      bar per tab), WeatherModel (the Weather tab's pages: PlaceWeather for where you are, then
-                      the saved places), PlaceSearch ("Add a place"), OnThisDayModel (@Observable, @MainActor)
+Daybreak.xcodeproj    objectVersion 77 with file-system synchronized groups: it lists the folders, not the files, so new
+                      .swift files and fixtures are picked up with no project edit. Shared scheme.
+Daybreak/App          AppDelegate/SceneDelegate (UIKit lifecycle so the root hosting controller can set the status bar
+                      per tab), WeatherModel (the Weather tab's pages: PlaceWeather for where you are, then the saved
+                      places), PlaceSearch ("Add a place"), OnThisDayModel (@Observable, @MainActor)
 Daybreak/Domain       pure, tested logic ported from Android's domain/: Precip.swift (rain rules), OnThisDay.swift
                       (filter, scoring, picks), OutdoorScore.swift (an hour's score for being outside),
                       WeekOutlook.swift ("This week": day scores, the today line, the week lines), ComingUp.swift (so
-                      far only weekendDays), Formatting.swift, Models.swift, Summary.swift, LocalTime.swift
-                      (zone-free LocalDate/LocalDateTime, DayOfWeek), KotlinRandom.swift (Kotlin's Random, bit for bit)
-Daybreak/Data         OpenMeteo.swift (request + parser), Wikipedia.swift (feed + parser), OnThisDayStore.swift
-                      (the day's picks, cached in UserDefaults), SavedPlacesStore.swift, SettingsStore.swift,
-                      ImageLoader.swift, LocationService.swift
+                      far only weekendDays), Clocks.swift (readings, offsets, converting), Formatting.swift,
+                      Models.swift, Summary.swift, LocalTime.swift (zone-free LocalDate/LocalDateTime, DayOfWeek),
+                      KotlinRandom.swift (Kotlin's Random, bit for bit)
+Daybreak/Data         OpenMeteo.swift (request + parser), Wikipedia.swift (feed + parser), OnThisDayStore.swift (the
+                      day's picks, cached in UserDefaults), SavedPlacesStore.swift, SettingsStore.swift,
+                      ClocksStore.swift (and ClocksModel), ImageLoader.swift, LocationService.swift
 Daybreak/UI           Theme.swift (Android's palette as dynamic colours, type scale, card style), Sky.swift (hero
                       gradients), WeatherIcon.swift (Android's drawn icons), Components.swift, HomeScreen.swift,
                       WeatherScreen.swift (a NavigationStack over a paging ScrollView of places), SearchScreen.swift,
-                      PlacesScreen.swift, SettingsScreen.swift, WeekOutlookCard.swift ("This week"), DayScreen.swift
-                      (a day's page, pushed from the 10-day list), OnThisDayCard.swift, RootView.swift (tabs,
-                      placeholders)
-DaybreakTests         Swift Testing suites ported from Android's tests: PrecipTests, OnThisDayTests,
-                      OnThisDayFeedTests, OpenMeteoParserTests, DayPageTests, PlacesTests, PlaceWeatherTests,
-                      SettingsTests, OutdoorScoreTests, WeekOutlookTests, ThisWeekWiringTests; TestData.swift has
+                      PlacesScreen.swift, SettingsScreen.swift, WeekOutlookCard.swift ("This week"), ClocksScreen.swift,
+                      DayScreen.swift (a day's page, pushed from the 10-day list), OnThisDayCard.swift, RootView.swift
+                      (tabs, placeholders)
+DaybreakTests         Swift Testing suites ported from Android's tests: PrecipTests, OnThisDayTests, OnThisDayFeedTests,
+                      OpenMeteoParserTests, DayPageTests, PlacesTests, PlaceWeatherTests, SettingsTests,
+                      OutdoorScoreTests, WeekOutlookTests, ThisWeekWiringTests, ClocksTests; TestData.swift has
                       Android's TestData builders (forecast(), rainyNight(), synthetic weeks from DaySpecs); Fixtures/
                       holds Android's JSON fixtures, copied from app/src/test/resources/fixtures in the Android repo
 scripts               run-in-simulator.sh; make-app-icon.swift (`swift scripts/make-app-icon.swift` redraws the icon)
