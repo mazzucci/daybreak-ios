@@ -117,6 +117,8 @@ private struct WeatherGlance: View {
         let name = model.place?.name ?? "My location"
         let today = f.today
         let todayRain = Precip.dayRain(f, today.date)
+        // The "This week" today line, for the place's current hour; the weekend doesn't matter to it.
+        let outlook = weekOutlook(f, unit, now: outlookMoment(f, Date()))
         let rain = !todayRain.dry && Precip.showDayChance(todayRain.chance) ? todayRain.chance : nil
         let condition = describeWeatherCode(f.current.code)
         let range = "↑\(formatDegrees(today.highC, unit)) ↓\(formatDegrees(today.lowC, unit))"
@@ -128,8 +130,9 @@ private struct WeatherGlance: View {
             condition.lowercased(),
             "high \(formatDegrees(today.highC, unit)), low \(formatDegrees(today.lowC, unit))",
             rain.map { "\($0) percent chance of \(todayRain.noun.lowercased())" },
-        ].compactMap { $0 }.joined(separator: ", ") + ". Opens Weather."
+        ].compactMap { $0 }.joined(separator: ", ") + ". \(outlook.today.spoken). Opens Weather."
         return Button(action: openWeather) {
+            VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 12) {
                 WeatherIcon(code: f.current.code, night: f.isNightNow, size: 36)
                 VStack(alignment: .leading, spacing: 2) {
@@ -154,7 +157,17 @@ private struct WeatherGlance: View {
                     .font(.footnote.weight(.semibold))
                     .foregroundStyle(Palette.outline)
             }
-            .padding(16)
+            .padding([.top, .horizontal], 16)
+            // The "This week" today line, quietly under the place name.
+            Text(keepUnitsTogether(outlook.today.text))
+                .font(.bodySmall)
+                .foregroundStyle(Palette.onSurfaceVariant)
+                .lineLimit(1)
+                .padding(.leading, 64)
+                .padding(.trailing, 16)
+                .padding(.top, 6)
+                .padding(.bottom, 14)
+            }
             .frame(minHeight: 72)
             .contentShape(Rectangle())
             .card()

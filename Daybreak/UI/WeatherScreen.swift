@@ -242,7 +242,8 @@ private struct WeatherPage: View {
             Group {
                 if let forecast {
                     if page.locationDenied { LocationOffCard(place: page.place) }
-                    WeatherBody(forecast: forecast, unit: model.unit, night: night, fetchedAt: page.fetchedAt,
+                    WeatherBody(forecast: forecast, unit: model.unit, night: night,
+                                weekend: weekendDays(page.place?.countryCode), fetchedAt: page.fetchedAt,
                                 refreshFailed: page.refreshFailed, onOpenDay: onOpenDay)
                 } else if let failure = page.failure {
                     Spacer().frame(height: 24)
@@ -369,20 +370,31 @@ private struct LocationOffCard: View {
     }
 }
 
-/// Detail tiles, the hourly strip, the sun and the 10-day list, below the sky.
+/// Detail tiles, the hourly strip, the sun, This week and the 10-day list, below the sky. This week is worked out
+/// for the place's current hour, and moves on with the clock.
 private struct WeatherBody: View {
     let forecast: Forecast
     let unit: TempUnit
     let night: Bool
+    /// The place's weekend days, for This week's best day.
+    let weekend: Set<DayOfWeek>
     let fetchedAt: Date?
     let refreshFailed: Bool
     let onOpenDay: (LocalDate) -> Void
 
     var body: some View {
+        TimelineView(.everyMinute) { context in
+            content(now: outlookMoment(forecast, context.date))
+        }
+    }
+
+    private func content(now: LocalDateTime) -> some View {
         let cur = forecast.current
         let days = forecast.upcomingDays()
+        // Every day's rain, worked out once for the outlook and the 10-day list.
         let rains = days.map { Precip.dayRain(forecast, $0.date) }
-        VStack(spacing: 0) {
+        let outlook = weekOutlook(forecast, unit, weekend: weekend, now: now, rains: rains)
+        return VStack(spacing: 0) {
             Spacer().frame(height: 20)
             TileRow {
                 StatTile(label: "Feels like", value: formatDegrees(cur.feelsLikeC, unit),
@@ -400,11 +412,16 @@ private struct WeatherBody: View {
             Spacer().frame(height: 12)
             HourStrip(cells: HourCell.next(forecast, nightNow: night), unit: unit)
             SunAndUv(day: forecast.today)
+            Spacer().frame(height: 24).id("week")
+            WeekOutlookSection(outlook: outlook, today: forecast.today.date, onOpenDay: onOpenDay)
             if days.count > 1 {
                 Spacer().frame(height: 24).id("days")
-                SectionHeading("Next \(days.count) days")
+                SectionHeading("Next \(days.count) days") {
+                    Text("Tap a day for details").font(.labelMedium).foregroundStyle(Palette.onSurfaceVariant)
+                }
                 Spacer().frame(height: 12)
-                DailyList(days: days, rains: rains, today: forecast.today.date, unit: unit, onOpenDay: onOpenDay)
+                DailyList(days: days, rains: rains, today: forecast.today.date, unit: unit, bestDate: outlook.bestDate,
+                          onOpenDay: onOpenDay)
             }
         }
     }
@@ -570,12 +587,14 @@ struct SunAndUv: View {
 /// One row per day: name, icon with the rain chance under it, the low–high range on a bar shared by the whole list
 /// (so warmer and cooler days line up), and the day's rain or snow total at the end, by the same rules as everywhere
 /// else. Every column is as wide as its widest entry, so the bars line up. Days from the eighth on are drawn lighter
-/// under a "less certain" rule, with their date under the weekday. Tapping a row opens the day.
+/// under a "less certain" rule, with their date under the weekday. This week's best day says "Best" under its name.
+/// Tapping a row opens the day.
 private struct DailyList: View {
     let days: [DaySummary]
     let rains: [DayRain]
     let today: LocalDate
     let unit: TempUnit
+    var bestDate: LocalDate? = nil
     let onOpenDay: (LocalDate) -> Void
     @Environment(\.dynamicTypeSize) private var typeSize
     @ScaledMetric(relativeTo: .subheadline) private var line: CGFloat = 22
@@ -600,6 +619,9 @@ private struct DailyList: View {
                             .frame(height: line)
                         if lessCertain {
                             Text(formatShortDate(day.date)).font(.labelSmall).foregroundStyle(Palette.onSurfaceVariant)
+                        }
+                        if day.date == bestDate {
+                            Text("Best").font(.labelSmall).foregroundStyle(Palette.success)
                         }
                     }
                     .lineLimit(1)
@@ -676,6 +698,7 @@ private struct DailyList: View {
     private func spoken(_ day: DaySummary, _ rain: DayRain, chance: Int?, lessCertain: Bool) -> String {
         var s = formatDayName(day.date, today: today)
         if lessCertain { s += ", \(formatLongDate(day.date))" }
+        if day.date == bestDate { s += ", best day this week" }
         s += ", \(describeWeatherCode(day.code)), high \(formatBothUnits(day.highC, unit)), low \(formatBothUnits(day.lowC, unit))"
         if let chance { s += ", \(chance)% chance of \(rain.noun.lowercased())" }
         else if !rain.dry { s += ", a small chance of \(rain.noun.lowercased())" }
