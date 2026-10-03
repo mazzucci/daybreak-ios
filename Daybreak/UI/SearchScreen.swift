@@ -1,9 +1,12 @@
 import SwiftUI
 
 /// "Add a place" (Android's SearchScreen), in a sheet: a city name, Open-Meteo's matches as you type, and a tap to
-/// add one as the last page. Places already saved say so and can't be added twice.
+/// add one as the last page. Places already saved say so and can't be added twice. Retitled "Add a clock" for
+/// Clocks, where [suggestions] (your weather places) are listed under "From your places" before you type.
 struct SearchScreen: View {
     let savedIds: Set<String>
+    var title = "Add a place"
+    var suggestions: [Place] = []
     let onPick: (Place) -> Void
     @State private var search = PlaceSearch()
     @FocusState private var focused: Bool
@@ -22,23 +25,23 @@ struct SearchScreen: View {
                             .padding(.horizontal, 24)
                             .padding(.vertical, 8)
                     }
+                    let blank = search.query.trimmingCharacters(in: .whitespaces).isEmpty
                     if let error = search.error {
                         Hint(text: error)
-                    } else if search.query.trimmingCharacters(in: .whitespaces).isEmpty {
+                    } else if blank && !suggestions.isEmpty {
+                        Text("From your places")
+                            .font(.titleSmall)
+                            .foregroundStyle(Palette.primary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 20)
+                            .padding(.top, 16)
+                            .accessibilityAddTraits(.isHeader)
+                        Results(places: suggestions, savedIds: savedIds, onPick: onPick)
+                    } else if blank {
                         Hint(text: "Type a city name, for example Lisbon or Springfield.")
                     }
                     if !search.results.isEmpty {
-                        VStack(spacing: 0) {
-                            ForEach(search.results, id: \.id) { place in
-                                ResultRow(place: place, saved: savedIds.contains(place.id)) { onPick(place) }
-                                if place.id != search.results.last?.id {
-                                    Divider().overlay(Palette.outlineVariant).padding(.leading, 56)
-                                }
-                            }
-                        }
-                        .card()
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
+                        Results(places: search.results, savedIds: savedIds, onPick: onPick)
                     }
                 }
                 .readableWidth()
@@ -46,7 +49,7 @@ struct SearchScreen: View {
             }
             .scrollDismissesKeyboard(.interactively)
             .background(Palette.background)
-            .navigationTitle("Add a place")
+            .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -54,9 +57,34 @@ struct SearchScreen: View {
                 }
             }
         }
-        .onAppear { focused = true }
+        // A moment after the sheet is up: focusing while it's still sliding in doesn't always take.
+        .task {
+            try? await Task.sleep(for: .milliseconds(350))
+            focused = true
+        }
         // Android clears the search on leaving it; this also stops a request still on its way.
         .onDisappear { search.clear() }
+    }
+}
+
+/// A card of places to pick from, those already saved marked and not pickable.
+private struct Results: View {
+    let places: [Place]
+    let savedIds: Set<String>
+    let onPick: (Place) -> Void
+
+    var body: some View {
+        VStack(spacing: 0) {
+            ForEach(places, id: \.id) { place in
+                ResultRow(place: place, saved: savedIds.contains(place.id)) { onPick(place) }
+                if place.id != places.last?.id {
+                    Divider().overlay(Palette.outlineVariant).padding(.leading, 56)
+                }
+            }
+        }
+        .card()
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
     }
 }
 

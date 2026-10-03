@@ -13,6 +13,7 @@ struct RootView: View {
     @State private var selection: AppTab = LaunchOptions.initialTab ?? .home
     @State private var weather = WeatherModel()
     @State private var onThisDay = OnThisDayModel()
+    @State private var clocks = ClocksModel()
     @Environment(StatusBarStyle.self) private var statusBar
     @AppStorage(SettingsStore.onThisDayKey) private var onThisDayEnabled = true
 
@@ -30,10 +31,7 @@ struct RootView: View {
             )
             .tabItem { Label("Habits", systemImage: "checkmark.square") }
             .tag(AppTab.habits)
-            ComingSoonScreen(
-                title: "Clocks", systemImage: "clock",
-                text: "The places you call or work with: each one's time, how far ahead or behind you it is, and a converter for any moment."
-            )
+            ClocksScreen()
             .tabItem { Label("Clocks", systemImage: "clock") }
             .tag(AppTab.clocks)
             SettingsScreen()
@@ -43,6 +41,7 @@ struct RootView: View {
         .tint(Palette.primary)
         .environment(weather)
         .environment(onThisDay)
+        .environment(clocks)
         .onAppear { statusBar.light = selection.hasSky }
         .onChange(of: selection) { _, tab in statusBar.light = tab.hasSky }
         .task {
