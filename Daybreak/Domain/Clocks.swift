@@ -147,6 +147,8 @@ private func twoDigits(_ n: Int) -> String { n < 10 ? "0\(n)" : "\(n)" }
 struct Conversion: Sendable {
     /// The picked moment, wall-clock where it's picked.
     let moment: LocalDateTime
+    /// Where the time is: the clock's zone, or the phone's.
+    let fromZone: TimeZone
     /// "12:00 PM".
     let timeLabel: String
     /// "Today" or "Tomorrow".
@@ -200,6 +202,7 @@ func convert(clocks: [Clock], now: Date, here: TimeZone, fromId: String?, minute
     }
     return Conversion(
         moment: moment,
+        fromZone: fromZone,
         timeLabel: timeLabel,
         dayLabel: dayOffset == 0 ? "Today" : "Tomorrow",
         fromName: fromName,

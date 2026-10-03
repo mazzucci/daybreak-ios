@@ -131,7 +131,8 @@ struct ClocksTests {
 
     @Test("a time picked in a clock shows your phone too, and leaves that clock out")
     func convertFromAClock() {
-        // Noon tomorrow (Tuesday 29 September) in Tokyo.
+        // Noon tomorrow in Tokyo: it's already 6:42 AM on Tuesday 29 September there, so tomorrow is Wednesday
+        // (today and tomorrow are the clock's, not the phone's).
         let c = convert(clocks: clocks, now: moment, here: la, fromId: "geo:1850147", minutes: 12 * 60, dayOffset: 1,
                         use24Hour: false)
         #expect(c.heading == "At 12:00 PM on Wednesday in Tokyo it's…")
@@ -149,6 +150,22 @@ struct ClocksTests {
             #expect(c.fromName == "Los Angeles")
             #expect(!c.rows.contains { $0.name.hasSuffix("(your phone)") })
         }
+    }
+
+    @Test("a time skipped by daylight saving moves forward, in the heading and every row")
+    func convertInAGap() {
+        // 2:30 AM on 8 March 2026 doesn't exist in Los Angeles; the phone's day is the 8th, after the change.
+        let gapDay = try! Date("2026-03-08T12:00:00Z", strategy: .iso8601)
+        let c = convert(clocks: clocks, now: gapDay, here: la, fromId: nil, minutes: 150, dayOffset: 0, use24Hour: false)
+        #expect(c.timeLabel == "3:30 AM")
+        #expect(c.moment.hour == 3 && c.moment.minute == 30)
+        #expect(c.heading == "At 3:30 AM on Sunday in Los Angeles it's…")
+        // 3:30 AM PDT is 10:30 UTC: 12:30 PM in Bucharest (UTC+2 in March), 7:30 PM in Tokyo.
+        #expect(c.rows.map(\.timeLabel) == ["12:30 PM", "7:30 PM"])
+        let h24 = convert(clocks: clocks, now: gapDay, here: la, fromId: nil, minutes: 150, dayOffset: 0, use24Hour: true)
+        #expect(h24.timeLabel == "03:30")
+        #expect(h24.rows.map(\.timeLabel) == ["12:30", "19:30"])
+        #expect(h24.heading == "At 03:30 on Sunday in Los Angeles it's…")
     }
 
     @Test("two days apart reads the weekday")

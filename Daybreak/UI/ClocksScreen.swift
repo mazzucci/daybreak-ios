@@ -23,6 +23,15 @@ struct ClocksScreen: View {
             .environment(\.editMode, $editMode)
             // Removing the last clock ends editing; the Edit button goes with the list.
             .onChange(of: model.clocks.isEmpty) { _, empty in if empty { editMode = .inactive } }
+            // A clock removed while the time is in it: back to your phone and to now, since the picked time was that
+            // clock's. With no clocks left the converter goes, and its picks with it, as on Android.
+            .onChange(of: model.clocks.map(\.id)) { _, ids in
+                if ids.isEmpty {
+                    (minutes, dayOffset, fromId) = (nil, 0, nil)
+                } else if let id = fromId, !ids.contains(id) {
+                    (minutes, fromId) = (nil, nil)
+                }
+            }
             .scrollContentBackground(.hidden)
             // Short lines on an iPad, like the other tabs.
             .frame(maxWidth: Metrics.readableWidth)
@@ -149,14 +158,15 @@ private struct Converter: View {
     @Binding var fromId: String?
 
     var body: some View {
-        let fromZone = clocks.first { $0.id == fromId }?.zone ?? here
+        let fromZone = conversion.fromZone
         VStack(alignment: .leading, spacing: 0) {
-            FlowLayout(spacing: 8, lineSpacing: 8) {
+            FlowLayout(spacing: 8, lineSpacing: 8, leading: true) {
                 // The system's time picker, in the zone the time is in.
                 DatePicker("Time", selection: timeBinding(fromZone), displayedComponents: .hourAndMinute)
                     .labelsHidden()
                     .environment(\.timeZone, fromZone)
-                    .accessibilityLabel("Time, \(conversion.timeLabel)")
+                    // The picker speaks its own value.
+                    .accessibilityLabel("Time")
                 if minutes != nil {
                     // Back to the ticking time.
                     Button("Now") { minutes = nil }
@@ -192,14 +202,19 @@ private struct Converter: View {
             ForEach(conversion.rows) { row in
                 HStack(spacing: 12) {
                     DayNightDisc(night: row.night)
-                    Text(row.name).font(.titleMedium).foregroundStyle(Palette.onSurface).lineLimit(1)
-                    Spacer(minLength: 8)
-                    VStack(alignment: .trailing, spacing: 0) {
-                        Text(keepUnitsTogether(row.timeLabel)).font(.titleMedium).foregroundStyle(Palette.onSurface)
-                            .lineLimit(1)
-                        if let note = row.note {
-                            Text(note).font(.labelSmall).foregroundStyle(Palette.onSurfaceVariant)
+                    // The name takes what the time leaves; at large sizes the time moves under it.
+                    ViewThatFits(in: .horizontal) {
+                        HStack(spacing: 8) {
+                            Text(row.name).font(.titleMedium).foregroundStyle(Palette.onSurface).lineLimit(1)
+                                .layoutPriority(1)
+                            Spacer(minLength: 0)
+                            timeAndNote(row, alignment: .trailing).fixedSize()
                         }
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(row.name).font(.titleMedium).foregroundStyle(Palette.onSurface)
+                            timeAndNote(row, alignment: .leading)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
                 .padding(.vertical, 8)
@@ -208,10 +223,13 @@ private struct Converter: View {
             }
         }
         .padding(.vertical, 8)
-        .onChange(of: clocks.map(\.id)) { _, ids in
-            if let fromId, !ids.contains(fromId) {
-                self.fromId = nil
-                minutes = nil
+    }
+
+    private func timeAndNote(_ row: ConvertedRow, alignment: HorizontalAlignment) -> some View {
+        VStack(alignment: alignment, spacing: 0) {
+            Text(keepUnitsTogether(row.timeLabel)).font(.titleMedium).foregroundStyle(Palette.onSurface).lineLimit(1)
+            if let note = row.note {
+                Text(note).font(.labelSmall).foregroundStyle(Palette.onSurfaceVariant)
             }
         }
     }
