@@ -141,3 +141,72 @@ func cityOf(_ zone: TimeZone) -> String {
 }
 
 private func twoDigits(_ n: Int) -> String { n < 10 ? "0\(n)" : "\(n)" }
+
+/// The converter's answer (Android's Converter): the picked moment where it's picked, and the same moment in every
+/// other clock, and in your phone when the time is a clock's.
+struct Conversion: Sendable {
+    /// The picked moment, wall-clock where it's picked.
+    let moment: LocalDateTime
+    /// Where the time is: the clock's zone, or the phone's.
+    let fromZone: TimeZone
+    /// "12:00 PM".
+    let timeLabel: String
+    /// "Today" or "Tomorrow".
+    let dayLabel: String
+    /// "New York" or the clock's name.
+    let fromName: String
+    /// "At 12:00 PM on Wednesday in New York it's…".
+    let heading: String
+    let rows: [ConvertedRow]
+}
+
+/// One clock at the converted moment: its name, the time there, and "Thu · next day" when it's another day there.
+struct ConvertedRow: Sendable, Identifiable {
+    let id: String
+    let name: String
+    let time: LocalDateTime
+    let timeLabel: String
+    let note: String?
+    let night: Bool
+    /// "Tokyo, 1:00 AM, Thu, next day".
+    var spoken: String { [name, timeLabel, note?.replacingOccurrences(of: " ·", with: ",")].compactMap { $0 }.joined(separator: ", ") }
+}
+
+/// The converter at [now]: [minutes] past midnight (nil for the time now there), [dayOffset] days after today there
+/// (0 or 1), where the time is [fromId]'s clock (nil, or a clock that's gone or whose zone is unknown, for the phone).
+func convert(clocks: [Clock], now: Date, here: TimeZone, fromId: String?, minutes: Int?, dayOffset: Int,
+             use24Hour: Bool = ClockFormat.use24Hour) -> Conversion {
+    let from = clocks.first { $0.id == fromId && $0.zone != nil }
+    let fromZone = from?.zone ?? here
+    let phoneName = "\(cityOf(here)) (your phone)"
+    let fromName = from?.name ?? cityOf(here)
+    let nowThere = LocalDateTime.from(now, utcOffsetSeconds: fromZone.secondsFromGMT(for: now))
+    let hour = minutes.map { $0 / 60 } ?? nowThere.hour
+    let minute = minutes.map { $0 % 60 } ?? nowThere.minute
+    let day = nowThere.date.plusDays(dayOffset)
+    // Through the zone, so a time skipped by daylight saving moves forward.
+    let moment = convertTime(hour: hour, minute: minute, on: day, from: fromZone, to: fromZone)
+    let timeLabel = formatClock(moment, use24Hour: use24Hour)
+    func row(_ id: String, _ name: String, _ zone: TimeZone) -> ConvertedRow {
+        let there = convertTime(hour: hour, minute: minute, on: day, from: fromZone, to: zone)
+        let note = dayNote(moment.date, there.date).map { n in
+            n.hasSuffix("day") && n.contains(" ") ? "\(weekdayName(there.date).prefix(3)) · \(n)" : n
+        }
+        return ConvertedRow(id: id, name: name, time: there, timeLabel: formatClock(there, use24Hour: use24Hour),
+                            note: note, night: isNightHour(there.hour))
+    }
+    var rows: [ConvertedRow] = []
+    if from != nil { rows.append(row("phone", phoneName, here)) }
+    for clock in clocks where clock.id != from?.id {
+        if let zone = clock.zone { rows.append(row(clock.id, clock.name, zone)) }
+    }
+    return Conversion(
+        moment: moment,
+        fromZone: fromZone,
+        timeLabel: timeLabel,
+        dayLabel: dayOffset == 0 ? "Today" : "Tomorrow",
+        fromName: fromName,
+        heading: "At \(timeLabel) on \(weekdayName(moment.date)) in \(fromName) it's…",
+        rows: rows
+    )
+}

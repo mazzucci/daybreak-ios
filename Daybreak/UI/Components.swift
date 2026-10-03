@@ -220,11 +220,12 @@ struct WindFrom: View {
     }
 }
 
-/// Lays its children out in rows, wrapping onto the next when one doesn't fit, each row centred. A child wider than
-/// the whole row is offered the row's width, so it can wrap inside itself.
+/// Lays its children out in rows, wrapping onto the next when one doesn't fit, each row centred (or at the start, for
+/// [leading]). A child wider than the whole row is offered the row's width, so it can wrap inside itself.
 struct FlowLayout: Layout {
     var spacing: CGFloat = 8
     var lineSpacing: CGFloat = 8
+    var leading = false
 
     private func size(_ view: LayoutSubview, width: CGFloat) -> CGSize {
         let size = view.sizeThatFits(.unspecified)
@@ -242,7 +243,7 @@ struct FlowLayout: Layout {
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
         var y = bounds.minY
         for row in rows(subviews, width: bounds.width) {
-            var x = bounds.minX + (bounds.width - row.width) / 2
+            var x = leading ? bounds.minX : bounds.minX + (bounds.width - row.width) / 2
             for i in row.indices {
                 let size = size(subviews[i], width: bounds.width)
                 subviews[i].place(at: CGPoint(x: x, y: y + (row.height - size.height) / 2), proposal: ProposedViewSize(size))

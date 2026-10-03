@@ -1,13 +1,19 @@
 import SwiftUI
 
 /// Clocks (Android's ClocksScreen): your phone's time as the page's headline, then your saved clocks measured against
-/// it ("Tomorrow · +10 h"), ticking each minute. Add a clock searches places, with your weather places offered first;
-/// Edit reorders and deletes them (a swipe deletes too).
+/// it ("Tomorrow · +10 h"), ticking each minute, and a converter that shows one moment in every clock at once. Add a
+/// clock searches places, with your weather places offered first; Edit reorders and deletes them (a swipe deletes
+/// too).
 struct ClocksScreen: View {
     @Environment(ClocksModel.self) private var model
     @Environment(WeatherModel.self) private var weather
     @State private var adding = false
     @State private var editMode: EditMode = .inactive
+    /// The converter's picks: minutes past midnight (nil for now), today or tomorrow, and the clock the time is in
+    /// (nil for your phone).
+    @State private var minutes: Int?
+    @State private var dayOffset = 0
+    @State private var fromId: String?
 
     var body: some View {
         NavigationStack {
@@ -17,6 +23,15 @@ struct ClocksScreen: View {
             .environment(\.editMode, $editMode)
             // Removing the last clock ends editing; the Edit button goes with the list.
             .onChange(of: model.clocks.isEmpty) { _, empty in if empty { editMode = .inactive } }
+            // A clock removed while the time is in it: back to your phone and to now, since the picked time was that
+            // clock's. With no clocks left the converter goes, and its picks with it, as on Android.
+            .onChange(of: model.clocks.map(\.id)) { _, ids in
+                if ids.isEmpty {
+                    (minutes, dayOffset, fromId) = (nil, 0, nil)
+                } else if let id = fromId, !ids.contains(id) {
+                    (minutes, fromId) = (nil, nil)
+                }
+            }
             .scrollContentBackground(.hidden)
             // Short lines on an iPad, like the other tabs.
             .frame(maxWidth: Metrics.readableWidth)
@@ -84,6 +99,23 @@ struct ClocksScreen: View {
                     .padding(.leading, -16)
                     .padding(.bottom, 12)
             }
+            // Nothing to convert to until there's a clock; the empty card already says how to add one.
+            if !model.clocks.isEmpty {
+                let conversion = convert(clocks: model.clocks, now: now, here: here, fromId: fromId, minutes: minutes,
+                                         dayOffset: dayOffset)
+                Section {
+                    Converter(conversion: conversion, clocks: model.clocks, here: here, minutes: $minutes,
+                              dayOffset: $dayOffset, fromId: $fromId)
+                        .listRowBackground(Palette.surfaceContainer)
+                } header: {
+                    Text("Convert")
+                        .font(.titleMedium)
+                        .foregroundStyle(Palette.onSurface)
+                        .textCase(nil)
+                        .padding(.leading, -16)
+                        .accessibilityAddTraits(.isHeader)
+                }
+            }
         }
     }
 }
@@ -111,6 +143,127 @@ private struct DeviceClock: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(time) in \(cityOf(here)), your phone, \(spokenUtc(seconds))")
+    }
+}
+
+/// The converter (Android's Converter): pick a time, a day and where that time is (your phone or any clock), and
+/// every other clock shows the same moment. Defaults to now, today, your phone. A clock that's removed while it's
+/// picked goes back to your phone and to now, since the picked time was that clock's.
+private struct Converter: View {
+    let conversion: Conversion
+    let clocks: [Clock]
+    let here: TimeZone
+    @Binding var minutes: Int?
+    @Binding var dayOffset: Int
+    @Binding var fromId: String?
+
+    var body: some View {
+        let fromZone = conversion.fromZone
+        VStack(alignment: .leading, spacing: 0) {
+            FlowLayout(spacing: 8, lineSpacing: 8, leading: true) {
+                // The system's time picker, in the zone the time is in.
+                DatePicker("Time", selection: timeBinding(fromZone), displayedComponents: .hourAndMinute)
+                    .labelsHidden()
+                    .environment(\.timeZone, fromZone)
+                    // The picker speaks its own value.
+                    .accessibilityLabel("Time")
+                if minutes != nil {
+                    // Back to the ticking time.
+                    Button("Now") { minutes = nil }
+                        .buttonStyle(.bordered)
+                        .tint(Palette.primary)
+                }
+                Menu {
+                    Picker("Day", selection: $dayOffset) {
+                        Text("Today").tag(0)
+                        Text("Tomorrow").tag(1)
+                    }
+                } label: {
+                    Chip(text: conversion.dayLabel)
+                }
+                .accessibilityLabel("Day, \(conversion.dayLabel)")
+                Menu {
+                    Picker("Where the time is", selection: $fromId) {
+                        Text("\(cityOf(here)) (your phone)").tag(String?.none)
+                        ForEach(clocks.filter { $0.zone != nil }) { clock in
+                            Text(clock.name).tag(String?.some(clock.id))
+                        }
+                    }
+                } label: {
+                    Chip(text: "in \(conversion.fromName)")
+                }
+                .accessibilityLabel("Where the time is, \(conversion.fromName)")
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            Text(conversion.heading)
+                .font(.bodySmall)
+                .foregroundStyle(Palette.onSurfaceVariant)
+                .padding(.top, 12)
+            ForEach(conversion.rows) { row in
+                HStack(spacing: 12) {
+                    DayNightDisc(night: row.night)
+                    // The name takes what the time leaves; at large sizes the time moves under it.
+                    ViewThatFits(in: .horizontal) {
+                        HStack(spacing: 8) {
+                            Text(row.name).font(.titleMedium).foregroundStyle(Palette.onSurface).lineLimit(1)
+                                .layoutPriority(1)
+                            Spacer(minLength: 0)
+                            timeAndNote(row, alignment: .trailing).fixedSize()
+                        }
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(row.name).font(.titleMedium).foregroundStyle(Palette.onSurface)
+                            timeAndNote(row, alignment: .leading)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
+                .padding(.vertical, 8)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(row.spoken)
+            }
+        }
+        .padding(.vertical, 8)
+    }
+
+    private func timeAndNote(_ row: ConvertedRow, alignment: HorizontalAlignment) -> some View {
+        VStack(alignment: alignment, spacing: 0) {
+            Text(keepUnitsTogether(row.timeLabel)).font(.titleMedium).foregroundStyle(Palette.onSurface).lineLimit(1)
+            if let note = row.note {
+                Text(note).font(.labelSmall).foregroundStyle(Palette.onSurfaceVariant)
+            }
+        }
+    }
+
+    /// The picked time as a moment the picker shows in [zone]; picking sets the minutes past midnight.
+    private func timeBinding(_ zone: TimeZone) -> Binding<Date> {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = zone
+        let m = conversion.moment
+        let date = calendar.date(from: DateComponents(year: m.date.year, month: m.date.month, day: m.date.day,
+                                                      hour: m.hour, minute: m.minute)) ?? Date()
+        return Binding(
+            get: { date },
+            set: { picked in
+                let parts = calendar.dateComponents([.hour, .minute], from: picked)
+                minutes = (parts.hour ?? 0) * 60 + (parts.minute ?? 0)
+            }
+        )
+    }
+}
+
+/// A rounded choice with a drop-down mark, like Android's assist chips.
+private struct Chip: View {
+    let text: String
+
+    var body: some View {
+        HStack(spacing: 4) {
+            Text(text).font(.labelLarge)
+            Image(systemName: "chevron.down").font(.caption2.weight(.semibold))
+        }
+        .foregroundStyle(Palette.onSurface)
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
+        .background(Palette.surfaceContainerHigh, in: Capsule())
     }
 }
 
