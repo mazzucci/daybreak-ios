@@ -64,6 +64,17 @@ private let glyphSize: CGFloat = 16
 /// A stay-in day's bar is never shorter than this share of [barHeight], so its colour still shows.
 private let minFill: CGFloat = 0.18
 
+/// The strip's day names for columns [room] wide, measured by [widthOf]: "Today" and "Fri", "Sat"…; all three-letter
+/// when "Today" doesn't fit; initials when those don't either. With no width yet, the long names.
+func dayStripLabels(_ dates: [LocalDate], today: LocalDate, room: CGFloat, widthOf: (String) -> CGFloat) -> [String] {
+    let short = dates.map { String(weekdayName($0).prefix(3)) }
+    let withToday = dates.enumerated().map { $1 == today ? "Today" : short[$0] }
+    func fits(_ names: [String]) -> Bool { names.allSatisfy { widthOf($0) <= room } }
+    if room <= 0 || fits(withToday) { return withToday }
+    if fits(short) { return short }
+    return dates.map { String(weekdayName($0).prefix(1)) }
+}
+
 /// One column per day. The names are "Today" and "Fri", "Sat"…; all three-letter when "Today" doesn't fit a column,
 /// and initials when those don't either (a narrow phone at a large font). Same for "Best", which becomes a star. The
 /// bars grow from the baseline once, when the strip first appears.
@@ -79,8 +90,9 @@ private struct DayStrip: View {
     var body: some View {
         // Columns get their share of the width, with a little air between names.
         let room = width / CGFloat(max(days.count, 1)) - 4
-        let labels = labels(room: room)
-        let bestFits = textWidth("Best", .caption2, .medium) <= room
+        let labels = dayStripLabels(days.map(\.date), today: today, room: room) { textWidth($0, .footnote, .bold) }
+        // Before the first layout there's no width yet: the word, until it's measured.
+        let bestFits = room <= 0 || textWidth("Best", .caption2, .medium) <= room
         let anyBest = days.contains { $0.isBest }
         let anyWet = days.contains { $0.rain == .wet }
         HStack(spacing: 0) {
@@ -95,15 +107,6 @@ private struct DayStrip: View {
             guard !grown else { return }
             if reduceMotion { grown = true } else { withAnimation(.easeOut(duration: 0.3)) { grown = true } }
         }
-    }
-
-    private func labels(room: CGFloat) -> [String] {
-        let short = days.map { String(weekdayName($0.date).prefix(3)) }
-        let withToday = days.enumerated().map { $1.date == today ? "Today" : short[$0] }
-        func fits(_ names: [String]) -> Bool { names.allSatisfy { textWidth($0, .footnote, .bold) <= room } }
-        if room <= 0 || fits(withToday) { return withToday }
-        if fits(short) { return short }
-        return days.map { String(weekdayName($0.date).prefix(1)) }
     }
 
     /// How wide [text] is in [style] at [weight] at the current text size.
@@ -157,8 +160,8 @@ private struct DayColumn: View {
                                 Image(systemName: "star.fill").font(.labelSmall).foregroundStyle(Palette.success)
                             }
                         }
-                        // Holds the row's height on the days without it.
-                        Text("Best").font(.labelSmall).hidden()
+                        // Holds the row's height on the days without it, one line however narrow the column.
+                        Text("Best").font(.labelSmall).lineLimit(1).hidden()
                     }
                 }
             }

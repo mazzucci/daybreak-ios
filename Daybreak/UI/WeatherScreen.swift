@@ -381,11 +381,18 @@ private struct WeatherBody: View {
     let fetchedAt: Date?
     let refreshFailed: Bool
     let onOpenDay: (LocalDate) -> Void
+    /// The outlook's moment, moved on by the clock below only when the hour turns, so the page isn't rebuilt every
+    /// minute (Android's rememberOutlookNow).
+    @State private var outlookNow: LocalDateTime?
 
     var body: some View {
-        TimelineView(.everyMinute) { context in
-            content(now: outlookMoment(forecast, context.date))
-        }
+        content(now: outlookNow ?? outlookMoment(forecast, Date()))
+            .background {
+                TimelineView(.everyMinute) { context in
+                    let moment = outlookMoment(forecast, context.date)
+                    Color.clear.onChange(of: moment, initial: true) { _, now in outlookNow = now }
+                }
+            }
     }
 
     private func content(now: LocalDateTime) -> some View {

@@ -94,7 +94,8 @@ private struct WeatherGlance: View {
                     }
                 }
             } else if let f = model.forecast {
-                loaded(f)
+                // Ticks with the clock, so the today line moves on with the hour.
+                TimelineView(.everyMinute) { context in loaded(f, clock: context.date) }
             } else if let failure = model.failure {
                 message(icon: "exclamationmark.triangle.fill", tint: Palette.error, title: "Couldn't load the weather", text: failure) {
                     Button("Try again") { Task { await model.refresh() } }
@@ -112,13 +113,13 @@ private struct WeatherGlance: View {
         }
     }
 
-    private func loaded(_ f: Forecast) -> some View {
+    private func loaded(_ f: Forecast, clock: Date) -> some View {
         let unit = model.unit
         let name = model.place?.name ?? "My location"
         let today = f.today
         let todayRain = Precip.dayRain(f, today.date)
         // The "This week" today line, for the place's current hour; the weekend doesn't matter to it.
-        let outlook = weekOutlook(f, unit, now: outlookMoment(f, Date()))
+        let outlook = weekOutlook(f, unit, now: outlookMoment(f, clock))
         let rain = !todayRain.dry && Precip.showDayChance(todayRain.chance) ? todayRain.chance : nil
         let condition = describeWeatherCode(f.current.code)
         let range = "↑\(formatDegrees(today.highC, unit)) ↓\(formatDegrees(today.lowC, unit))"
