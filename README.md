@@ -15,13 +15,14 @@ This is the **first prototype**: the tab shell, location, the Weather tab and Ho
   - Feels like, Humidity, and Wind with its direction ("↗ from the SW") and gusts;
   - the next 12 hours, with each hour's rain chance and amount and the feels-like line when it's 3° or more off. The **"Now" cell shows the current conditions**, so it always agrees with the sky above it (Android's "Now" cell used the hourly forecast for the current hour; that bug isn't copied);
   - sunrise, sunset and the UV index;
-  - the next 10 days on one shared temperature scale, with rain chances and day totals by Android's rain rules (`Precip`), and days 8 to 10 lighter under "less certain";
+  - **This week** (Android's outlook): how good each of the next seven days is for being outside, as a line for today ("Mixed day: rain most of the day"), a few lines for the week (wet spells, the dry turn, the best day, wind, heat, cold snaps, frost) and a strip of bars by score with rain and snow marks and "Best"; tap a day for its page. Home's glance carries the today line;
+  - the next 10 days on one shared temperature scale, with "Best" under this week's best day, with rain chances and day totals by Android's rain rules (`Precip`), and days 8 to 10 lighter under "less certain";
   - **tap a day** for its page (Android's day page): the day's sky with its name, date, condition, High and Low in both units and the feels-like range when it's 3° or more off; the temperature hour by hour (today's from "Now", which shows the current conditions, as on the Weather tab); the rain or snow card, with the verdict, when in the day it falls, a bar per hour with the chance every three hours, the parts of the day that aren't dry and a line when it carries on after midnight; the day's strongest wind and gusts; sunrise, sunset and UV. Swipe or tap back to return;
   - "Updated 8 min ago" (amber with "pull to refresh" past 90 minutes; "Couldn't refresh · updated 2 hours ago" after a failed refresh), and pull to refresh. The last forecast is kept on the phone, so a launch shows it at once.
 - **Home**: the date and greeting on the sky ("Good evening"), the weather glance (place, condition, ↑high ↓low, rain chance, the temperature in both units; tap it for the Weather tab), and **On this day**: one cheerful moment from today's date in history from Wikipedia's feed (grim items filtered out, the rest scored, no two from the same decade, the day's picks the same all day and the same as on Android), with a Commons picture that fills the frame when it's a landscape photo or sits whole as a "poster" over a blurred copy of itself otherwise, "1868 · 158 years ago", the text, the article link, "From Wikipedia · CC BY-SA", "Picture" and "Another". Pull to refresh refreshes both.
 - **Look**: the system font with Dynamic Type, light and dark mode, Android's "Open sky" palette and card style, safe areas respected, content kept to a readable width on iPad.
 
-Not yet: This week, Coming up, Habits, Clocks, Tonight's sky, the meme, the widget. See "Known gaps" below.
+Not yet: Coming up, Habits, Clocks, Tonight's sky, the meme, the widget. See "Known gaps" below.
 
 Data comes from [Open-Meteo](https://open-meteo.com/) (forecast and geocoding, no key) and [Wikipedia's "On this day" feed](https://en.wikipedia.org/api/rest_v1/) (no key; text CC BY-SA, pictures from Wikimedia Commons). Requests to Wikimedia carry the User-Agent `Daybreak/<version> (https://github.com/mazzucci/Daybreak)`, as Wikimedia asks.
 
@@ -98,10 +99,11 @@ scripts/                     run-in-simulator.sh, make-app-icon.swift
 - `OnThisDayTests` and `OnThisDayFeedTests`: the grim filter (including Android's regression table of real items), scoring, choosing the day's picks, subjects and pictures, text tidying, and the real feeds for five dates.
 - `OpenMeteoParserTests`: parsing forecasts and geocoding results, including nulls and polar days.
 - `PlacesTests`: saved places (added once, moved, removed, kept in order with every field, corrupt data read as none), the pages (where you are first), the current location on and off (and no pages at all), and search (two letters at least, results, "No places found", failures, a new query replacing the last).
+- `OutdoorScoreTests` and `WeekOutlookTests`: Android's tests for the outdoor score and This week, on the same inputs; `ThisWeekWiringTests`: what the card and Home rely on.
 - `DayPageTests`: the day page's hours (today's from "Now"), when the feels-like range gets a pill, and the no-break spaces between numbers and units.
 
 ## Known gaps
 
-- No This week, explanations of the tiles, Coming up, Tonight's sky, meme, widget or background refresh.
+- No explanations of the tiles, Coming up, Tonight's sky, meme, widget or background refresh.
 - Habits and Clocks are placeholders; Settings has only what the app has so far.
 - Times follow the phone's 12/24-hour setting; dates and copy are English, as on Android.

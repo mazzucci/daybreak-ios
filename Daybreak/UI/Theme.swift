@@ -32,6 +32,10 @@ enum Palette {
     /// A rain bar at the chart's cap (4 mm an hour): the rain blue, 35% towards black, or 45% towards white in dark.
     static let rainHeavy = Color(light: 0x14487D, dark: 0xBFD6FB)
     static let success = Color(light: 0x2E7D32, dark: 0x5BC38A)
+    /// "This week"'s bars: a great day, a good one, and the rest (meh or stay in).
+    static let outlookGreat = Color(light: 0x2E7D32, dark: 0x5BC38A)
+    static let outlookGood = Color(light: 0x4F9A55, dark: 0x45996E)
+    static let outlookRest = Color(light: 0x7F8EA3, dark: 0x7F8EA3)
     /// Text that asks for attention without being an error (a stale forecast).
     static let attention = Color(light: 0xB45309, dark: 0xFFB74D)
     /// Skeleton blocks while loading, and the picture slot before it fades in.
