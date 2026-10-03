@@ -6,7 +6,8 @@ This is the **first prototype**: the tab shell, location, the Weather tab and Ho
 
 ## What's in it so far
 
-- **Tabs**, in Android's order: Home, Weather, Habits, Clocks, Settings. Habits, Clocks and Settings say "Coming soon" with a sentence on what they'll do.
+- **Tabs**, in Android's order: Home, Weather, Habits, Clocks, Settings. Habits and Clocks say "Coming soon" with a sentence on what they'll do.
+- **Settings**: **Temperature** ("°F first" or "°C first", everywhere in the app), **Places**, and **On this day on Home** (off, Wikipedia isn't asked at all and Home says "Turn on more cards in Settings"), then "Daybreak 0.1.0". Kept on the phone.
 - **Location.** CoreLocation with the When-In-Use permission (asked for on first launch), named by reverse geocoding ("Weston"). If you say no, the forecast is for the city of your phone's time zone, found with Open-Meteo's geocoding (else New York), with a "Location is off" card and a way to Settings.
 - **Places**: the Weather tab has a page per place, swiped sideways: where you are first, then the places you've added, with dots (or "3 / 12") for where you are and Refresh, Add place and Places over the sky. **Places** turns the current location on or off and lists the saved places, to drag into another order (Edit) or delete (Edit, or a swipe); with no places at all, the Weather tab and Home's glance say how to start (Home's also offers "Use my location", which Android's doesn't). **Add a place** searches Open-Meteo's geocoding as you type ("Lisbon", "Springfield"), says which results are already saved, and turns to the new page. Saved places and each page's last forecast are kept on the phone.
 - **Weather**, ported from Android's WeatherScreen:
@@ -20,7 +21,7 @@ This is the **first prototype**: the tab shell, location, the Weather tab and Ho
 - **Home**: the date and greeting on the sky ("Good evening"), the weather glance (place, condition, ↑high ↓low, rain chance, the temperature in both units; tap it for the Weather tab), and **On this day**: one cheerful moment from today's date in history from Wikipedia's feed (grim items filtered out, the rest scored, no two from the same decade, the day's picks the same all day and the same as on Android), with a Commons picture that fills the frame when it's a landscape photo or sits whole as a "poster" over a blurred copy of itself otherwise, "1868 · 158 years ago", the text, the article link, "From Wikipedia · CC BY-SA", "Picture" and "Another". Pull to refresh refreshes both.
 - **Look**: the system font with Dynamic Type, light and dark mode, Android's "Open sky" palette and card style, safe areas respected, content kept to a readable width on iPad.
 
-Not yet: the °F/°C setting, This week, Coming up, Habits, Clocks, Tonight's sky, the meme, the widget. See "Known gaps" below.
+Not yet: This week, Coming up, Habits, Clocks, Tonight's sky, the meme, the widget. See "Known gaps" below.
 
 Data comes from [Open-Meteo](https://open-meteo.com/) (forecast and geocoding, no key) and [Wikipedia's "On this day" feed](https://en.wikipedia.org/api/rest_v1/) (no key; text CC BY-SA, pictures from Wikimedia Commons). Requests to Wikimedia carry the User-Agent `Daybreak/<version> (https://github.com/mazzucci/Daybreak)`, as Wikimedia asks.
 
@@ -101,7 +102,6 @@ scripts/                     run-in-simulator.sh, make-app-icon.swift
 
 ## Known gaps
 
-- The unit is °F first, as Android's default; there's no setting yet.
 - No This week, explanations of the tiles, Coming up, Tonight's sky, meme, widget or background refresh.
-- Habits, Clocks and Settings are placeholders.
+- Habits and Clocks are placeholders; Settings has only what the app has so far.
 - Times follow the phone's 12/24-hour setting; dates and copy are English, as on Android.

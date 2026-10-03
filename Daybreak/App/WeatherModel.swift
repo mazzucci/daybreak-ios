@@ -13,15 +13,20 @@ final class WeatherModel {
     private(set) var saved: [PlaceWeather]
     /// Whether where you are is a page (Places' "Current location" switch).
     private(set) var useCurrentLocation: Bool
-    /// The unit shown large; the other one is shown small next to it. °F first, as Android's default.
-    var unit: TempUnit = .f
+    /// The unit shown large; the other one is shown small next to it (Settings → Temperature). Applies everywhere.
+    var unit: TempUnit {
+        didSet { settings.unit = unit }
+    }
 
     private let store: SavedPlacesStore
+    private let settings: SettingsStore
     /// False in tests: no forecasts read from or written to disk, and nothing fetched when a place is added.
     private let live: Bool
 
-    init(live: Bool = true, store: SavedPlacesStore = SavedPlacesStore()) {
+    init(live: Bool = true, store: SavedPlacesStore = SavedPlacesStore(), settings: SettingsStore = SettingsStore()) {
         self.store = store
+        self.settings = settings
+        unit = settings.unit
         self.live = live
         let cache = live ? PlaceWeather.cacheDirectory : nil
         current = PlaceWeather(cacheDirectory: cache)

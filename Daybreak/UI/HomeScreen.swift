@@ -1,12 +1,15 @@
 import SwiftUI
 
 /// Home: the day at a glance. A greeting on the sky of where you are, the weather glance (which opens the Weather
-/// tab), then On this day. Pull to refresh refreshes both.
+/// tab), then On this day (unless it's off in Settings). Pull to refresh refreshes both. With every card off, a line
+/// says where to turn them on.
 struct HomeScreen: View {
     @Environment(WeatherModel.self) private var weather
     @Environment(OnThisDayModel.self) private var onThisDay
     @Environment(\.colorScheme) private var scheme
+    @AppStorage(SettingsStore.onThisDayKey) private var onThisDayEnabled = true
     let openWeather: () -> Void
+    let openSettings: () -> Void
 
     var body: some View {
         let forecast = weather.forecast
@@ -30,7 +33,18 @@ struct HomeScreen: View {
                 Spacer().frame(height: 16)
                 WeatherGlance(openWeather: openWeather)
                     .padding(.horizontal, Metrics.pageMargin)
-                if let day = onThisDay.day, day.date == LocalDate.today(), let pick = day.current {
+                if !onThisDayEnabled {
+                    // The only card that can be off so far; with it off, only the glance is left.
+                    Spacer().frame(height: 12)
+                    Button(action: openSettings) {
+                        Text("Turn on more cards in Settings")
+                            .font(.bodyMedium)
+                            .foregroundStyle(Palette.primary)
+                            .frame(minHeight: 44)
+                            .contentShape(Rectangle())
+                    }
+                    .padding(.horizontal, Metrics.pageMargin)
+                } else if let day = onThisDay.day, day.date == LocalDate.today(), let pick = day.current {
                     Spacer().frame(height: 24)
                     SectionHeading("On this day")
                     Spacer().frame(height: 12)
@@ -49,7 +63,7 @@ struct HomeScreen: View {
 
     private func refresh() async {
         async let w: Void = weather.refresh()
-        async let h: Void = onThisDay.load(force: true)
+        async let h: Void = onThisDayEnabled ? onThisDay.load(force: true) : ()
         _ = await (w, h)
     }
 
