@@ -106,6 +106,68 @@ struct ClocksTests {
         #expect(Clock(id: "x", name: "Atlantis", zoneId: "Atlantis/Lost_City").zone == nil)
     }
 
+    // MARK: The converter
+
+    private let clocks = [
+        Clock(id: "geo:683506", name: "Bucharest", zoneId: "Europe/Bucharest"),
+        Clock(id: "geo:1850147", name: "Tokyo", zoneId: "Asia/Tokyo"),
+        Clock(id: "x", name: "Atlantis", zoneId: "Atlantis/Lost_City"),
+    ]
+
+    @Test("by default it's now, today, on your phone, shown in every clock whose zone is known")
+    func convertNow() {
+        // 2:42 PM on Monday 28 September in Los Angeles.
+        let c = convert(clocks: clocks, now: moment, here: la, fromId: nil, minutes: nil, dayOffset: 0, use24Hour: false)
+        #expect(c.timeLabel == "2:42 PM")
+        #expect(c.dayLabel == "Today")
+        #expect(c.fromName == "Los Angeles")
+        #expect(c.heading == "At 2:42 PM on Monday in Los Angeles it's…")
+        #expect(c.rows.map(\.name) == ["Bucharest", "Tokyo"])
+        #expect(c.rows.map(\.timeLabel) == ["12:42 AM", "6:42 AM"])
+        #expect(c.rows.map(\.note) == ["Tue · next day", "Tue · next day"])
+        #expect(c.rows[0].night && !c.rows[1].night)
+        #expect(c.rows[0].spoken == "Bucharest, 12:42 AM, Tue, next day")
+    }
+
+    @Test("a time picked in a clock shows your phone too, and leaves that clock out")
+    func convertFromAClock() {
+        // Noon tomorrow (Tuesday 29 September) in Tokyo.
+        let c = convert(clocks: clocks, now: moment, here: la, fromId: "geo:1850147", minutes: 12 * 60, dayOffset: 1,
+                        use24Hour: false)
+        #expect(c.heading == "At 12:00 PM on Wednesday in Tokyo it's…")
+        #expect(c.dayLabel == "Tomorrow")
+        #expect(c.rows.map(\.name) == ["Los Angeles (your phone)", "Bucharest"])
+        #expect(c.rows.map(\.timeLabel) == ["8:00 PM", "6:00 AM"])
+        #expect(c.rows.map(\.note) == ["day before", nil])
+    }
+
+    @Test("a removed clock, or one with an unknown zone, falls back to your phone")
+    func convertFromGone() {
+        for id in ["gone", "x"] {
+            let c = convert(clocks: clocks, now: moment, here: la, fromId: id, minutes: 9 * 60, dayOffset: 0,
+                            use24Hour: false)
+            #expect(c.fromName == "Los Angeles")
+            #expect(!c.rows.contains { $0.name.hasSuffix("(your phone)") })
+        }
+    }
+
+    @Test("two days apart reads the weekday")
+    func convertTwoDaysApart() {
+        // Kiritimati (UTC+14) and Pago Pago (UTC−11) are 25 hours apart: 12:30 AM on Tuesday in Kiritimati is
+        // 11:30 PM on Sunday in Pago Pago; 11 PM on Tuesday there is 10 PM on Monday, the day before.
+        let kiritimati = TimeZone(identifier: "Pacific/Kiritimati")!
+        let pagoPago = Clock(id: "pp", name: "Pago Pago", zoneId: "Pacific/Pago_Pago")
+        let early = convert(clocks: [pagoPago], now: moment, here: kiritimati, fromId: nil, minutes: 30, dayOffset: 0,
+                            use24Hour: false)
+        #expect(early.heading == "At 12:30 AM on Tuesday in Kiritimati it's…")
+        #expect(early.rows.first?.timeLabel == "11:30 PM")
+        #expect(early.rows.first?.note == "Sunday")
+        let late = convert(clocks: [pagoPago], now: moment, here: kiritimati, fromId: nil, minutes: 23 * 60,
+                           dayOffset: 0, use24Hour: false)
+        #expect(late.rows.first?.timeLabel == "10:00 PM")
+        #expect(late.rows.first?.note == "day before")
+    }
+
     // MARK: The saved list
 
     private func freshStore() -> ClocksStore {

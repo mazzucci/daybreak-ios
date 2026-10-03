@@ -7,7 +7,7 @@ This is the **first prototype**: the tab shell, location, the Weather tab and Ho
 ## What's in it so far
 
 - **Tabs**, in Android's order: Home, Weather, Habits, Clocks, Settings. Habits says "Coming soon" with a sentence on what it'll do.
-- **Clocks**: your phone's time as the headline ("New York · your phone · UTC−4"), then your clocks against it: a sun or moon disc, the name over "Tomorrow · +7 h", and the time over "UTC+3", ticking each minute. **Add a clock** searches places, with your weather places offered first under "From your places"; Edit reorders and deletes them (a swipe deletes too). Not yet: the converter.
+- **Clocks**: your phone's time as the headline ("New York · your phone · UTC−4"), then your clocks against it: a sun or moon disc, the name over "Tomorrow · +7 h", and the time over "UTC+3", ticking each minute. **Add a clock** searches places, with your weather places offered first under "From your places"; Edit reorders and deletes them (a swipe deletes too). **Convert** picks a time, today or tomorrow, and where that time is (your phone or any clock), and shows the same moment in every other clock ("At 9:33 PM on Friday in New York it's…", "Bucharest 4:33 AM, Sat · next day"). Not yet: Android's "Ask" box, which needs Gemma.
 - **Settings**: **Temperature** ("°F first" or "°C first", everywhere in the app), **Places**, and **On this day on Home** (off, Wikipedia isn't asked at all and Home says "Turn on more cards in Settings"), then "Daybreak 0.1.0". Kept on the phone.
 - **Location.** CoreLocation with the When-In-Use permission (asked for on first launch), named by reverse geocoding ("Weston"). If you say no, the forecast is for the city of your phone's time zone, found with Open-Meteo's geocoding (else New York), with a "Location is off" card and a way to Settings.
 - **Places**: the Weather tab has a page per place, swiped sideways: where you are first, then the places you've added, with dots (or "3 / 12") for where you are and Refresh, Add place and Places over the sky. **Places** turns the current location on or off and lists the saved places, to drag into another order (Edit) or delete (Edit, or a swipe); with no places at all, the Weather tab and Home's glance say how to start (Home's also offers "Use my location", which Android's doesn't). **Add a place** searches Open-Meteo's geocoding as you type ("Lisbon", "Springfield"), says which results are already saved, and turns to the new page. Saved places and each page's last forecast are kept on the phone.
@@ -101,11 +101,11 @@ scripts/                     run-in-simulator.sh, make-app-icon.swift
 - `OpenMeteoParserTests`: parsing forecasts and geocoding results, including nulls and polar days.
 - `PlacesTests`: saved places (added once, moved, removed, kept in order with every field, corrupt data read as none), the pages (where you are first), the current location on and off (and no pages at all), and search (two letters at least, results, "No places found", failures, a new query replacing the last).
 - `OutdoorScoreTests` and `WeekOutlookTests`: Android's tests for the outdoor score and This week, on the same inputs; `ThisWeekWiringTests`: what the card and Home rely on.
-- `ClocksTests`: Android's ClocksTest (readings, offsets, converting across daylight saving, city names, which places can be clocks) and the saved list.
+- `ClocksTests`: Android's ClocksTest (readings, offsets, converting across daylight saving, city names, which places can be clocks), the converter, and the saved list.
 - `DayPageTests`: the day page's hours (today's from "Now"), when the feels-like range gets a pill, and the no-break spaces between numbers and units.
 
 ## Known gaps
 
 - No explanations of the tiles, Coming up, Tonight's sky, meme, widget or background refresh.
-- Habits is a placeholder; Clocks has no converter yet; Settings has only what the app has so far.
+- Habits is a placeholder; Clocks has no "Ask" box (it needs Gemma); Settings has only what the app has so far.
 - Times follow the phone's 12/24-hour setting; dates and copy are English, as on Android.
