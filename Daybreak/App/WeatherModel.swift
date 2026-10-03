@@ -1,15 +1,18 @@
 import Foundation
 import Observation
 
-/// The Weather tab's pages: where you are first, then the places you've added (Android's WeatherViewModel pages).
-/// Home's glance shows the first page, so the model also answers for it directly ([forecast], [place], …).
+/// The Weather tab's pages: where you are first (unless that's turned off), then the places you've added (Android's
+/// WeatherViewModel pages). Home's glance shows the first page, so the model also answers for it directly
+/// ([forecast], [place], …); with no pages at all there's nothing to answer.
 @MainActor
 @Observable
 final class WeatherModel {
-    /// Where you are (or its stand-in), always the first page.
+    /// Where you are (or its stand-in), the first page while [useCurrentLocation].
     let current: PlaceWeather
     /// The places you've added, in order.
     private(set) var saved: [PlaceWeather]
+    /// Whether where you are is a page (Places' "Current location" switch).
+    private(set) var useCurrentLocation: Bool
     /// The unit shown large; the other one is shown small next to it. °F first, as Android's default.
     var unit: TempUnit = .f
 
@@ -23,9 +26,10 @@ final class WeatherModel {
         let cache = live ? PlaceWeather.cacheDirectory : nil
         current = PlaceWeather(cacheDirectory: cache)
         saved = store.load().map { PlaceWeather(saved: $0, cacheDirectory: cache) }
+        useCurrentLocation = store.useCurrentLocation
     }
 
-    var pages: [PlaceWeather] { [current] + saved }
+    var pages: [PlaceWeather] { useCurrentLocation ? [current] + saved : saved }
 
     func page(_ id: String) -> PlaceWeather? { pages.first { $0.id == id } }
 
@@ -33,17 +37,20 @@ final class WeatherModel {
 
     // MARK: The first page, for Home
 
-    var place: Place? { current.place }
-    var placeSource: PlaceWeather.Source { current.source }
-    var locationDenied: Bool { current.locationDenied }
-    var forecast: Forecast? { current.forecast }
-    var fetchedAt: Date? { current.fetchedAt }
-    var refreshing: Bool { current.refreshing }
-    var refreshFailed: Bool { current.refreshFailed }
-    var failure: String? { current.failure }
+    /// The page Home's glance shows: the first; nil with no pages at all.
+    var glance: PlaceWeather? { pages.first }
+
+    var place: Place? { glance?.place }
+    var placeSource: PlaceWeather.Source { glance?.source ?? .saved }
+    var locationDenied: Bool { glance?.locationDenied ?? false }
+    var forecast: Forecast? { glance?.forecast }
+    var fetchedAt: Date? { glance?.fetchedAt }
+    var refreshing: Bool { glance?.refreshing ?? false }
+    var refreshFailed: Bool { glance?.refreshFailed ?? false }
+    var failure: String? { glance?.failure }
 
     /// Refreshes the first page (Home's pull to refresh).
-    func refresh() async { await current.refresh() }
+    func refresh() async { await glance?.refresh() }
 
     // MARK: Every page
 
@@ -80,6 +87,18 @@ final class WeatherModel {
         saved.removeAll { $0.id == id }
         store.save(saved.compactMap(\.place))
         page.forget()
+    }
+
+    /// Turns the current-location page on (loading it) or off (it stops loading; its last forecast stays on disk).
+    func setUseCurrentLocation(_ on: Bool) {
+        guard on != useCurrentLocation else { return }
+        useCurrentLocation = on
+        store.useCurrentLocation = on
+        if on {
+            if live { Task { await current.refresh() } }
+        } else {
+            current.stop()
+        }
     }
 
     /// Moves the saved place at [from] to [to] (indices among the saved places, not the pages).
@@ -132,6 +151,8 @@ final class PlaceWeather: Identifiable {
     private let cacheDirectory: URL?
     private let fetch: Fetch
     private var refreshTask: Task<Void, Never>?
+    /// Which refresh [refreshTask] is, so a stopped one finishing late can't clear its successor.
+    private var refreshNumber = 0
 
     /// The current-location page.
     init(cacheDirectory: URL? = PlaceWeather.cacheDirectory,
@@ -159,10 +180,12 @@ final class PlaceWeather: Identifiable {
     /// The first load, or a refresh: one at a time, a second caller waits for the first.
     func refresh() async {
         if let refreshTask { return await refreshTask.value }
+        refreshNumber += 1
+        let number = refreshNumber
         let task = Task {
             await self.load()
             // Cleared here, before any waiter resumes, so a refresh straight after this one starts a new fetch.
-            self.refreshTask = nil
+            if self.refreshNumber == number { self.refreshTask = nil }
         }
         refreshTask = task
         await task.value
@@ -175,8 +198,16 @@ final class PlaceWeather: Identifiable {
 
     /// The page is gone: stop loading and drop its cached forecast.
     func forget() {
-        refreshTask?.cancel()
+        stop()
         if let cacheURL { try? FileManager.default.removeItem(at: cacheURL) }
+    }
+
+    /// The page is hidden: stop loading, keeping what it has.
+    func stop() {
+        refreshTask?.cancel()
+        // The next refresh starts afresh rather than joining the cancelled one.
+        refreshTask = nil
+        refreshNumber += 1
     }
 
     private func load() async {

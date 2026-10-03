@@ -100,6 +100,22 @@ struct PlaceWeatherTests {
         #expect(fake.calls == 2)
     }
 
+    @Test("a refresh after the page was stopped mid-fetch starts again rather than joining the stopped one")
+    func refreshAfterStop() async {
+        let fake = FakeFetch(json: json, delay: .milliseconds(100))
+        let page = PlaceWeather(saved: lisbon, cacheDirectory: nil, fetch: fake.fetch)
+        let first = Task { await page.refresh() }
+        try? await Task.sleep(for: .milliseconds(20))
+        page.stop()
+        await page.refresh()
+        await first.value
+        #expect(fake.calls == 2)
+        #expect(page.forecast != nil)
+        // And the stopped refresh finishing late didn't leave the next one stuck.
+        await page.refresh()
+        #expect(fake.calls == 3)
+    }
+
     @Test("a failure says why with nothing to show, and keeps the forecast it has otherwise")
     func failures() async {
         let failing = FakeFetch(json: json, error: ServiceError("The weather service is down"))
