@@ -14,6 +14,7 @@ struct RootView: View {
     @State private var weather = WeatherModel()
     @State private var onThisDay = OnThisDayModel()
     @Environment(StatusBarStyle.self) private var statusBar
+    @AppStorage(SettingsStore.onThisDayKey) private var onThisDayEnabled = true
 
     var body: some View {
         TabView(selection: $selection) {
@@ -49,6 +50,10 @@ struct RootView: View {
             async let h: Void = loadOnThisDay()
             _ = await (w, h)
         }
+        // Turned on in Settings: fetch today's history now, so it's there on Home.
+        .onChange(of: onThisDayEnabled) { _, on in
+            if on { Task { await onThisDay.load() } }
+        }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             Task {
                 // A new day's history, and a forecast that's more than a quarter of an hour old.
@@ -70,7 +75,6 @@ private struct ComingSoonScreen: View {
     let title: String
     let systemImage: String
     let text: String
-    var footer: String? = nil
 
     var body: some View {
         NavigationStack {
@@ -78,14 +82,6 @@ private struct ComingSoonScreen: View {
                 Label("Coming soon", systemImage: systemImage)
             } description: {
                 Text(text)
-            }
-            .safeAreaInset(edge: .bottom) {
-                if let footer {
-                    Text(footer)
-                        .font(.footnote)
-                        .foregroundStyle(Palette.onSurfaceVariant)
-                        .padding(.bottom, 12)
-                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Palette.background)

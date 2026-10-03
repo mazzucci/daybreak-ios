@@ -36,11 +36,14 @@ struct HomeScreen: View {
                 if !onThisDayEnabled {
                     // The only card that can be off so far; with it off, only the glance is left.
                     Spacer().frame(height: 12)
-                    Button("Turn on more cards in Settings", action: openSettings)
-                        .font(.bodyMedium)
-                        .foregroundStyle(Palette.primary)
-                        .padding(.horizontal, Metrics.pageMargin)
-                        .padding(.vertical, 8)
+                    Button(action: openSettings) {
+                        Text("Turn on more cards in Settings")
+                            .font(.bodyMedium)
+                            .foregroundStyle(Palette.primary)
+                            .frame(minHeight: 44)
+                            .contentShape(Rectangle())
+                    }
+                    .padding(.horizontal, Metrics.pageMargin)
                 } else if let day = onThisDay.day, day.date == LocalDate.today(), let pick = day.current {
                     Spacer().frame(height: 24)
                     SectionHeading("On this day")
@@ -55,10 +58,6 @@ struct HomeScreen: View {
             }
             .readableWidth()
             .animation(.easeOut(duration: 0.3), value: onThisDay.day?.date)
-        }
-        // Turned on in Settings: fetch today's history now rather than at the next launch.
-        .task(id: onThisDayEnabled) {
-            if onThisDayEnabled { await onThisDay.load() }
         }
     }
 

@@ -6,24 +6,30 @@ struct SettingsScreen: View {
     @Environment(WeatherModel.self) private var weather
     @AppStorage(SettingsStore.onThisDayKey) private var onThisDay = true
     @State private var managingPlaces = false
+    @Environment(\.dynamicTypeSize) private var typeSize
 
     var body: some View {
         @Bindable var weather = weather
         NavigationStack {
             List {
                 Section {
-                    HStack(spacing: 12) {
-                        Text("Temperature").font(.titleMedium).foregroundStyle(Palette.onSurface)
-                        Spacer(minLength: 0)
-                        // The chosen unit is the big number; the other one is shown small next to it.
-                        Picker("Temperature", selection: $weather.unit) {
-                            Text("°F first").tag(TempUnit.f)
-                            Text("°C first").tag(TempUnit.c)
-                        }
-                        .pickerStyle(.segmented)
-                        .fixedSize()
+                    // The chosen unit is the big number; the other one is shown small next to it.
+                    let picker = Picker("Temperature", selection: $weather.unit) {
+                        Text("°F first").tag(TempUnit.f)
+                        Text("°C first").tag(TempUnit.c)
                     }
-                    .padding(.vertical, 4)
+                    if typeSize.isAccessibilitySize {
+                        // A segmented control doesn't grow with the text: at these sizes, a row per choice.
+                        Text("Temperature").font(.titleMedium).foregroundStyle(Palette.onSurface)
+                        picker.pickerStyle(.inline).labelsHidden()
+                    } else {
+                        HStack(spacing: 12) {
+                            Text("Temperature").font(.titleMedium).foregroundStyle(Palette.onSurface)
+                            Spacer(minLength: 0)
+                            picker.pickerStyle(.segmented).fixedSize()
+                        }
+                        .padding(.vertical, 4)
+                    }
                 }
                 .listRowBackground(Palette.surfaceContainer)
 
@@ -40,6 +46,7 @@ struct SettingsScreen: View {
                             Image(systemName: "chevron.right")
                                 .font(.footnote.weight(.semibold))
                                 .foregroundStyle(Palette.outline)
+                                .accessibilityHidden(true)
                         }
                         .contentShape(Rectangle())
                     }
@@ -71,7 +78,8 @@ struct SettingsScreen: View {
             .background(Palette.background)
             .navigationTitle("Settings")
             .sheet(isPresented: $managingPlaces) {
-                PlacesScreen(onAdded: { _ in managingPlaces = false })
+                // There's no page to turn to from here: Places stays open with the new place in its list.
+                PlacesScreen(onAdded: { _ in })
             }
         }
     }
