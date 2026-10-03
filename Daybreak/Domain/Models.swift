@@ -161,7 +161,7 @@ struct DaySummary: Sendable {
 
 enum Daylight: Sendable { case normal, polarNight, midnightSun, unknown }
 
-struct HourForecast: Sendable {
+struct HourForecast: Equatable, Sendable {
     var time: LocalDateTime
     var tempC: Double
     /// Chance of at least 0.1 mm in the hour ending at [time], 0–100.

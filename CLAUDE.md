@@ -72,19 +72,23 @@ Daybreak/App          AppDelegate/SceneDelegate (UIKit lifecycle so the root hos
                       bar per tab), WeatherModel (the Weather tab's pages: PlaceWeather for where you are, then
                       the saved places), PlaceSearch ("Add a place"), OnThisDayModel (@Observable, @MainActor)
 Daybreak/Domain       pure, tested logic ported from Android's domain/: Precip.swift (rain rules), OnThisDay.swift
-                      (filter, scoring, picks), Formatting.swift, Models.swift, Summary.swift, LocalTime.swift
-                      (zone-free LocalDate/LocalDateTime), KotlinRandom.swift (Kotlin's Random, bit for bit)
+                      (filter, scoring, picks), OutdoorScore.swift (an hour's score for being outside),
+                      WeekOutlook.swift ("This week": day scores, the today line, the week lines), ComingUp.swift (so
+                      far only weekendDays), Formatting.swift, Models.swift, Summary.swift, LocalTime.swift
+                      (zone-free LocalDate/LocalDateTime, DayOfWeek), KotlinRandom.swift (Kotlin's Random, bit for bit)
 Daybreak/Data         OpenMeteo.swift (request + parser), Wikipedia.swift (feed + parser), OnThisDayStore.swift
-                      (the day's picks, cached in UserDefaults), SavedPlacesStore.swift, SettingsStore.swift, ImageLoader.swift,
-                      LocationService.swift
+                      (the day's picks, cached in UserDefaults), SavedPlacesStore.swift, SettingsStore.swift,
+                      ImageLoader.swift, LocationService.swift
 Daybreak/UI           Theme.swift (Android's palette as dynamic colours, type scale, card style), Sky.swift (hero
                       gradients), WeatherIcon.swift (Android's drawn icons), Components.swift, HomeScreen.swift,
-                      WeatherScreen.swift (a NavigationStack over a paging ScrollView of places), SearchScreen.swift, PlacesScreen.swift, SettingsScreen.swift, DayScreen.swift (a day's page, pushed from the
+                      WeatherScreen.swift (a NavigationStack over a paging ScrollView of places), SearchScreen.swift,
+                      PlacesScreen.swift, SettingsScreen.swift, DayScreen.swift (a day's page, pushed from the
                       10-day list), OnThisDayCard.swift, RootView.swift (tabs, placeholders)
 DaybreakTests         Swift Testing suites ported from Android's tests: PrecipTests, OnThisDayTests,
                       OnThisDayFeedTests, OpenMeteoParserTests, DayPageTests, PlacesTests, PlaceWeatherTests,
-                      SettingsTests; Fixtures/ holds Android's JSON fixtures, copied
-                      from app/src/test/resources/fixtures in the Android repo
+                      SettingsTests, OutdoorScoreTests, WeekOutlookTests; TestData.swift has Android's TestData
+                      builders (forecast(), rainyNight(), synthetic weeks from DaySpecs); Fixtures/ holds Android's
+                      JSON fixtures, copied from app/src/test/resources/fixtures in the Android repo
 scripts               run-in-simulator.sh; make-app-icon.swift (`swift scripts/make-app-icon.swift` redraws the icon)
 ```
 

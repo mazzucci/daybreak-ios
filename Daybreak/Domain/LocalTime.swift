@@ -18,6 +18,9 @@ struct LocalDate: Hashable, Comparable, Sendable, CustomStringConvertible {
     /// ISO day of the week: 1 is Monday, 7 is Sunday.
     var weekday: Int { ((epochDay + 3) % 7 + 7) % 7 + 1 }
 
+    /// The day of the week, like `java.time.LocalDate.getDayOfWeek()`.
+    var dayOfWeek: DayOfWeek { DayOfWeek(rawValue: weekday)! }
+
     func plusDays(_ n: Int) -> LocalDate { LocalDate(epochDay: epochDay + n) }
     func plusYears(_ n: Int) -> LocalDate {
         let c = Self.civil(epochDay)
@@ -80,6 +83,11 @@ struct LocalDate: Hashable, Comparable, Sendable, CustomStringConvertible {
         default: return 31
         }
     }
+}
+
+/// A day of the week, like `java.time.DayOfWeek`: the raw value is the ISO number (1 is Monday, 7 is Sunday).
+enum DayOfWeek: Int, CaseIterable, Hashable, Sendable {
+    case monday = 1, tuesday, wednesday, thursday, friday, saturday, sunday
 }
 
 /// A wall-clock date and time with no time zone, like `java.time.LocalDateTime`: what Open-Meteo sends with
