@@ -18,11 +18,19 @@ struct ClocksScreen: View {
             // Removing the last clock ends editing; the Edit button goes with the list.
             .onChange(of: model.clocks.isEmpty) { _, empty in if empty { editMode = .inactive } }
             .scrollContentBackground(.hidden)
+            // Short lines on an iPad, like the other tabs.
+            .frame(maxWidth: Metrics.readableWidth)
+            .frame(maxWidth: .infinity)
             .background(Palette.background)
             .navigationTitle("Clocks")
             .toolbar {
                 if !model.clocks.isEmpty {
-                    ToolbarItem(placement: .topBarLeading) { EditButton() }
+                    ToolbarItem(placement: .topBarLeading) {
+                        // Drives the list's own edit mode (a toolbar EditButton doesn't see it).
+                        Button(editMode.isEditing ? "Done" : "Edit") {
+                            withAnimation { editMode = editMode.isEditing ? .inactive : .active }
+                        }
+                    }
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button { adding = true } label: { Image(systemName: "plus") }
@@ -42,12 +50,6 @@ struct ClocksScreen: View {
     private func list(now: Date) -> some View {
         let here = TimeZone.current
         return List {
-            Section {
-                DeviceClock(now: now, here: here)
-                    .listRowBackground(Color.clear)
-                    // Lined up with the title and the card below, which the list already insets.
-                    .listRowInsets(EdgeInsets(top: 8, leading: 4, bottom: 4, trailing: 4))
-            }
             Section {
                 if model.clocks.isEmpty {
                     NoClocks { adding = true }
@@ -70,10 +72,17 @@ struct ClocksScreen: View {
                         model.move(from: source, to: SavedPlaces.finalIndex(from: source, listDestination: to))
                     }
                     .onDelete { rows in
-                        let ids = rows.map { model.clocks[$0].id }
+                        let ids = rows.filter { model.clocks.indices.contains($0) }.map { model.clocks[$0].id }
                         ids.forEach(model.remove)
                     }
                 }
+            } header: {
+                // The phone's own time heads the list, lined up with the title and the card's edge (a header is
+                // inset to the card's contents). A header rather than a row: a row clipped the first letter's stem.
+                DeviceClock(now: now, here: here)
+                    .textCase(nil)
+                    .padding(.leading, -16)
+                    .padding(.bottom, 12)
             }
         }
     }
@@ -95,7 +104,7 @@ private struct DeviceClock: View {
                 .lineLimit(1)
                 .minimumScaleFactor(0.6)
             // No-break spaces around the dots, so a wrapped line never ends on one.
-            Text("\(cityOf(here))\u{00A0}· your phone\u{00A0}· \(formatUtc(seconds))")
+            Text("\(cityOf(here))\u{00A0}·\u{00A0}your phone\u{00A0}·\u{00A0}\(formatUtc(seconds))")
                 .font(.bodyMedium)
                 .foregroundStyle(Palette.onSurfaceVariant)
         }
@@ -137,7 +146,11 @@ private struct ClockRow: View {
     var body: some View {
         let r = clock.zone.map { readClock(now, here: here, there: $0) }
         let time = r.map { formatClock($0.time) }
-        let detail = r.map { keepUnitsTogether("\($0.day) · \($0.offset)") } ?? "This phone doesn't know its time zone"
+        // The offset's number and unit stay together, as Android's ("+5½ h", "+15 min").
+        let detail = r.map {
+            "\($0.day) · " + $0.offset.replacingOccurrences(of: " h", with: "\u{00A0}h")
+                .replacingOccurrences(of: " min", with: "\u{00A0}min")
+        } ?? "This phone doesn't know its time zone"
         let spoken = r.map {
             "\(clock.name), \(time ?? ""), \($0.day.lowercased()), \($0.spoken), \(spokenUtc($0.utcSeconds)), \($0.night ? "night" : "day")"
         } ?? "\(clock.name), time zone unknown"
@@ -159,10 +172,18 @@ private struct ClockRow: View {
                 VStack(alignment: .leading, spacing: 4) {
                     nameAndDetail(detail)
                     if let r, let time {
-                        HStack(alignment: .lastTextBaseline, spacing: 8) {
-                            Text(time).font(.titleLarge).foregroundStyle(Palette.onSurface)
-                            Text(r.utc).font(.labelSmall).foregroundStyle(Palette.onSurfaceVariant)
+                        // The time stays on one line; its UTC offset moves under it when they don't fit side by side.
+                        ViewThatFits(in: .horizontal) {
+                            HStack(alignment: .lastTextBaseline, spacing: 8) {
+                                Text(keepUnitsTogether(time)).font(.titleLarge).lineLimit(1)
+                                Text(r.utc).font(.labelSmall).foregroundStyle(Palette.onSurfaceVariant)
+                            }
+                            VStack(alignment: .leading, spacing: 0) {
+                                Text(keepUnitsTogether(time)).font(.titleLarge).lineLimit(1)
+                                Text(r.utc).font(.labelSmall).foregroundStyle(Palette.onSurfaceVariant)
+                            }
                         }
+                        .foregroundStyle(Palette.onSurface)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)

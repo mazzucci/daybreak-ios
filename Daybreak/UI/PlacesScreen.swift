@@ -89,7 +89,12 @@ struct PlacesScreen: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 if !saved.isEmpty {
-                    ToolbarItem(placement: .topBarLeading) { EditButton() }
+                    ToolbarItem(placement: .topBarLeading) {
+                        // Drives the list's own edit mode (a toolbar EditButton doesn't see it).
+                        Button(editMode.isEditing ? "Done" : "Edit") {
+                            withAnimation { editMode = editMode.isEditing ? .inactive : .active }
+                        }
+                    }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }

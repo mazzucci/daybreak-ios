@@ -55,8 +55,9 @@ func convertTime(hour: Int, minute: Int, on day: LocalDate, from: TimeZone, to: 
     var calendar = Calendar(identifier: .gregorian)
     calendar.timeZone = from
     let parts = DateComponents(year: day.year, month: day.month, day: day.day, hour: hour, minute: minute)
-    // Calendar moves a time in a spring-forward gap on by the gap, as java.time does.
-    let instant = calendar.date(from: parts) ?? Date()
+    // Calendar moves a time in a spring-forward gap on by the gap, and takes the earlier offset in a fall-back
+    // overlap, as java.time does. It only fails for an impossible date, which a LocalDate can't be.
+    guard let instant = calendar.date(from: parts) else { preconditionFailure("No instant for \(day) \(hour):\(minute)") }
     return LocalDateTime.from(instant, utcOffsetSeconds: to.secondsFromGMT(for: instant))
 }
 

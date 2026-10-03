@@ -49,6 +49,17 @@ struct ClocksTests {
         #expect(jan.hour == 22 && jan.minute == 0)
     }
 
+    @Test("a time skipped by daylight saving moves forward, and a repeated one is the first")
+    func gapAndOverlap() {
+        let utc = TimeZone(identifier: "UTC")!
+        // 2:30 AM on 8 March 2026 doesn't exist in Los Angeles: it's 3:30 AM PDT, 10:30 UTC.
+        let gap = convertTime(hour: 2, minute: 30, on: LocalDate(2026, 3, 8), from: la, to: utc)
+        #expect(gap.hour == 10 && gap.minute == 30)
+        // 1:30 AM on 1 November 2026 happens twice: the first, still on PDT, is 8:30 UTC.
+        let overlap = convertTime(hour: 1, minute: 30, on: LocalDate(2026, 11, 1), from: la, to: utc)
+        #expect(overlap.hour == 8 && overlap.minute == 30)
+    }
+
     @Test("city names come from the zone id")
     func cityNames() {
         #expect(cityOf(la) == "Los Angeles")
